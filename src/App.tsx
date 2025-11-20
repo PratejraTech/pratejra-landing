@@ -196,7 +196,7 @@ export default function App() {
               <span className="text-xl tracking-wider">Pratejra/Shaivra</span>
             </button>
             
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-6 md:space-x-8">
               <button 
                 onClick={() => setActiveSection('home')}
                 className={`transition-colors ${activeSection === 'home' ? 'text-[#4FC3F7]' : 'text-gray-400 hover:text-[#F5F5F5]'}`}
@@ -219,7 +219,8 @@ export default function App() {
                 href="https://github.com/PratejraTech"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#F5F5F5] transition-colors"
+                className="flex items-center text-gray-400 hover:text-[#F5F5F5] transition-colors"
+                aria-label="GitHub"
               >
                 <Github className="w-5 h-5" />
               </a>
