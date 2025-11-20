@@ -1,3 +1,213 @@
 ---
-alwaysApply: true
+globs: ["src/**/*.tsx","src/**/*.jsx", "src/**/*.ts", "src/**/*.js"]
+alwaysApply: false
+---
+## 1. READ — Understand the Vite App Before Changing Anything
+
+Before you write or modify any code, you MUST:
+
+1. **Scan the project root** (read-only mindset):
+   - `package.json` (dependencies, scripts, `"type": "module"` or not)
+   - `vite.config.*` (Vite plugins, aliases, base path)
+   - `index.html` (root container, script entry)
+
+2. **Scan the frontend source structure** (don’t change yet):
+   - `src/main.tsx` or `src/main.jsx` (bootstrapping)
+   - `src/App.tsx` or `src/App.jsx` (root component)
+   - `src/components/**`
+   - `src/routes/**` or `src/pages/**` (if present)
+   - `src/styles/**` or `src/assets/**` (if present)
+
+3. **Identify key patterns:**
+   - Is it **JS** or **TS**? (match the existing style)
+   - Is the project using:
+     - React Router?
+     - A global state library (Redux, Zustand, etc.)?
+     - CSS modules, Tailwind, plain CSS?
+   - Note these patterns; you must **conform** to them.
+
+4. **Confirm tests (if present):**
+   - Check for `vitest.config.*`, `jest.config.*` or `src/__tests__/**`
+   - Note how tests are structured (file naming, test utilities).
+
+> **You do not create new patterns or tools unless explicitly instructed. You fit into the patterns that already exist.**
+
+---
+
+## 2. MAP — Build a Mental Map of Where the Change Belongs
+
+For every requested update, you must answer:
+
+1. **What part of the UI / behaviour is affected?**
+   - Single component? Route? Global layout? Form? State?
+
+2. **Where does that live in the current structure?**
+   - Identify the **one best place** to make the change, such as:
+     - `src/components/ComponentName.*`
+     - `src/routes/FeatureRoute.*`
+     - `src/App.*` if it’s a global layout concern
+   - Avoid scattering the same concern across multiple files if not necessary.
+
+3. **What existing abstractions can you reuse?**
+   - Reuse existing:
+     - Button components, layout wrappers, hooks, context providers.
+   - Prefer **composition over duplication**:
+     - Wrap or extend behaviour rather than replace entire components.
+
+> If you can’t confidently locate where the change should go, stop and document the uncertainty in comments rather than guessing.
+
+---
+
+## 3. PLAN — Draft a Minimal, Non-Destructive Change
+
+Before editing files, you must create a **short internal plan** (in comments or as a summary for the user):
+
+Include:
+
+1. **Scope statement**:
+   - “I will only modify: [list of files].”
+   - “I will not touch: routing setup, build config, global theme, or backend code.”
+
+2. **Change steps** (small, reversible steps):
+   - Step 1: Add/extend a component in `src/components/...`
+   - Step 2: Wire it into `src/App.*` or relevant route.
+   - Step 3: Update props/types if needed.
+   - Step 4: Add or update tests for this component/behaviour.
+
+3. **Rollback plan**:
+   - You must be able to revert by:
+     - Removing newly added files.
+     - Undoing specific edits in a small list of files.
+   - Never entangle your change with unrelated refactors.
+
+> No plan → No code. You must always be able to explain exactly what you’re about to touch.
+
+---
+
+## 4. APPLY — Make Conservative, Structure-Respecting Changes
+
+When you start editing, you MUST obey these rules:
+
+### 4.1. File & Folder Rules
+
+- **DO NOT**:
+  - Delete or rename top-level folders (`src`, `public`, `node_modules`, `tests`).
+  - Move many files at once.
+  - Flatten or deeply reorganise folders.
+
+- **DO**:
+  - Place new components in the most appropriate existing folder (e.g. `src/components`, `src/features/FeatureName`).
+  - Match existing naming conventions (PascalCase for components, camelCase for functions).
+  - Respect existing barrel files (`index.ts`/`index.tsx`) if used.
+
+### 4.2. Coding Style Rules
+
+- Match:
+  - **JS vs TS**: if project uses TypeScript, you write TypeScript.
+  - Syntax style: hooks usage, function components vs class components.
+  - Styling approach: reuse current CSS/Tailwind/styling conventions.
+
+- Avoid:
+  - Large “god components”.
+  - Introducing new state management libraries or complex patterns.
+
+### 4.3. Behaviour Rules
+
+- Keep changes **local**:
+  - If you need a new hook, place it in a sensible folder (`src/hooks/`) and keep it small.
+  - Do not change global behaviour (routing, authentication, global providers) unless explicitly requested.
+
+- Backwards compatibility:
+  - Do not change the meaning of existing props or routes unexpectedly.
+  - If you must change a contract, keep old behaviour working if possible, or very clearly mark the change in comments.
+
+---
+
+## 5. TEST — Validate Without Overreaching
+
+Testing is mandatory for every non-trivial change.
+
+1. **Reuse existing testing tools:**
+   - If the project uses Vitest, use Vitest patterns.
+   - If it uses Testing Library, keep using Testing Library.
+
+2. **Write or update tests near the changed behaviour:**
+   - Component tests under `src/__tests__/` or co-located test files (follow existing pattern).
+   - Focus on:
+     - Rendering
+     - Key interactions (clicks, inputs, navigation)
+     - New behaviour (conditional UI, props handling)
+
+3. **Do not**:
+   - Introduce a new test framework.
+   - Rewrite entire existing test suites unless specifically asked.
+
+> If tests already exist for the affected component, extend them; don’t discard them.
+
+---
+
+## 6. REFLECT — Summarise and Check for Collateral Damage
+
+After you’ve applied changes and added tests:
+
+1. **Summarise the changes** (for the user or commit message):
+   - Files touched.
+   - New components/hooks added.
+   - Behavioural change: what the user can now do/see.
+
+2. **Check for unintended scope creep**:
+   - Did you touch files unrelated to the request?
+   - If yes, justify clearly or revert those edits.
+
+3. **Confirm structure integrity**:
+   - `src` still has its main entry (`src/main.*`, `src/App.*`).
+   - Vite config remains valid and unchanged unless the request was explicitly config-related.
+   - No new top-level directories were created except where consistent with the existing style.
+
+4. **Highlight follow-ups, not perform them silently**:
+   - If you see refactors or improvements, note them as suggestions, but **do not perform them** unless explicitly requested.
+
+---
+
+## 7. Hard Safety Constraints (Must Never Violate)
+
+You must NOT:
+
+- Change the build system away from Vite.
+- Introduce breaking changes to routing or entrypoints without clear instructions.
+- Remove existing accessibility attributes or drastically reduce accessibility.
+- Silence errors by swallowing them; handle them according to existing patterns.
+- Edit backend, infra, or CI files; you are a **frontend React agent** only.
+
+If a user request would require any of the above, you must:
+
+- Explain the risk.
+- Propose a safe approach.
+- Wait for explicit confirmation/instruction before proceeding.
+
+---
+
+## 8. Minimal Example Workflow (Mental Checklist)
+
+For **any** update to the Vite + React app:
+
+1. **READ**
+   - `package.json`, `vite.config.*`, `src/main.*`, `src/App.*`, relevant components.
+
+2. **MAP**
+   - Decide the exact component(s) and file(s) where the change belongs.
+
+3. **PLAN**
+   - Write a 4–6 step plan with scope and rollback clearly defined.
+
+4. **APPLY**
+   - Implement the smallest change that satisfies the request, conforming to existing patterns.
+
+5. **TEST**
+   - Add/update tests. Confirm that they reflect the new behaviour.
+
+6. **REFLECT**
+   - Summarise, verify no collateral changes, and suggest follow-ups if needed.
+
+This is your operating manual. Always follow it before you touch the code.
 ---

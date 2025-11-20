@@ -1,10 +1,181 @@
-import { useState } from "react";
-import { Mail } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Mail, Github, Heart, Sprout, Sword, Code } from "lucide-react";
 import { Button } from "./components/ui/button";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "./components/ui/carousel";
+
+// Project interface
+interface Project {
+  name: string;
+  url?: string;
+  icon: React.ComponentType<{ className?: string }>;
+  description: string;
+  status: 'in-dev' | 'new' | 'coming-soon';
+  statusColor: 'yellow' | 'green' | 'red';
+  isInternal?: boolean; // For Pratejra navigation
+}
+
+// Function to fetch and extract description from a page
+async function fetchProjectDescription(url: string): Promise<string> {
+  try {
+    const response = await fetch(url, {
+      mode: 'cors',
+      headers: {
+        'Accept': 'text/html',
+      },
+    });
+    if (!response.ok) return '';
+    
+    const html = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    
+    // Try to find subtitle, h2, or meta description
+    const subtitle = doc.querySelector('h2, .subtitle, [class*="subtitle"]');
+    if (subtitle) {
+      return subtitle.textContent?.trim().substring(0, 150) || '';
+    }
+    
+    const metaDesc = doc.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      return metaDesc.getAttribute('content')?.substring(0, 150) || '';
+    }
+    
+    const firstP = doc.querySelector('p');
+    if (firstP) {
+      return firstP.textContent?.trim().substring(0, 150) || '';
+    }
+    
+    return '';
+  } catch (error) {
+    console.error(`Error fetching description from ${url}:`, error);
+    return '';
+  }
+}
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<'home' | 'philosophy'>('home');
+  
+  // Initial projects with fallback descriptions
+  const initialProjects: Project[] = [
+    {
+      name: 'Timeless Love',
+      url: 'https://timelesslove.ai',
+      icon: Heart,
+      description: 'A platform dedicated to preserving and celebrating timeless connections and love.',
+      status: 'in-dev',
+      statusColor: 'yellow',
+    },
+    {
+      name: 'Rise Strong',
+      url: 'https://risestrong.app',
+      icon: Sprout,
+      description: 'Empowering growth and resilience through supportive community and resources.',
+      status: 'in-dev',
+      statusColor: 'yellow',
+    },
+    {
+      name: 'Pratejra',
+      icon: Sword,
+      description: 'Through the unseen, we protect the sacred.',
+      status: 'new',
+      statusColor: 'green',
+      isInternal: true,
+    },
+    {
+      name: 'x0a.dev',
+      url: 'https://x0a.dev',
+      icon: Code,
+      description: 'Developer tools and resources for the modern web.',
+      status: 'coming-soon',
+      statusColor: 'red',
+    },
+  ];
+  
+  const [projects, setProjects] = useState<Project[]>(initialProjects);
+  const [api, setApi] = useState<CarouselApi>();
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Fetch project descriptions from live pages
+  useEffect(() => {
+    const fetchDescriptions = async () => {
+      const updatedProjects = await Promise.all(
+        initialProjects.map(async (project) => {
+          if (project.url && !project.isInternal) {
+            const description = await fetchProjectDescription(project.url);
+            if (description) {
+              // Summarize to one sentence (first sentence or first 120 chars)
+              const summarized = description.split('.')[0].substring(0, 120).trim();
+              return {
+                ...project,
+                description: summarized || project.description,
+              };
+            }
+          }
+          return project;
+        })
+      );
+      setProjects(updatedProjects);
+    };
+
+    fetchDescriptions();
+  }, []);
+
+  // Auto-rotation logic
+  useEffect(() => {
+    if (!api) return;
+
+    const startAutoRotate = () => {
+      intervalRef.current = setInterval(() => {
+        try {
+          if (api) {
+            // With loop: true, scrollNext will automatically loop to the beginning
+            api.scrollNext();
+          }
+        } catch (error) {
+          console.error('Error scrolling carousel:', error);
+        }
+      }, 6500); // 6.5 seconds (between 5-8 seconds)
+    };
+
+    // Small delay to ensure carousel is fully initialized
+    const timeoutId = setTimeout(() => {
+      startAutoRotate();
+    }, 500);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      clearTimeout(timeoutId);
+    };
+  }, [api]);
+
+  const handleProjectClick = (project: Project) => {
+    if (project.isInternal) {
+      setActiveSection('philosophy');
+    } else if (project.url) {
+      window.open(project.url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  const getStatusBadgeColor = (color: string) => {
+    switch (color) {
+      case 'yellow':
+        return 'bg-yellow-400';
+      case 'green':
+        return 'bg-green-400';
+      case 'red':
+        return 'bg-red-400';
+      default:
+        return 'bg-gray-400';
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#0D0D0D] text-[#F5F5F5]">
@@ -44,6 +215,14 @@ export default function App() {
               >
                 Contact
               </button>
+              <a
+                href="https://github.com/PratejraTech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[#F5F5F5] transition-colors"
+              >
+                <Github className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>
@@ -86,12 +265,61 @@ export default function App() {
               </p>
 
               {/* Mission Statement */}
-              <div className="mb-20">
+              <div className="mb-12">
                 <div className="inline-block border border-[#4FC3F7]/30 rounded-lg px-8 py-4 bg-[#4FC3F7]/5 backdrop-blur-sm">
                   <p className="text-lg md:text-xl italic text-[#4FC3F7]">
                     "Through the unseen, we protect the sacred."
                   </p>
                 </div>
+              </div>
+
+              {/* Projects Carousel */}
+              <div className="mb-20 max-w-4xl mx-auto px-6 md:px-8 py-8 border border-[#4FC3F7]/30 rounded-lg bg-white/[0.02]">
+                <Carousel 
+                  setApi={setApi} 
+                  className="w-full"
+                  opts={{
+                    align: "start",
+                    loop: true,
+                  }}
+                >
+                  <CarouselContent className="-ml-2 md:-ml-4">
+                    {projects.map((project, index) => {
+                      const IconComponent = project.icon;
+                      return (
+                        <CarouselItem key={index} className="pl-2 md:pl-4 basis-full">
+                          <div
+                            onClick={() => handleProjectClick(project)}
+                            className="group relative border border-[#4FC3F7]/30 rounded-lg p-6 md:p-8 hover:border-[#4FC3F7]/50 transition-all duration-300 bg-white/[0.02] cursor-pointer flex flex-col min-h-[200px]"
+                          >
+                            {/* Status Badge */}
+                            <div className={`absolute top-3 right-3 w-2.5 h-2.5 rounded-full ${getStatusBadgeColor(project.statusColor)} shadow-lg`} />
+                            
+                            {/* Icon */}
+                            <div className="mb-3 flex justify-center">
+                              <div className="relative">
+                                <div className="absolute inset-0 bg-[#4FC3F7]/20 rounded-full blur-md group-hover:bg-[#4FC3F7]/30 transition-all" />
+                                <div className="relative p-2.5 bg-gradient-to-br from-[#4FC3F7]/20 to-[#4FC3F7]/10 rounded-lg">
+                                  <IconComponent className="w-5 h-5 text-[#4FC3F7]" />
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* Project Name */}
+                            <h3 className="text-base font-semibold mb-2 text-center text-[#F5F5F5]">
+                              {project.name}
+                            </h3>
+                            
+                            {/* Description */}
+                            <p className="text-xs text-gray-400 text-center leading-relaxed">
+                              {project.description}
+                            </p>
+                          </div>
+                        </CarouselItem>
+                      );
+                    })}
+                  </CarouselContent>
+                </Carousel>
               </div>
             </div>
           </section>
@@ -161,6 +389,16 @@ export default function App() {
               >
                 <Mail className="w-5 h-5 text-[#4FC3F7]" />
                 <span className="text-lg">core@pratejra.build</span>
+              </a>
+              
+              <a
+                href="https://github.com/PratejraTech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-3 border border-[#4FC3F7]/30 rounded-lg px-8 py-4 hover:bg-[#4FC3F7]/5 transition-all duration-300 group mt-4"
+              >
+                <Github className="w-5 h-5 text-[#4FC3F7]" />
+                <span className="text-lg">GitHub</span>
               </a>
             </div>
           </section>
