@@ -1,4 +1,4 @@
-import { Heart, Sprout, Sword, Code } from "lucide-react";
+import { Heart, Sprout, Sword, Bot } from "lucide-react";
 import { Project, MissionObjective } from "../types";
 
 /**
@@ -17,7 +17,7 @@ export const EXTERNAL_URLS = {
   EMAIL: "mailto:core@pratejra.build",
   TIMELESS_LOVE: "https://timelesslove.ai",
   RISE_STRONG: "https://risestrong.app",
-  X0A_DEV: "https://x0a.dev",
+  X0A_XYZ: "https://x0a.xyz",
 } as const;
 
 /**
@@ -56,9 +56,9 @@ export const INITIAL_PROJECTS: Project[] = [
     isInternal: true,
   },
   {
-    name: 'x0a.dev',
-    url: EXTERNAL_URLS.X0A_DEV,
-    icon: Code,
+    name: 'x0a.xyz',
+    url: EXTERNAL_URLS.X0A_XYZ,
+    icon: Bot,
     description: 'Developer tools and resources for the modern web.',
     status: 'coming-soon',
     statusColor: 'red',

@@ -44,7 +44,7 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
             <span className="text-xl tracking-wider">Pratejra/Shaivra</span>
           </button>
           
-          <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
+          <div className="flex items-center gap-6">
             <button 
               onClick={() => onSectionChange('home')}
               className={`px-3 py-2 transition-colors whitespace-nowrap ${activeSection === 'home' ? 'text-[#4FC3F7]' : 'text-gray-400 hover:text-[#F5F5F5]'}`}
