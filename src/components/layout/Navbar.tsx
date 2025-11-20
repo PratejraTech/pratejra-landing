@@ -44,10 +44,10 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
             <span className="text-xl tracking-wider">Pratejra/Shaivra</span>
           </button>
           
-          <div className="flex items-center space-x-6 md:space-x-8">
+          <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
             <button 
               onClick={() => onSectionChange('home')}
-              className={`transition-colors ${activeSection === 'home' ? 'text-[#4FC3F7]' : 'text-gray-400 hover:text-[#F5F5F5]'}`}
+              className={`px-3 py-2 transition-colors whitespace-nowrap ${activeSection === 'home' ? 'text-[#4FC3F7]' : 'text-gray-400 hover:text-[#F5F5F5]'}`}
               aria-label="Mission section"
               aria-current={activeSection === 'home' ? 'page' : undefined}
             >
@@ -55,7 +55,7 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
             </button>
             <button 
               onClick={() => onSectionChange('philosophy')}
-              className={`transition-colors ${activeSection === 'philosophy' ? 'text-[#4FC3F7]' : 'text-gray-400 hover:text-[#F5F5F5]'}`}
+              className={`px-3 py-2 transition-colors whitespace-nowrap ${activeSection === 'philosophy' ? 'text-[#4FC3F7]' : 'text-gray-400 hover:text-[#F5F5F5]'}`}
               aria-label="Philosophy section"
               aria-current={activeSection === 'philosophy' ? 'page' : undefined}
             >
@@ -63,7 +63,7 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
             </button>
             <button
               onClick={handleContactClick}   
-              className="text-gray-400 hover:text-[#F5F5F5] transition-colors"
+              className="px-3 py-2 text-gray-400 hover:text-[#F5F5F5] transition-colors whitespace-nowrap"
               aria-label="Contact section"
             >
               Contact
@@ -72,10 +72,11 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
               href={EXTERNAL_URLS.GITHUB}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-gray-400 hover:text-[#F5F5F5] transition-colors"
+              className="flex items-center gap-2 px-3 py-2 text-gray-400 hover:text-[#F5F5F5] transition-colors border border-[#4FC3F7]/30 rounded-lg hover:border-[#4FC3F7]/50 hover:bg-[#4FC3F7]/5 whitespace-nowrap"
               aria-label="GitHub repository"
             >
               <Github className="w-5 h-5" />
+              <span className="hidden sm:inline">GitHub</span>
             </a>
           </div>
         </div>
