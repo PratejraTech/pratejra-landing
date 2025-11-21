@@ -1,6 +1,17 @@
 import { Heart, Sprout, Sword, Bot } from "lucide-react";
 import { Project, MissionObjective } from "../types";
 
+type IconProps = {
+  className?: string;
+};
+
+const mergeClassNames = (...classes: (string | undefined)[]) =>
+  classes.filter(Boolean).join(" ");
+
+const PratejraSwordIcon = ({ className }: IconProps) => (
+  <Sword className={mergeClassNames("rotate-12", className)} strokeWidth={1.6} />
+);
+
 /**
  * Carousel configuration constants
  */
@@ -49,7 +60,7 @@ export const INITIAL_PROJECTS: Project[] = [
   },
   {
     name: 'Pratejra',
-    icon: Sword,
+    icon: PratejraSwordIcon,
     description: 'Through the unseen, we protect the sacred.',
     status: 'new',
     statusColor: 'green',
@@ -90,4 +101,3 @@ export const MISSION_OBJECTIVES: MissionObjective[] = [
     description: "Providing operational and business capabilities to organizations who act for benevolent causes.",
   },
 ];
-

@@ -44,10 +44,10 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
             <span className="text-xl tracking-wider">Pratejra/Shaivra</span>
           </button>
           
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 text-sm md:text-base md:gap-x-8">
             <button 
               onClick={() => onSectionChange('home')}
-              className={`px-3 py-2 transition-colors whitespace-nowrap ${activeSection === 'home' ? 'text-[#4FC3F7]' : 'text-gray-400 hover:text-[#F5F5F5]'}`}
+              className={`px-3 py-2 transition-colors ${activeSection === 'home' ? 'text-[#4FC3F7]' : 'text-gray-400 hover:text-[#F5F5F5]'}`}
               aria-label="Mission section"
               aria-current={activeSection === 'home' ? 'page' : undefined}
             >
@@ -55,7 +55,7 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
             </button>
             <button 
               onClick={() => onSectionChange('philosophy')}
-              className={`px-3 py-2 transition-colors whitespace-nowrap ${activeSection === 'philosophy' ? 'text-[#4FC3F7]' : 'text-gray-400 hover:text-[#F5F5F5]'}`}
+              className={`px-3 py-2 transition-colors ${activeSection === 'philosophy' ? 'text-[#4FC3F7]' : 'text-gray-400 hover:text-[#F5F5F5]'}`}
               aria-label="Philosophy section"
               aria-current={activeSection === 'philosophy' ? 'page' : undefined}
             >
@@ -63,7 +63,7 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
             </button>
             <button
               onClick={handleContactClick}   
-              className="px-3 py-2 text-gray-400 hover:text-[#F5F5F5] transition-colors whitespace-nowrap"
+              className="px-3 py-2 text-gray-400 hover:text-[#F5F5F5] transition-colors"
               aria-label="Contact section"
             >
               Contact
@@ -72,7 +72,7 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
               href={EXTERNAL_URLS.GITHUB}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-3 py-2 text-gray-400 hover:text-[#F5F5F5] transition-colors border border-[#4FC3F7]/30 rounded-lg hover:border-[#4FC3F7]/50 hover:bg-[#4FC3F7]/5 whitespace-nowrap"
+              className="flex items-center gap-2 px-3 py-2 text-gray-400 hover:text-[#F5F5F5] transition-colors border border-[#4FC3F7]/30 rounded-lg hover:border-[#4FC3F7]/50 hover:bg-[#4FC3F7]/5"
               aria-label="GitHub repository"
             >
               <Github className="w-5 h-5" />
@@ -84,4 +84,3 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
     </nav>
   );
 }
-
