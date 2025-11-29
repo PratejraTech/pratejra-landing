@@ -25,7 +25,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0D0D0D] text-[#F5F5F5]">
+    <div className="min-h-screen bg-background text-foreground relative">
+      {/* Floating Grid Background System */}
+      <div className="fixed inset-0 bg-gradient-to-br from-indigo-950/40 via-violet-950/30 to-slate-950 pointer-events-none -z-10" aria-hidden="true" />
+      <div className="fixed inset-0 bg-gradient-to-r from-indigo-500/[0.03] via-transparent to-cyan-500/[0.03] pointer-events-none -z-10" aria-hidden="true" />
+      <div className="fixed inset-0 bg-gradient-to-t from-emerald-500/[0.02] via-transparent to-blue-500/[0.02] pointer-events-none -z-10" aria-hidden="true" />
+      {/* Grid pattern overlay */}
+      <div className="fixed inset-0 bg-[linear-gradient(to_right,#8b5cf610_1px,transparent_1px),linear-gradient(to_bottom,#8b5cf610_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none -z-10 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_40%,transparent_100%)]" aria-hidden="true" />
       <Navbar 
         activeSection={activeSection} 
         onSectionChange={setActiveSection} 
