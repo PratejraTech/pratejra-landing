@@ -6,249 +6,163 @@ type HeroSectionProps = {
   onNavigateToAllies?: () => void;
 };
 
+const heroHighlights = [
+  {
+    title: "Listen with care",
+    description: "We start with one gentle call to learn who you serve and where the tensions live.",
+  },
+  {
+    title: "Build with you",
+    description: "We co-design tools and playbooks side-by-side so they feel like home to your team.",
+  },
+  {
+    title: "Leave you ready",
+    description: "We depart after documenting, training, and ensuring friendly humans stay on call.",
+  },
+];
+
+const heroGuides = [
+  { title: "Grounded tech", detail: "Simple software with thoughtful defaults." },
+  { title: "Human pace", detail: "Sprint alongside community rhythms." },
+  { title: "Shared stewardship", detail: "You keep ownership of data and direction." },
+];
+
 /**
- * Hero section component with floating grid design and full color palette
+ * Hero section with a softer, natural layout
  */
 export function HeroSection({ onNavigateToAllies }: HeroSectionProps) {
-  // Floating grid elements positions
-  const gridItems = [
-    { delay: 0.1, color: "indigo", position: "top-10 left-10", size: "w-24 h-24" },
-    { delay: 0.2, color: "violet", position: "top-32 right-16", size: "w-16 h-16" },
-    { delay: 0.3, color: "cyan", position: "bottom-32 left-20", size: "w-20 h-20" },
-    { delay: 0.4, color: "emerald", position: "bottom-20 right-24", size: "w-12 h-12" },
-    { delay: 0.5, color: "blue", position: "top-1/2 left-1/4", size: "w-14 h-14" },
-  ];
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 overflow-hidden border-b border-violet-500/30" aria-label="Hero section">
-      {/* Multi-layer background gradients */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/30 via-violet-950/20 to-slate-950 pointer-events-none" aria-hidden="true" />
-      <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/8 via-transparent to-cyan-500/8 pointer-events-none" aria-hidden="true" />
-      <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/5 via-transparent to-blue-500/5 pointer-events-none" aria-hidden="true" />
-      
-      {/* Floating Grid Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        {gridItems.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0, rotate: -45 }}
-            animate={{ 
-              opacity: [0.3, 0.6, 0.3],
-              scale: [1, 1.1, 1],
-              rotate: [0, 180, 360],
-              y: [0, -20, 0],
-              x: [0, 10, 0]
-            }}
-            transition={{ 
-              duration: 8 + index,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: item.delay
-            }}
-            className={`absolute ${item.position} ${item.size} rounded-2xl blur-xl ${
-              item.color === 'indigo' ? 'bg-indigo-500/30' :
-              item.color === 'violet' ? 'bg-violet-500/40' :
-              item.color === 'cyan' ? 'bg-cyan-500/30' :
-              item.color === 'emerald' ? 'bg-emerald-500/30' :
-              'bg-blue-500/30'
-            }`}
-          />
-        ))}
+    <section
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 overflow-hidden border-b border-border/50"
+      aria-label="Hero section"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950/60" aria-hidden="true" />
+      <div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(34,197,94,0.08),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(45,212,191,0.08),_transparent_45%)] pointer-events-none"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <motion.div
+          animate={{ opacity: [0.3, 0.5, 0.3], scale: [0.95, 1.05, 0.95] }}
+          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute top-16 left-20 w-48 h-48 rounded-full bg-emerald-500/10 blur-3xl"
+        />
+        <motion.div
+          animate={{ opacity: [0.2, 0.4, 0.2], y: [0, -20, 0] }}
+          transition={{ duration: 9, repeat: Infinity, delay: 1 }}
+          className="absolute bottom-12 right-12 w-64 h-64 rounded-full bg-cyan-500/10 blur-3xl"
+        />
       </div>
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8b5cf620_1px,transparent_1px),linear-gradient(to_bottom,#8b5cf620_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] pointer-events-none" aria-hidden="true" />
-
-      {/* Main Content Container with Floating Grid Layout */}
-      <div className="relative max-w-7xl mx-auto w-full">
-        {/* Floating Grid Container */}
-        <div className="relative grid grid-cols-12 gap-6 lg:gap-8 items-center min-h-[80vh]">
-          
-          {/* Left Grid Column - Symbol & Accents */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="col-span-12 lg:col-span-3 flex flex-col items-center lg:items-start gap-8"
-          >
-            {/* Floating Symbol Container */}
-            <div className="relative">
-              {/* Outer glow rings */}
-              <motion.div
-                animate={{ 
-                  scale: [1, 1.05, 1],
-                  opacity: [0.4, 0.6, 0.4]
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute inset-0 bg-gradient-to-br from-indigo-500/30 via-violet-500/30 to-cyan-500/30 rounded-full blur-2xl -z-10"
-              />
-              <motion.div
-                animate={{ 
-                  scale: [1, 1.1, 1],
-                  opacity: [0.2, 0.4, 0.2]
-                }}
-                transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
-                className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-emerald-500/20 to-blue-500/20 rounded-full blur-3xl -z-10"
-              />
-              
-              {/* Symbol */}
-              <div className="relative w-32 h-32 lg:w-40 lg:h-40">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-violet-500/25 to-cyan-500/20 rounded-full blur-xl" />
-                <ImageWithFallback 
-                  src={IMAGE_URLS.BUDDHA_MEDITATION}
-                  alt="Enlightenment symbol representing spiritual wisdom"
-                  className="relative w-full h-full object-cover rounded-full opacity-70 border-2 border-violet-500/30"
-                />
-              </div>
-            </div>
-
-            {/* Color Accent Bars */}
-            <div className="hidden lg:flex flex-col gap-2 w-full max-w-xs">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 1, delay: 0.8 }}
-                className="h-1 bg-gradient-to-r from-indigo-500 to-transparent rounded-full"
-              />
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 1, delay: 1 }}
-                className="h-1 bg-gradient-to-r from-violet-500 to-transparent rounded-full"
-              />
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 1, delay: 1.2 }}
-                className="h-1 bg-gradient-to-r from-cyan-500 to-transparent rounded-full"
-              />
-            </div>
-          </motion.div>
-
-          {/* Center Grid Column - Main Content */}
-          <div className="col-span-12 lg:col-span-6 text-center lg:text-left">
-            {/* Main Mantra with Multi-Color Gradient */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
+      <div className="relative max-w-6xl mx-auto w-full">
+        <div className="grid gap-10 lg:grid-cols-2 items-center">
+          <div>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mb-6 leading-tight"
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="text-xs uppercase tracking-[0.6em] text-emerald-200/80 mb-4"
             >
-              <motion.span 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 font-bold text-foreground"
-              >
-                From stillness, Pratejra strikes.
-              </motion.span>
-              <motion.span 
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-indigo-400 via-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent font-bold"
-              >
-                From silence, Shaivra shapes.
-              </motion.span>
-            </motion.h1>
-
-            {/* Core Statement */}
-            <motion.p 
+              natural interface · human pace
+            </motion.p>
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight mb-6"
             >
-              We Work While Doing the Work. <br className="hidden md:block" />
-              We Ask For Little and Aspire to Deliver Much.
+              Softer software, shared stewardship.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed mb-10"
+            >
+              Pratejra/Shaivra pairs purpose-built tools with community rituals. We serve NGOs, neighborhood leaders, and
+              cultural stewards who need discreet, steady collaborators.
             </motion.p>
 
-            {/* Mission Statement Card */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="mb-8"
-            >
-              <div className="inline-block border-2 border-violet-500/50 rounded-2xl px-8 py-6 bg-gradient-to-br from-indigo-500/10 via-violet-500/15 via-cyan-500/10 to-emerald-500/10 backdrop-blur-md shadow-2xl shadow-violet-500/20 hover:border-violet-500/70 hover:shadow-violet-500/30 transition-all duration-500 hover:scale-[1.02]">
-                <p className="text-lg md:text-xl italic bg-gradient-to-r from-indigo-300 via-violet-300 via-cyan-300 to-emerald-300 bg-clip-text text-transparent font-medium">
-                  "Through the unseen, we protect the sacred."
-                </p>
-              </div>
-            </motion.div>
+            <div className="space-y-4 mb-10">
+              {heroHighlights.map((item, idx) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.3 + idx * 0.05 }}
+                  className="flex items-start gap-4 p-4 rounded-2xl border border-emerald-500/20 bg-gradient-to-r from-foreground/5 via-transparent to-transparent"
+                >
+                  <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-sm font-semibold text-emerald-100">
+                    0{idx + 1}
+                  </div>
+                  <div>
+                    <p className="text-base font-medium">{item.title}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
-            {/* Call to Action Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              transition={{ duration: 0.4, delay: 0.5 }}
+              className="flex flex-col sm:flex-row gap-4"
             >
               <button
                 onClick={onNavigateToAllies}
-                className="px-8 py-4 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-cyan-500 text-sm font-semibold tracking-widest uppercase hover:shadow-lg hover:shadow-violet-500/30 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50"
+                className="px-8 py-4 rounded-full bg-gradient-to-r from-emerald-500 via-lime-500 to-teal-500 text-sm font-semibold tracking-[0.35em] uppercase text-emerald-950 hover:shadow-lg hover:shadow-emerald-500/30 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                For NGOs & Activists
+                See the playbook
               </button>
               <a
                 href="#contact"
-                className="px-8 py-4 rounded-full border-2 border-violet-500/40 text-sm font-semibold tracking-widest uppercase text-foreground/80 hover:border-violet-500/80 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background text-center"
+                className="px-8 py-4 rounded-full border border-emerald-500/40 text-sm font-semibold tracking-[0.35em] uppercase text-foreground/80 hover:border-emerald-500/70 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background text-center"
               >
-                Contact Core
+                Write to us
               </a>
             </motion.div>
           </div>
 
-          {/* Right Grid Column - Decorative Elements */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden lg:flex col-span-3 flex-col items-end gap-8"
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="relative"
           >
-            {/* Floating Color Orbs */}
-            <div className="flex flex-col gap-4">
-              {[
-                { color: "indigo", delay: 0.8 },
-                { color: "violet", delay: 0.9 },
-                { color: "cyan", delay: 1.0 },
-                { color: "emerald", delay: 1.1 },
-                { color: "blue", delay: 1.2 },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ 
-                    opacity: [0.5, 0.8, 0.5],
-                    scale: [1, 1.2, 1],
-                    y: [0, -10, 0]
-                  }}
-                  transition={{ 
-                    duration: 3 + index * 0.5,
-                    repeat: Infinity,
-                    delay: item.delay
-                  }}
-                  className={`w-3 h-3 rounded-full ${
-                    item.color === 'indigo' ? 'bg-indigo-400 shadow-lg shadow-indigo-500/50' :
-                    item.color === 'violet' ? 'bg-violet-400 shadow-lg shadow-violet-500/50' :
-                    item.color === 'cyan' ? 'bg-cyan-400 shadow-lg shadow-cyan-500/50' :
-                    item.color === 'emerald' ? 'bg-emerald-400 shadow-lg shadow-emerald-500/50' :
-                    'bg-blue-400 shadow-lg shadow-blue-500/50'
-                  }`}
-                />
-              ))}
+            <div className="rounded-[2.75rem] border border-emerald-500/30 bg-gradient-to-br from-foreground/5 via-transparent to-transparent p-6 lg:p-8 space-y-6">
+              <div className="flex flex-col gap-4">
+                <div className="relative">
+                  <div className="absolute inset-0 blur-3xl bg-emerald-500/20" aria-hidden="true" />
+                  <div className="relative rounded-3xl overflow-hidden border border-emerald-500/30">
+                    <ImageWithFallback
+                      src={IMAGE_URLS.BUDDHA_MEDITATION}
+                      alt="Calm figure meditating"
+                      className="w-full h-64 object-cover opacity-90"
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  {heroGuides.map((guide) => (
+                    <div key={guide.title} className="p-4 rounded-2xl bg-foreground/5 border border-border/30">
+                      <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">{guide.title}</p>
+                      <p className="text-sm text-foreground mt-2">{guide.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-transparent p-6">
+                <p className="text-sm uppercase tracking-[0.4em] text-emerald-200/90">Promise</p>
+                <p className="text-lg text-foreground mt-3">
+                  We build the quiet thing you need, teach every click, and leave you with the keys.
+                </p>
+              </div>
             </div>
-
-            {/* Vertical Accent Line */}
-            <motion.div
-              initial={{ height: 0 }}
-              animate={{ height: "200px" }}
-              transition={{ duration: 1.5, delay: 1 }}
-              className="w-0.5 bg-gradient-to-b from-violet-500 via-cyan-500 to-emerald-500 rounded-full"
-            />
           </motion.div>
         </div>
       </div>
     </section>
   );
 }
+
+export default HeroSection;

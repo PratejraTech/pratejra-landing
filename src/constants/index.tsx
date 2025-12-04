@@ -1,5 +1,5 @@
 import { Heart, Sprout, Sword, Bot } from "lucide-react";
-import { Project, MissionObjective } from "../types";
+import { Project, MissionObjective, ComponentOrderItem } from "../types";
 
 type IconProps = {
   className?: string;
@@ -51,7 +51,7 @@ export const INITIAL_PROJECTS: Project[] = [
     name: 'Timeless Love',
     url: EXTERNAL_URLS.TIMELESS_LOVE,
     icon: Heart,
-    description: 'A platform dedicated to preserving and celebrating timeless connections and love.',
+    description: 'Stories, software, and playlists that celebrate long-term care and connection.',
     status: 'in-dev',
     statusColor: 'yellow',
   },
@@ -59,14 +59,14 @@ export const INITIAL_PROJECTS: Project[] = [
     name: 'Rise Strong',
     url: EXTERNAL_URLS.RISE_STRONG,
     icon: Sprout,
-    description: 'Empowering growth and resilience through supportive community and resources.',
+    description: 'Supportive resources for people rebuilding after hard seasons.',
     status: 'in-dev',
     statusColor: 'yellow',
   },
   {
     name: 'Pratejra',
     icon: PratejraSwordIcon,
-    description: 'Through the unseen, we protect the sacred.',
+    description: 'Calm builders pairing tech, care, and quiet strategy.',
     status: 'new',
     statusColor: 'green',
     isInternal: true,
@@ -75,7 +75,7 @@ export const INITIAL_PROJECTS: Project[] = [
     name: 'x0a.xyz',
     url: EXTERNAL_URLS.X0A_XYZ,
     icon: Bot,
-    description: 'Developer tools and resources for the modern web.',
+    description: 'Developer tools and learning resources built in public.',
     status: 'coming-soon',
     statusColor: 'red',
   },
@@ -87,22 +87,56 @@ export const INITIAL_PROJECTS: Project[] = [
 export const MISSION_OBJECTIVES: MissionObjective[] = [
   {
     number: "01",
-    title: "Humanitarian Protection",
-    description: "Shielding communities from harm, both physical and digital.",
+    title: "Keep People Safe",
+    description: "Rapid, caring support that gives community teams room to breathe.",
   },
   {
     number: "02",
-    title: "Preservation of Heritage",
-    description: "Protecting cultural, historical, and environmental treasures.",
+    title: "Protect Shared Stories",
+    description: "Safeguarding archives, testimony, and local knowledge with redundant storage.",
   },
   {
     number: "03",
-    title: "Countering Exploitation",
-    description: "Identifying and disrupting systems of corruption, oppression, and exploitation.",
+    title: "Quiet Loud Threats",
+    description: "Tracking intimidation, disinformation, or fraud and answering with clarity.",
   },
   {
     number: "04",
-    title: "Empowering the Aligned",
-    description: "Providing operational and business capabilities to organizations who act for benevolent causes.",
+    title: "Back the Helpers",
+    description: "Operations coaching and lightweight tooling for grassroots orgs doing kind work.",
+  },
+];
+
+/**
+ * Component order workflow data
+ */
+export const COMPONENT_ORDERS: ComponentOrderItem[] = [
+  {
+    id: "01",
+    label: "Component",
+    title: "Listen & Orient",
+    description: "We host one calm call to learn about your people, timelines, and sensitivities.",
+    gradient: "from-cyan-500/20 via-sky-500/10 to-transparent",
+  },
+  {
+    id: "02",
+    label: "Component",
+    title: "Co-Design the Plan",
+    description: "Together we sketch the simplest path, agree on safety rails, and pick measurable wins.",
+    gradient: "from-violet-500/20 via-indigo-500/10 to-transparent",
+  },
+  {
+    id: "03",
+    label: "Component",
+    title: "Build Quietly",
+    description: "We deliver the tools, research, or coverage you need without demanding spotlight.",
+    gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
+  },
+  {
+    id: "04",
+    label: "Component",
+    title: "Support & Teach",
+    description: "We document, train, and hand back ownership so your team can keep moving with confidence.",
+    gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
   },
 ];

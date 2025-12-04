@@ -31,58 +31,58 @@ export function AlliesCallToAction() {
   const partnerProfiles = [
     {
       title: "Non-Profits & NGOs",
-      description: "Guardians of community health, education, or relief work seeking discreet digital partners."
+      description: "Teams running clinics, schools, or relief work that need a calm digital partner."
     },
     {
       title: "Activist Networks",
-      description: "Coalitions facing surveillance, intimidation, or information warfare who need quiet reinforcement."
+      description: "Coalitions navigating pressure or disinformation who want steady reinforcement."
     },
     {
       title: "Faith & Cultural Stewards",
-      description: "Groups protecting sacred spaces, oral histories, or vulnerable families."
+      description: "Caretakers preserving sacred spaces, oral histories, or family records."
     }
   ];
 
   const supportChannels = [
     {
       title: "Operational Shielding",
-      description: "Threat modeling, secure communications, and digital countermeasures delivered with a zero-noise footprint."
+      description: "Simple threat models, secure channels, and rapid help without extra noise."
     },
     {
       title: "Signal Amplification",
-      description: "Narrative design, research briefs, and targeted campaigns that meet oppressive systems with clarity."
+      description: "Research briefs, myth-busting kits, and heartfelt storytelling that center your community."
     },
     {
       title: "Caretaker Technology",
-      description: "Custom tools, portals, and data rooms that prioritize consent, privacy, and multilingual access."
+      description: "Lightweight tools, portals, and data rooms focused on consent, privacy, and multilingual access."
     }
   ];
 
   const engagementSteps = [
-    "Share the mission that needs cover, not the secrets that can wait.",
-    "Define who must remain safe, unseen, or anonymous.",
-    "Outline timelines, red lines, and what success restores for your community."
+    "Share what you\'re caring for and the immediate pinch points.",
+    "Let us know who must stay safe, unseen, or anonymous.",
+    "Tell us how fast you need help and what success feels like for your people."
   ];
 
   return (
     <section id="allies" className="relative min-h-screen px-4 sm:px-6 lg:px-8 pt-32 pb-24 border-b border-border/50" aria-label="Call to action for non-profits, NGOs, and activists">
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-violet-900/20 to-slate-950 pointer-events-none" aria-hidden="true" />
-      <div className="max-w-5xl mx-auto relative border-x border-violet-500/20 px-6 sm:px-8 lg:px-12 py-12">
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/40 to-slate-950 pointer-events-none" aria-hidden="true" />
+      <div className="max-w-5xl mx-auto relative border-x border-emerald-500/20 px-6 sm:px-8 lg:px-12 py-12 rounded-[2.75rem] bg-background/30 backdrop-blur-sm">
         {/* Header */}
         <div className="grid grid-cols-12 gap-4 mb-12 items-center">
           <div className="col-span-12 md:col-span-2">
-            <div className="h-px bg-gradient-to-r from-transparent via-violet-500/50 to-violet-500/50" />
+            <div className="h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-emerald-500/50" />
           </div>
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="col-span-12 md:col-span-8 text-3xl md:text-5xl font-bold text-center bg-gradient-to-r from-foreground via-violet-400 via-cyan-300 to-foreground bg-clip-text text-transparent"
+            className="col-span-12 md:col-span-8 text-3xl md:text-5xl font-bold text-center text-foreground"
           >
-            Guardians, Step Forward
+            Allies, let's connect
           </motion.h1>
           <div className="col-span-12 md:col-span-2">
-            <div className="h-px bg-gradient-to-l from-transparent via-violet-500/50 to-violet-500/50" />
+            <div className="h-px bg-gradient-to-l from-transparent via-emerald-500/50 to-emerald-500/50" />
           </div>
         </div>
 
@@ -92,15 +92,14 @@ export function AlliesCallToAction() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.1 }}
-            className="border-2 border-violet-500/20 rounded-2xl p-6 bg-gradient-to-br from-card to-violet-500/5 shadow-lg shadow-violet-500/10"
+            className="border border-emerald-500/20 rounded-3xl p-6 bg-gradient-to-br from-foreground/5 to-transparent shadow-lg shadow-emerald-950/20"
           >
             <p className="text-base md:text-lg mb-4">
-              Shaivra works in defense of those who defend others. If you steward a community, an ecosystem, or a movement,
-              this page is your invitation. We offer the precision, secrecy, and benevolence outlined in our philosophy —
-              absent vanity, politics, or spectacle.
+              Shaivra backs the people who look after others. If you steward a community, an ecosystem, or a movement,
+              this note is for you. We offer steady teammates who care about outcomes, not spotlight.
             </p>
             <p className="text-sm text-muted-foreground">
-              We do not compete with your mission. We fortify it.
+              Your mission stays yours. We simply fortify it.
             </p>
           </motion.article>
 
@@ -109,10 +108,10 @@ export function AlliesCallToAction() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.2 }}
-            className="border-2 border-violet-500/20 rounded-2xl p-6 bg-gradient-to-br from-card via-card to-violet-500/5"
+            className="border border-emerald-500/20 rounded-3xl p-6 bg-gradient-to-br from-foreground/5 via-transparent to-transparent"
           >
-            <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-foreground via-violet-400 to-foreground bg-clip-text text-transparent">
-              Who We Stand Beside
+            <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-foreground via-emerald-300 to-foreground bg-clip-text text-transparent">
+              Who we partner with
             </h2>
             <div className="grid gap-6 md:grid-cols-3">
               {partnerProfiles.map((profile, idx) => (
@@ -121,7 +120,7 @@ export function AlliesCallToAction() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.3 + idx * 0.1 }}
-                  className="rounded-xl border border-violet-500/30 bg-gradient-to-b from-violet-500/10 via-transparent to-transparent p-4"
+                  className="rounded-2xl border border-emerald-500/20 bg-background/30 p-4"
                 >
                   <h3 className="text-lg font-medium mb-2">{profile.title}</h3>
                   <p className="text-sm text-muted-foreground">{profile.description}</p>
@@ -135,10 +134,10 @@ export function AlliesCallToAction() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.4 }}
-            className="border-2 border-violet-500/20 rounded-2xl p-6 bg-gradient-to-br from-card via-card to-violet-500/5"
+            className="border border-emerald-500/20 rounded-3xl p-6 bg-gradient-to-br from-foreground/5 via-transparent to-transparent"
           >
-            <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-foreground via-indigo-400 to-foreground bg-clip-text text-transparent">
-              How We Protect & Amplify
+            <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-foreground via-teal-300 to-foreground bg-clip-text text-transparent">
+              Ways we can plug in
             </h2>
             <div className="space-y-4">
               {supportChannels.map((channel, idx) => (
@@ -147,7 +146,7 @@ export function AlliesCallToAction() {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.5 + idx * 0.1 }}
-                  className="p-5 rounded-xl border border-violet-500/30 bg-gradient-to-br from-violet-500/5 to-transparent hover:border-violet-500/60 transition"
+                  className="p-5 rounded-2xl border border-emerald-500/20 bg-background/30 hover:border-emerald-500/60 transition"
                 >
                   <h3 className="text-lg font-medium mb-2">{channel.title}</h3>
                   <p className="text-sm text-muted-foreground">{channel.description}</p>
@@ -161,18 +160,18 @@ export function AlliesCallToAction() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.6 }}
-            className="border-2 border-violet-500/20 rounded-2xl p-6 bg-gradient-to-br from-card to-violet-500/10 shadow-lg shadow-violet-500/10"
+            className="border border-emerald-500/20 rounded-3xl p-6 bg-gradient-to-br from-foreground/5 to-transparent shadow-lg shadow-emerald-950/20"
           >
-            <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-foreground via-violet-400 to-cyan-300 bg-clip-text text-transparent">
-              Preparing Your Call
+            <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-foreground via-emerald-300 to-teal-200 bg-clip-text text-transparent">
+              How to reach out
             </h2>
             <p className="text-sm text-muted-foreground mb-4">
-              When you reach out, keep the initial briefing simple and principle-driven:
+              Keep the first exchange gentle and simple:
             </p>
             <ul className="space-y-3">
               {engagementSteps.map((step, idx) => (
                 <li key={step} className="flex gap-3 items-start">
-                  <span className="w-6 h-6 flex items-center justify-center rounded-full bg-violet-500/20 text-sm font-medium text-violet-200">
+                  <span className="w-6 h-6 flex items-center justify-center rounded-full bg-emerald-500/20 text-sm font-medium text-emerald-200">
                     {idx + 1}
                   </span>
                   <p className="text-sm">{step}</p>
@@ -185,7 +184,7 @@ export function AlliesCallToAction() {
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#contact"
-                className="px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-cyan-500 text-sm font-medium tracking-wide uppercase"
+                className="px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500 via-teal-500 to-lime-500 text-sm font-medium tracking-wide uppercase text-emerald-950"
               >
                 Initiate Contact
               </a>
@@ -193,7 +192,7 @@ export function AlliesCallToAction() {
                 href={EXTERNAL_URLS.ALLIES_FORM}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full border-2 border-violet-500/40 text-sm font-medium tracking-wide uppercase hover:border-violet-500/70"
+                className="px-6 py-3 rounded-full border border-emerald-500/40 text-sm font-medium tracking-wide uppercase hover:border-emerald-500/70"
               >
                 Dedicated Allies Form
               </a>

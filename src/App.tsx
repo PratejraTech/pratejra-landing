@@ -12,6 +12,7 @@ import { ShaderBackground } from "./components/ui/shader-background";
 import { AlliesCallToAction } from "./components/sections/AlliesCallToAction";
 import { ImpactPulse } from "./components/sections/ImpactPulse";
 import { AlliesPlaybook } from "./components/sections/AlliesPlaybook";
+import { ComponentOrderSection } from "./components/sections/ComponentOrderSection";
 
 /**
  * Main application component
@@ -72,6 +73,7 @@ export default function App() {
         <>
           <HeroSection onNavigateToAllies={() => handleSectionChange('allies')} />
           <ImpactPulse />
+          <ComponentOrderSection />
           <ProjectsCarousel 
             projects={projects} 
             onProjectClick={handleProjectClick} 

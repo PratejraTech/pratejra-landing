@@ -28,17 +28,17 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
   };
 
   const navButtonBase =
-    "flex w-32 justify-center items-center text-center px-5 py-2.5 text-sm sm:text-base font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background";
-  const inactiveStyles = "text-violet-400/80 hover:text-violet-300 hover:bg-violet-500/10 hover:border hover:border-violet-500/30";
+    "flex w-32 justify-center items-center text-center px-5 py-2.5 text-sm sm:text-base font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  const inactiveStyles = "text-emerald-200/80 hover:text-emerald-100 hover:bg-emerald-500/10 hover:border hover:border-emerald-500/30";
   const activeStyles =
-    "text-violet-300 bg-gradient-to-br from-violet-600/20 via-violet-500/15 to-violet-600/20 border border-violet-500/40 shadow-lg shadow-violet-500/10";
+    "text-emerald-50 bg-gradient-to-br from-emerald-600/20 via-teal-500/15 to-emerald-600/20 border border-emerald-500/40 shadow-lg shadow-emerald-900/25";
 
   return (
     <motion.nav 
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b-2 border-violet-500/30" 
+      className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b-2 border-emerald-500/30" 
       role="navigation" 
       aria-label="Main navigation"
     >
@@ -46,12 +46,12 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <button 
             onClick={() => onSectionChange('home')}
-            className="flex items-center space-x-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg px-2 py-1"
+            className="flex items-center space-x-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg px-2 py-1"
             aria-label="Go to home"
           >
             <div className="relative w-10 h-10 shrink-0">
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-violet-500/15 to-indigo-500/20 rounded-full blur-md group-hover:from-indigo-500/30 group-hover:via-violet-500/25 group-hover:to-indigo-500/30 transition-all" />
-              <div className="relative w-full h-full bg-gradient-to-br from-indigo-600 via-violet-600 to-violet-500 rounded-full flex items-center justify-center border border-violet-500/30">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-teal-500/15 to-emerald-500/20 rounded-full blur-md group-hover:from-emerald-500/30 group-hover:via-teal-500/25 group-hover:to-emerald-500/30 transition-all" />
+              <div className="relative w-full h-full bg-gradient-to-br from-emerald-600 via-teal-500 to-emerald-500 rounded-full flex items-center justify-center border border-emerald-500/30">
                 <div className="w-3 h-3 bg-foreground rounded-full" />
               </div>
             </div>
@@ -94,7 +94,7 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
               href={EXTERNAL_URLS.GITHUB}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${navButtonBase} gap-2 border-2 border-violet-500/40 hover:border-violet-500/60 hover:bg-gradient-to-br hover:from-violet-600/15 hover:via-violet-500/10 hover:to-violet-600/15 hover:shadow-lg hover:shadow-violet-500/10 text-violet-400/80 hover:text-violet-300`}
+              className={`${navButtonBase} gap-2 border border-emerald-500/30 hover:border-emerald-500/60 hover:bg-gradient-to-br hover:from-emerald-600/15 hover:via-teal-500/10 hover:to-emerald-600/15 hover:shadow-lg hover:shadow-emerald-900/20 text-emerald-100`}
               aria-label="GitHub repository"
             >
               <Github className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />

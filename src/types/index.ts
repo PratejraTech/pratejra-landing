@@ -36,3 +36,14 @@ export interface MissionObjective {
   title: string;
   description: string;
 }
+
+/**
+ * Component order interface for the workflow section
+ */
+export interface ComponentOrderItem {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  gradient: string;
+}
