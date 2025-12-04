@@ -26,9 +26,14 @@ export const CAROUSEL_CONFIG = {
 export const EXTERNAL_URLS = {
   GITHUB: "https://github.com/PratejraTech",
   EMAIL: "mailto:core@pratejra.build",
+  ALLIES_FORM: "https://forms.gle/pratejra-allies-intake",
   TIMELESS_LOVE: "https://timelesslove.ai",
   RISE_STRONG: "https://risestrong.app",
   X0A_XYZ: "https://x0a.xyz",
+} as const;
+
+export const ANALYTICS_ENDPOINTS = {
+  ALLIES_VISIT: "/api/analytics/allies-visit",
 } as const;
 
 /**

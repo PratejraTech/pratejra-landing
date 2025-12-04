@@ -27,6 +27,12 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
     }
   };
 
+  const navButtonBase =
+    "flex w-32 justify-center items-center text-center px-5 py-2.5 text-sm sm:text-base font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  const inactiveStyles = "text-violet-400/80 hover:text-violet-300 hover:bg-violet-500/10 hover:border hover:border-violet-500/30";
+  const activeStyles =
+    "text-violet-300 bg-gradient-to-br from-violet-600/20 via-violet-500/15 to-violet-600/20 border border-violet-500/40 shadow-lg shadow-violet-500/10";
+
   return (
     <motion.nav 
       initial={{ opacity: 0, y: -10 }}
@@ -37,7 +43,7 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center justify-between gap-4">
           <button 
             onClick={() => onSectionChange('home')}
             className="flex items-center space-x-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg px-2 py-1"
@@ -52,14 +58,10 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
             <span className="text-lg sm:text-xl font-medium tracking-wider text-foreground">Pratejra/Shaivra</span>
           </button>
           
-          <nav className="flex items-center justify-end gap-3 sm:gap-5 lg:gap-7 xl:gap-8" aria-label="Navigation menu">
+          <nav className="flex flex-wrap items-center justify-end gap-3 sm:gap-5 lg:gap-7 xl:gap-8" aria-label="Navigation menu">
             <button 
               onClick={() => onSectionChange('home')}
-              className={`px-5 py-2.5 text-sm sm:text-base font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
-                activeSection === 'home' 
-                  ? 'text-violet-300 bg-gradient-to-br from-violet-600/20 via-violet-500/15 to-violet-600/20 border border-violet-500/40 shadow-lg shadow-violet-500/10' 
-                  : 'text-violet-400/80 hover:text-violet-300 hover:bg-violet-500/10 hover:border hover:border-violet-500/30'
-              }`}
+              className={`${navButtonBase} ${activeSection === 'home' ? activeStyles : inactiveStyles}`}
               aria-label="Mission section"
               aria-current={activeSection === 'home' ? 'page' : undefined}
             >
@@ -67,19 +69,23 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
             </button>
             <button 
               onClick={() => onSectionChange('philosophy')}
-              className={`px-5 py-2.5 text-sm sm:text-base font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
-                activeSection === 'philosophy' 
-                  ? 'text-violet-300 bg-gradient-to-br from-violet-600/20 via-violet-500/15 to-violet-600/20 border border-violet-500/40 shadow-lg shadow-violet-500/10' 
-                  : 'text-violet-400/80 hover:text-violet-300 hover:bg-violet-500/10 hover:border hover:border-violet-500/30'
-              }`}
+              className={`${navButtonBase} ${activeSection === 'philosophy' ? activeStyles : inactiveStyles}`}
               aria-label="Philosophy section"
               aria-current={activeSection === 'philosophy' ? 'page' : undefined}
             >
               Philosophy
             </button>
+            <button 
+              onClick={() => onSectionChange('allies')}
+              className={`${navButtonBase} ${activeSection === 'allies' ? activeStyles : inactiveStyles}`}
+              aria-label="Allies call to action section"
+              aria-current={activeSection === 'allies' ? 'page' : undefined}
+            >
+              Allies
+            </button>
             <button
               onClick={handleContactClick}   
-              className="px-5 py-2.5 text-sm sm:text-base font-medium rounded-lg transition-all duration-200 text-violet-400/80 hover:text-violet-300 hover:bg-violet-500/10 hover:border hover:border-violet-500/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className={`${navButtonBase} ${inactiveStyles}`}
               aria-label="Contact section"
             >
               Contact
@@ -88,7 +94,7 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
               href={EXTERNAL_URLS.GITHUB}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 text-sm sm:text-base font-medium rounded-lg transition-all duration-200 text-violet-400/80 hover:text-violet-300 border-2 border-violet-500/40 hover:border-violet-500/60 hover:bg-gradient-to-br hover:from-violet-600/15 hover:via-violet-500/10 hover:to-violet-600/15 hover:shadow-lg hover:shadow-violet-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className={`${navButtonBase} gap-2 border-2 border-violet-500/40 hover:border-violet-500/60 hover:bg-gradient-to-br hover:from-violet-600/15 hover:via-violet-500/10 hover:to-violet-600/15 hover:shadow-lg hover:shadow-violet-500/10 text-violet-400/80 hover:text-violet-300`}
               aria-label="GitHub repository"
             >
               <Github className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />

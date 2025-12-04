@@ -13,7 +13,7 @@ export type StatusColor = 'yellow' | 'green' | 'red';
 /**
  * Active section type for navigation
  */
-export type ActiveSection = 'home' | 'philosophy';
+export type ActiveSection = 'home' | 'philosophy' | 'allies';
 
 /**
  * Project interface representing a project in the carousel
@@ -36,4 +36,3 @@ export interface MissionObjective {
   title: string;
   description: string;
 }
-

@@ -2,10 +2,14 @@ import { motion } from "framer-motion";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
 import { IMAGE_URLS } from "../../constants";
 
+type HeroSectionProps = {
+  onNavigateToAllies?: () => void;
+};
+
 /**
  * Hero section component with floating grid design and full color palette
  */
-export function HeroSection() {
+export function HeroSection({ onNavigateToAllies }: HeroSectionProps) {
   // Floating grid elements positions
   const gridItems = [
     { delay: 0.1, color: "indigo", position: "top-10 left-10", size: "w-24 h-24" },
@@ -172,6 +176,27 @@ export function HeroSection() {
                 </p>
               </div>
             </motion.div>
+
+            {/* Call to Action Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
+              <button
+                onClick={onNavigateToAllies}
+                className="px-8 py-4 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-cyan-500 text-sm font-semibold tracking-widest uppercase hover:shadow-lg hover:shadow-violet-500/30 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50"
+              >
+                For NGOs & Activists
+              </button>
+              <a
+                href="#contact"
+                className="px-8 py-4 rounded-full border-2 border-violet-500/40 text-sm font-semibold tracking-widest uppercase text-foreground/80 hover:border-violet-500/80 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background text-center"
+              >
+                Contact Core
+              </a>
+            </motion.div>
           </div>
 
           {/* Right Grid Column - Decorative Elements */}
@@ -227,4 +252,3 @@ export function HeroSection() {
     </section>
   );
 }
-
