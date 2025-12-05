@@ -1,44 +1,82 @@
-import { motion } from "framer-motion";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Shield, Mail, Phone, MapPin } from 'lucide-react';
 
-interface FooterProps {
-  onNavigateToAllies?: () => void;
-}
-
-/**
- * Footer component
- */
-export function Footer({ onNavigateToAllies }: FooterProps) {
+const Footer: React.FC = () => {
   return (
-    <motion.footer 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      className="border-t-2 border-emerald-500/30 py-8 px-4 sm:px-6 lg:px-8" 
-      role="contentinfo"
-    >
-      <div className="max-w-7xl mx-auto flex flex-col gap-6 md:flex-row md:items-center md:justify-between border-x border-emerald-500/20 px-6 sm:px-8 lg:px-12 py-6">
-        <div className="flex items-center space-x-3">
-          <div className="relative w-8 h-8">
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-teal-500/15 to-emerald-500/20 rounded-full blur-md" />
-            <div className="relative w-full h-full bg-gradient-to-br from-emerald-600 via-teal-500 to-emerald-500 rounded-full flex items-center justify-center border border-emerald-500/30">
-              <div className="w-2 h-2 bg-foreground rounded-full" />
+    <footer className="bg-slate-900/80 backdrop-blur-md border-t border-slate-700">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand */}
+          <div className="col-span-1 md:col-span-2">
+            <div className="flex items-center space-x-2 mb-4">
+              <Shield className="w-8 h-8 text-blue-400" />
+              <span className="text-xl font-bold text-white">Pratejra</span>
+            </div>
+            <p className="text-slate-300 mb-4 max-w-md">
+              Silent protectors... unbound spirit guided by ancient wisdom.
+              Financial gain takes a back seat to the mission.
+            </p>
+            <p className="text-slate-400 text-sm italic">
+              "Shaantāt hanti, maunāt srujati. Shaivraḥ."
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/" className="text-slate-300 hover:text-blue-400 transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-slate-300 hover:text-blue-400 transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="text-slate-300 hover:text-blue-400 transition-colors">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-slate-300 hover:text-blue-400 transition-colors">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-2 text-slate-300">
+                <Mail className="w-4 h-4" />
+                <span className="text-sm">contact@pratejra.build</span>
+              </div>
+              <div className="flex items-center space-x-2 text-slate-300">
+                <Phone className="w-4 h-4" />
+                <span className="text-sm">+1 (555) 123-4567</span>
+              </div>
+              <div className="flex items-center space-x-2 text-slate-300">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm">Global Operations</span>
+              </div>
             </div>
           </div>
-          <span className="tracking-wider">Pratejra/Shaivra</span>
         </div>
-        
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-          <button
-            onClick={onNavigateToAllies}
-            className="px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500 via-lime-500 to-teal-500 text-xs font-semibold tracking-[0.3em] uppercase text-emerald-950 hover:shadow-md hover:shadow-emerald-500/30 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50"
-          >
-            Work With Shaivra
-          </button>
-          <div className="text-muted-foreground text-sm">
-            v1.0.0 — Authored by Sunyata, August 2025
-          </div>
+
+        <div className="border-t border-slate-700 mt-8 pt-8 text-center">
+          <p className="text-slate-400 text-sm">
+            © 2025 Pratejra. v1.0.0 Authored by Sunyata.
+          </p>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   );
-}
+};
+
+export default Footer;

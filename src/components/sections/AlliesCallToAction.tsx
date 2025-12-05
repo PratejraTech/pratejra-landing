@@ -65,9 +65,9 @@ export function AlliesCallToAction() {
   ];
 
   return (
-    <section id="allies" className="relative min-h-screen px-4 sm:px-6 lg:px-8 pt-32 pb-24 border-b border-border/50" aria-label="Call to action for non-profits, NGOs, and activists">
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/40 to-slate-950 pointer-events-none" aria-hidden="true" />
-      <div className="max-w-5xl mx-auto relative border-x border-emerald-500/20 px-6 sm:px-8 lg:px-12 py-12 rounded-[2.75rem] bg-background/30 backdrop-blur-sm">
+    <span className="component-highlight component-container" data-component="allies-call-to-action">
+      <section id="allies" className="modern-section layered-background relative min-h-screen px-4 sm:px-6 lg:px-8 pt-32 pb-24" aria-label="Call to action for non-profits, NGOs, and activists">
+        <div className="max-w-6xl mx-auto relative">
         {/* Header */}
         <div className="grid grid-cols-12 gap-4 mb-12 items-center">
           <div className="col-span-12 md:col-span-2">
@@ -204,6 +204,7 @@ export function AlliesCallToAction() {
         </div>
       </div>
     </section>
+    </span>
   );
 }
 

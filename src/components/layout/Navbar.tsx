@@ -28,20 +28,22 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
   };
 
   const navButtonBase =
-    "flex w-32 justify-center items-center text-center px-5 py-2.5 text-sm sm:text-base font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+    "flex w-32 justify-center items-center text-center px-5 py-2.5 text-sm sm:text-base font-medium rounded-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background";
   const inactiveStyles = "text-emerald-200/80 hover:text-emerald-100 hover:bg-emerald-500/10 hover:border hover:border-emerald-500/30";
   const activeStyles =
     "text-emerald-50 bg-gradient-to-br from-emerald-600/20 via-teal-500/15 to-emerald-600/20 border border-emerald-500/40 shadow-lg shadow-emerald-900/25";
 
   return (
-    <motion.nav 
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b-2 border-emerald-500/30" 
-      role="navigation" 
-      aria-label="Main navigation"
-    >
+    <span className="component-highlight" data-component="navbar">
+      <motion.nav
+        id="navbar"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b-2 border-emerald-500/30"
+        role="navigation"
+        aria-label="Main navigation"
+      >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <button 
@@ -104,5 +106,6 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
         </div>
       </div>
     </motion.nav>
+    </span>
   );
 }

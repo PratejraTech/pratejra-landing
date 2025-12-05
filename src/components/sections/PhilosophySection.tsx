@@ -28,23 +28,22 @@ export function PhilosophySection() {
   ];
 
   return (
-    <section className="relative min-h-screen px-4 sm:px-6 lg:px-8 pt-32 pb-24 border-b border-border/50" aria-label="Philosophy and values">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.02] via-transparent to-teal-500/[0.03] pointer-events-none" aria-hidden="true" />
-      <div className="max-w-4xl mx-auto relative border-x border-emerald-500/20 px-6 sm:px-8 lg:px-12 py-12 rounded-[2.5rem] bg-background/30 backdrop-blur-sm">
+    <span className="component-highlight component-container" data-component="philosophy-section">
+      <section id="philosophy-section" className="modern-section layered-background relative min-h-screen px-4 sm:px-6 lg:px-8 pt-32 pb-24" aria-label="Philosophy and values">
+        <div className="max-w-6xl mx-auto relative">
         {/* Header Grid */}
         <div className="grid grid-cols-12 gap-4 mb-12 items-center">
           <div className="col-span-12 md:col-span-2">
             <div className="h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-emerald-500/50" />
           </div>
-          <motion.h1 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="col-span-12 md:col-span-8 text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-emerald-300 via-teal-200 to-foreground bg-clip-text text-transparent text-center"
-          >
-            Philosophy
-          </motion.h1>
+           <motion.h1
+             initial={{ opacity: 0, y: 10 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.3 }}
+             className="col-span-12 md:col-span-8 text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-emerald-300 via-teal-200 to-foreground bg-clip-text text-transparent text-center"
+           >
+             Philosophy
+           </motion.h1>
           <div className="col-span-12 md:col-span-2">
             <div className="h-px bg-gradient-to-l from-transparent via-emerald-500/50 to-emerald-500/50" />
           </div>
@@ -162,5 +161,6 @@ export function PhilosophySection() {
         </div>
       </div>
     </section>
+    </span>
   );
 }

@@ -1,0 +1,140 @@
+# Pratejra Landing Page - AI Agent Guidelines
+
+## Project Overview
+This is a React TypeScript landing page for Pratejra, built with Vite, Tailwind CSS, and shadcn/ui components. The project focuses on clean, modern UI with smooth animations and responsive design.
+
+## Core Technologies
+- React 18 with TypeScript
+- Vite for build tooling
+- Tailwind CSS for styling
+- shadcn/ui for component library
+- Lucide React for icons
+
+## Project Structure
+```
+src/
+├── components/
+│   ├── layout/          # Shared layouts (Navbar, Footer)
+│   ├── sections/        # Feature content sections
+│   └── ui/             # Reusable UI components (shadcn/ui)
+├── constants/          # App constants and copy
+├── hooks/             # Custom React hooks
+├── styles/            # Global styles and Tailwind config
+├── types/             # TypeScript type definitions
+└── utils/             # Utility functions
+```
+
+## Coding Standards
+
+### Naming Conventions
+- Components: PascalCase (e.g., `HeroSection`, `ProjectsCarousel`)
+- Hooks: camelCase with 'use' prefix (e.g., `useCarouselAutoRotate`)
+- Utilities: camelCase (e.g., `formatProject`)
+- Files: PascalCase for components, camelCase for others
+
+### Code Style
+- 2-space indentation
+- Arrow functions for event handlers
+- Early returns over nested branches
+- Use `clsx` or `class-variance-authority` for conditional classes
+- Import from `src/constants` instead of duplicating literals
+
+### Component Patterns
+- Functional components with hooks
+- TypeScript interfaces for props
+- Destructure props at component level
+- Use semantic HTML elements
+- Follow accessibility best practices
+
+## Development Workflow
+
+### Commands
+- `npm run dev` - Start development server
+- `npm run build` - Build for production (includes TypeScript check)
+- `npm install` - Install dependencies
+
+### Before Committing
+1. Run `npm run build` to catch type errors
+2. Test responsive design and interactions
+3. Verify animations and state changes work correctly
+
+### Commit Messages
+- Short, imperative subjects (e.g., "Add hero animation", "Fix navbar mobile layout")
+- Reference issue numbers when applicable
+
+## Component Guidelines
+
+### Layout Components
+- `Navbar`: Responsive navigation with mobile menu
+- `Footer`: Site footer with links and branding
+
+### Section Components
+- `HeroSection`: Main landing hero with CTA
+- `MissionObjectives`: Mission statement and goals
+- `ProjectsCarousel`: Interactive project showcase
+- `PhilosophySection`: Company philosophy
+- `ImpactPulse`: Impact metrics visualization
+- `AlliesCallToAction`: Partnership/collaboration section
+- `ContactSection`: Contact form and information
+
+### UI Components
+- Use shadcn/ui components from `src/components/ui/`
+- Customize with Tailwind classes
+- Maintain design system consistency
+
+## Styling Guidelines
+
+### Tailwind Classes
+- Use utility-first approach
+- Leverage Tailwind's responsive prefixes (sm:, md:, lg:)
+- Custom animations via CSS classes in `src/styles/`
+- Consistent spacing using Tailwind's space scale
+
+### Responsive Design
+- Mobile-first approach
+- Breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px)
+- Test on multiple screen sizes
+
+### Colors and Theming
+- Define colors in `src/constants/`
+- Use CSS custom properties for theme variables
+- Maintain consistent color palette
+
+## Performance Considerations
+- Optimize images and assets
+- Use lazy loading for heavy components
+- Minimize bundle size
+- Efficient re-renders with React.memo where appropriate
+
+## Accessibility
+- Semantic HTML structure
+- Proper ARIA labels
+- Keyboard navigation support
+- Sufficient color contrast
+- Screen reader friendly
+
+## File Organization
+- Group related components in feature folders
+- Keep utilities and hooks in dedicated directories
+- Import from index files to maintain clean imports
+- Avoid deep nesting in component structure
+
+## Testing Approach
+- Manual QA for now (no automated tests yet)
+- Test all interactive elements
+- Verify responsive behavior
+- Check animation timing and smoothness
+- Validate form submissions and state changes
+
+## Deployment
+- Built for Netlify deployment
+- Static site generation
+- Environment-specific configurations in `netlify.toml`
+
+## Important Notes for AI Agents
+- Always check existing code patterns before making changes
+- Use the established component library (shadcn/ui) instead of creating new components
+- Follow the existing file structure and naming conventions
+- Test changes thoroughly before suggesting commits
+- Reference the AGENTS.md file for additional project-specific guidelines
+- When in doubt, ask for clarification rather than making assumptions

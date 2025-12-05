@@ -24,10 +24,10 @@ const pillars = [
 
 export function AlliesPlaybook() {
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8 border-y border-border/50" aria-label="Allies playbook">
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/30 to-slate-950 pointer-events-none" aria-hidden="true" />
-      <div className="max-w-6xl mx-auto relative border-x border-emerald-500/20 px-6 sm:px-8 lg:px-12 py-16 rounded-[2.5rem] bg-background/30 backdrop-blur-sm">
-        <motion.div
+    <span className="component-highlight component-container" data-component="allies-playbook">
+      <section id="allies-playbook" className="modern-section layered-background relative px-4 sm:px-6 lg:px-8" aria-label="Allies playbook">
+        <div className="max-w-7xl mx-auto relative">
+        <motion.header
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -35,16 +35,16 @@ export function AlliesPlaybook() {
           className="mb-12 text-center"
         >
           <p className="text-xs uppercase tracking-[0.4em] text-emerald-200/80 mb-3">allies playbook</p>
-          <h2 className="text-4xl md:text-5xl font-semibold bg-gradient-to-r from-foreground via-emerald-200 to-foreground bg-clip-text text-transparent">
+          <h3 className="text-4xl md:text-5xl font-semibold bg-gradient-to-r from-foreground via-emerald-200 to-foreground bg-clip-text text-transparent">
             Choose the support that fits
-          </h2>
+          </h3>
           <p className="mt-4 text-sm md:text-base text-muted-foreground max-w-3xl mx-auto">
             Pick a pillar and we braid in beside you. Each lane combines software, research, and caring operators so you can
             focus on people instead of panic.
           </p>
-        </motion.div>
+        </motion.header>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="asymmetric-grid asymmetric-grid-3 gap-8">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
@@ -54,7 +54,7 @@ export function AlliesPlaybook() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="rounded-3xl border border-emerald-500/20 bg-gradient-to-br from-foreground/5 via-transparent to-transparent p-6 flex flex-col gap-4 shadow-lg shadow-emerald-950/30"
+                className="rounded-3xl border border-emerald-500/20 bg-gradient-to-br from-foreground/5 via-transparent to-transparent p-6 flex flex-col gap-4 shadow-lg shadow-emerald-950/30 hover:border-emerald-500/40 transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center text-emerald-100">
                   <Icon className="w-6 h-6" />
@@ -82,6 +82,7 @@ export function AlliesPlaybook() {
         </div>
       </div>
     </section>
+    </span>
   );
 }
 
