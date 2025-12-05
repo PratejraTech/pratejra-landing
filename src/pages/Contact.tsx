@@ -160,25 +160,25 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
-              {/* Additional Info */}
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700">
+            {/* Additional Info */}
+            <div className="bg-slate-800/70 backdrop-blur-sm rounded-xl p-6 border border-slate-700">
                 <h3 className="text-lg font-semibold text-white mb-4">What to Expect</h3>
                 <ul className="space-y-3 text-slate-300">
                   <li className="flex items-start">
                     <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    Initial consultation within 24 hours
+                    Share a note → receive a warm intake link in under 24h
                   </li>
                   <li className="flex items-start">
                     <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    Detailed assessment of your needs
+                    Assessment of mission alignment and needs
                   </li>
                   <li className="flex items-start">
                     <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    Custom solution proposal
+                    Tools, tactics, and techniques for your mission
                   </li>
                   <li className="flex items-start">
                     <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    Transparent collaboration process
+                    Discretion and security in all interactions
                   </li>
                 </ul>
               </div>

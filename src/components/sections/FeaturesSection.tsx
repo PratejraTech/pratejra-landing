@@ -5,22 +5,22 @@ const features = [
   {
     icon: Shield,
     title: 'Benevolent Ghosts',
-    description: 'Silent protectors operating in the shadows, guided by ancient wisdom and modern intelligence.',
+    description: 'Silent protectors, bound by a code of wisdom, compassion, discretion, and precision. They do not act for profit or political gain.',
   },
   {
     icon: Eye,
     title: 'Circle of Protection',
-    description: 'We encircle the vulnerable, creating barriers of silence and strength against exploitation.',
+    description: 'Any mission must begin with an assessment of how it shields, preserves, or uplifts vulnerable communities.',
   },
   {
     icon: Sword,
     title: 'Ghost Step',
-    description: 'Movement unseen, presence unfelt, yet impact undeniable in the digital veil.',
+    description: 'Operations leave no unnecessary trace, ensuring discretion and safety for all involved in the mission.',
   },
   {
     icon: Scale,
     title: 'Mirror of Truth',
-    description: 'Reflecting reality without distortion, cutting through illusion with precision.',
+    description: 'Internal review and ethical vetting precede every action, ensuring alignment with our benevolent mandate.',
   },
 ];
 
@@ -58,23 +58,17 @@ const FeaturesSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">47</div>
-            <div className="text-slate-300">Communities Supported</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">120+</div>
-            <div className="text-slate-300">Rapid Missions</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">18</div>
-            <div className="text-slate-300">Languages Covered</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">320TB</div>
-            <div className="text-slate-300">Stories Preserved</div>
+        {/* Mission Statement */}
+        <div className="mt-20 text-center">
+          <div className="bg-slate-800/70 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 max-w-4xl mx-auto">
+            <Shield className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-white mb-4">Our Mission</h3>
+            <p className="text-xl text-slate-300 italic mb-6">
+              "Through the unseen, we protect the sacred."
+            </p>
+            <p className="text-slate-300 leading-relaxed">
+              Shaivra's mission is to act as a force multiplier for aligned organizations, communities, and individuals who serve the greater good. We provide tools, tactics and techniques that vulnerable people & their organizations are unable to access.
+            </p>
           </div>
         </div>
       </div>

@@ -70,8 +70,11 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-slate-700 mt-8 pt-8 text-center">
-          <p className="text-slate-400 text-sm">
-            © 2025 Pratejra. v1.0.0 Authored by Sunyata.
+          <p className="text-slate-400 text-sm mb-2">
+            © 2025 Pratejra/Shaivra. v1.0.0 Authored by Sunyata, August 2025.
+          </p>
+          <p className="text-slate-500 text-xs italic">
+            It belongs to all those that carry the mission forwards.
           </p>
         </div>
       </div>

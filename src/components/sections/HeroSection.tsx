@@ -9,15 +9,25 @@ const HeroSection: React.FC = () => {
         {/* Main Headline */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
           From stillness,<br />
-          <span className="text-blue-400">Pratejra</span> strikes.<br />
+          <span className="text-blue-400">Pratejra</span> shapes.<br />
           From silence,<br />
-          <span className="text-blue-400">Shaivra</span> shapes.
+          <span className="text-blue-400">Shaivra</span> strikes.
         </h1>
 
         {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+        <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto leading-relaxed">
           We Work While Doing the Work. We Ask For Little For We Have All We Need.
         </p>
+
+        {/* Sanskrit Mantra */}
+        <div className="mb-12">
+          <p className="text-lg text-blue-300 italic font-serif mb-2">
+            "Shaantāt hanti, maunāt srujati. Shaivraḥ."
+          </p>
+          <p className="text-sm text-slate-400">
+            "From peace, slay; from silence, create."
+          </p>
+        </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

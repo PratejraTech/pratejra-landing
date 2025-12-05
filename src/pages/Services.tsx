@@ -1,42 +1,30 @@
 import React from 'react';
 import { Shield, Database, Users, Globe, Lock, Zap } from 'lucide-react';
 
-const services = [
+const objectives = [
   {
     icon: Shield,
     title: 'Humanitarian Protection',
-    description: 'Safeguarding vulnerable communities from exploitation and harm through silent, effective interventions.',
+    description: 'Shielding communities from harm, both physical and digital. Safeguarding vulnerable people including children, families.',
     features: ['Risk Assessment', 'Community Defense', 'Crisis Response', 'Long-term Security'],
   },
   {
     icon: Database,
-    title: 'Heritage Preservation',
-    description: 'Protecting cultural and historical artifacts from destruction or theft with advanced digital repositories.',
+    title: 'Preservation of Heritage',
+    description: 'Protecting cultural, historical, and environmental treasures from destruction or theft.',
     features: ['Digital Archiving', 'Cultural Documentation', 'Secure Storage', 'Access Management'],
   },
   {
     icon: Users,
-    title: 'Community Empowerment',
-    description: 'Equipping mission-aligned groups with tools and knowledge to sustain their own operations.',
-    features: ['Capacity Building', 'Technology Transfer', 'Training Programs', 'Ongoing Support'],
+    title: 'Countering Exploitation',
+    description: 'Identifying and disrupting systems of corruption, oppression, and exploitation.',
+    features: ['Network Analysis', 'Pattern Recognition', 'Strategic Disruption', 'Ethical Intervention'],
   },
   {
     icon: Globe,
-    title: 'Global Intelligence',
-    description: 'Monitoring and countering networks that profit from human suffering across international borders.',
-    features: ['Network Analysis', 'Pattern Recognition', 'Strategic Disruption', 'Information Sharing'],
-  },
-  {
-    icon: Lock,
-    title: 'Digital Security',
-    description: 'Fortifying data and communication channels against modern threats and surveillance.',
-    features: ['Encryption Solutions', 'Secure Communications', 'Privacy Protection', 'Threat Mitigation'],
-  },
-  {
-    icon: Zap,
-    title: 'Rapid Response',
-    description: 'Swift, precise interventions when communities face immediate threats or crises.',
-    features: ['Emergency Assessment', 'Immediate Action', 'Resource Deployment', 'Follow-up Support'],
+    title: 'Empowering the Aligned',
+    description: 'Providing operational and business capabilities to organizations who act for benevolent causes.',
+    features: ['Capacity Building', 'Technology Transfer', 'Training Programs', 'Ongoing Support'],
   },
 ];
 
@@ -47,35 +35,40 @@ const Services: React.FC = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Our Services
+            Our Objectives
           </h1>
-          <p className="text-xl text-slate-300 leading-relaxed">
-            Purpose-built solutions that operate in the shadows, serving communities,
-            preserving heritage, and countering exploitation with unwavering commitment.
+          <p className="text-xl text-slate-300 leading-relaxed mb-8">
+            We strive to enable aligned organizations to operate with the precision of elite intelligence operations,
+            tempered with the ethics of the monastic vow.
           </p>
+          <div className="bg-slate-800/70 backdrop-blur-sm rounded-xl p-6 border border-slate-700 max-w-2xl mx-auto">
+            <p className="text-slate-300 italic">
+              "We provide tools, tactics and techniques that vulnerable people & their organizations are unable to access"
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Services Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {objectives.map((objective, index) => (
               <div
                 key={index}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700 hover:border-blue-400/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10"
+                className="bg-slate-800/70 backdrop-blur-sm rounded-xl p-6 border border-slate-700 hover:border-blue-400/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10"
               >
                 <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-4">
-                  <service.icon className="w-6 h-6 text-blue-400" />
+                  <objective.icon className="w-6 h-6 text-blue-400" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">
-                  {service.title}
+                  {objective.title}
                 </h3>
                 <p className="text-slate-300 leading-relaxed mb-4">
-                  {service.description}
+                  {objective.description}
                 </p>
                 <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
+                  {objective.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-sm text-slate-400">
                       <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2"></div>
                       {feature}
@@ -88,45 +81,36 @@ const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Technology & Tools */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Our Process
+              Technology & Tools
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Every engagement follows these principles, ensuring natural, effective outcomes.
+              Shaivra employs a layered technology ecosystem to enhance capability without compromising mission ethics.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-400">1</span>
+          <div className="bg-slate-800/70 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
+            <h3 className="text-2xl font-semibold text-blue-400 mb-6 text-center">Operational Security Layer</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <Lock className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+                <h4 className="text-lg font-semibold text-white mb-2">Encryption</h4>
+                <p className="text-slate-300 text-sm">Zero trust architecture and sovereign hosting solutions</p>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Listen Deeply</h3>
-              <p className="text-slate-300">
-                We start with one gentle call to learn who you serve and where the tensions live.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-400">2</span>
+              <div className="text-center">
+                <Shield className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+                <h4 className="text-lg font-semibold text-white mb-2">Secure Communications</h4>
+                <p className="text-slate-300 text-sm">Protected channels for mission-critical information</p>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Build Together</h3>
-              <p className="text-slate-300">
-                We co-design tools and playbooks side-by-side so they feel like home to your team.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-400">3</span>
+              <div className="text-center">
+                <Eye className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+                <h4 className="text-lg font-semibold text-white mb-2">Ethical AI</h4>
+                <p className="text-slate-300 text-sm">AI-powered intelligence tempered with monastic ethics</p>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Leave Empowered</h3>
-              <p className="text-slate-300">
-                We depart after documenting, training, and ensuring friendly humans stay on call.
-              </p>
             </div>
           </div>
         </div>
