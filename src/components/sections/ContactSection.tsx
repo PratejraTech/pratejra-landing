@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from "framer-motion";
 import { Mail, Github } from "lucide-react";
 import { EXTERNAL_URLS } from "../../constants";

@@ -18,7 +18,7 @@ export function useProjectDescriptions(): Project[] {
             const description = await fetchProjectDescription(project.url);
             if (description) {
               // Summarize to one sentence (first sentence or first 120 chars)
-              const summarized = description.split('.')[0].substring(0, 120).trim();
+              const summarized = description.split('.')[0]?.substring(0, 120).trim();
               return {
                 ...project,
                 description: summarized || project.description,

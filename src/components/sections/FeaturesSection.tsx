@@ -47,7 +47,7 @@ const FeaturesSection: React.FC = () => {
               { bg: 'from-teal-50 to-blue-50', hover: 'hover:border-teal-300 hover:shadow-teal-200/50', icon: 'text-teal-500', title: 'group-hover:text-teal-600' },
               { bg: 'from-blue-50 to-teal-50', hover: 'hover:border-blue-300 hover:shadow-blue-200/50', icon: 'text-blue-500', title: 'group-hover:text-blue-600' }
             ];
-            const colorScheme = colors[index % colors.length];
+            const colorScheme = colors[index % colors.length]!;
             return (
               <div
                 key={index}

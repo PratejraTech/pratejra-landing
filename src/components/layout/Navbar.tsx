@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
 import { ActiveSection } from "../../types";

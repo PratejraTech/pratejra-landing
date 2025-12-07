@@ -1,10 +1,20 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 import HeroSection from '../components/sections/HeroSection';
-import ImpactPulse from '../components/sections/ImpactPulse';
-import ComponentOrderSection from '../components/sections/ComponentOrderSection';
-import AlliesPlaybook from '../components/sections/AlliesPlaybook';
 
-const Home: React.FC = () => {
+// Dynamically import sections below the fold for better code splitting
+const ImpactPulse = dynamic(() => import('../components/sections/ImpactPulse'), {
+  loading: () => <div className="h-96 animate-pulse bg-muted/20 rounded-lg" />
+});
+
+const ComponentOrderSection = dynamic(() => import('../components/sections/ComponentOrderSection'), {
+  loading: () => <div className="h-96 animate-pulse bg-muted/20 rounded-lg" />
+});
+
+const AlliesPlaybook = dynamic(() => import('../components/sections/AlliesPlaybook'), {
+  loading: () => <div className="h-96 animate-pulse bg-muted/20 rounded-lg" />
+});
+
+const Home = () => {
   return (
     <div className="min-h-screen">
       <HeroSection />

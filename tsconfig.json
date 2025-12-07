@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2022",
     "useDefineForClassFields": true,
     "lib": [
-      "ES2020",
+      "ES2022",
       "DOM",
       "DOM.Iterable"
     ],
@@ -21,6 +21,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    // "exactOptionalPropertyTypes": true, // Disabled due to UI library compatibility
+    "noImplicitReturns": true,
+    // "noImplicitOverride": true, // Disabled due to class component compatibility
+    "noUncheckedIndexedAccess": true,
+    /* Performance */
+    "incremental": true,
+    "tsBuildInfoFile": ".next/cache/tsconfig.tsbuildinfo",
     /* Path mapping */
     "baseUrl": ".",
     "paths": {
@@ -29,8 +36,8 @@
       ]
     },
     "allowJs": true,
-    "incremental": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "plugins": [
       {
         "name": "next"
@@ -51,5 +58,8 @@
     "node_modules",
     "build",
     "src/pages"
-  ]
+  ],
+  "ts-node": {
+    "esm": true
+  }
 }

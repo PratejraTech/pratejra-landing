@@ -1,0 +1,60 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local env files
+.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# Next.js
+.next/
+out/
+build/
+
+# Production
+/dist
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+*.log
+
+# Local development
+.vscode/
+.idea/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Bundle analyzer
+analyze/
+
+# Git
+.git
+.gitignore
+
+# README
+README.md
+README-CLOUDFLARE.md
+DEPLOYMENT.md
+
+# Tasks and docs
+tasks/
+*.md
+!README.md
+
+# Cache
+.cache
+.parcel-cache

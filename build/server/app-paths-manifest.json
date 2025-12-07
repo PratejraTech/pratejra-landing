@@ -1,1 +1,14 @@
-{}
+{
+  "/api/health/route": "app/api/health/route.js",
+  "/api/projects/route": "app/api/projects/route.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/api/analytics/allies-visit/route": "app/api/analytics/allies-visit/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/allies/page": "app/allies/page.js",
+  "/services/page": "app/services/page.js",
+  "/philosophy/page": "app/philosophy/page.js",
+  "/page": "app/page.js",
+  "/about/page": "app/about/page.js",
+  "/contact/page": "app/contact/page.js"
+}

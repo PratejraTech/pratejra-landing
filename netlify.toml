@@ -1,50 +1,55 @@
 [build]
   base = "."
   publish = "build"
-  command = "npm run build"
+  command = "bun run build"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
 
+# Next.js specific configuration
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = true
+[build.processing.js]
+  bundle = true
+  minify = true
+[build.processing.html]
+  pretty_urls = true
+
+# Functions configuration (if using Netlify Functions)
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
+# Next.js rewrites for SPA routing
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
   status = 200
 
-[[redirects]]
-  from = "/api/analytics/allies-visit"
-  to = "/.netlify/functions/allies-visit"
-  status = 200
-  force = true
-
+# Security headers (Next.js handles most of these, but we can add additional ones)
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
+# Static asset caching
 [[headers]]
-  for = "/static/*"
+  for = "/_next/static/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "*.js"
+  for = "/_next/image*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=86400"
 
-[[headers]]
-  for = "*.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-[[headers]]
-  for = "*.woff2"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
+# Environment variables
+[build.environment]
+  NEXT_PUBLIC_SITE_URL = "https://pratejra.build"
+  NEXT_PUBLIC_API_URL = "https://api.pratejra.build"
