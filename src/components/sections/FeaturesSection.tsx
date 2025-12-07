@@ -4,23 +4,23 @@ import { Shield, Eye, Sword, Scale } from 'lucide-react';
 const features = [
   {
     icon: Shield,
-    title: 'Benevolent Ghosts',
-    description: 'Silent protectors, bound by a code of wisdom, compassion, discretion, and precision. They do not act for profit or political gain.',
+    title: 'AI-Augmented Protectors',
+    description: 'Machine learning-driven guardians, utilizing quantum-secure encryption, predictive analytics, and autonomous response systems. Operations remain ethically aligned and non-commercial.',
   },
   {
     icon: Eye,
-    title: 'Circle of Protection',
-    description: 'Any mission must begin with an assessment of how it shields, preserves, or uplifts vulnerable communities.',
+    title: 'Digital Risk Assessment',
+    description: 'Every mission begins with comprehensive threat modeling, vulnerability scanning, and impact analysis to ensure protective measures are precisely targeted.',
   },
   {
     icon: Sword,
-    title: 'Ghost Step',
-    description: 'Operations leave no unnecessary trace, ensuring discretion and safety for all involved in the mission.',
+    title: 'Zero-Trace Operations',
+    description: 'Ephemeral infrastructure with automated cleanup, end-to-end encryption, and blockchain-verified audit trails ensure complete operational discretion.',
   },
   {
     icon: Scale,
-    title: 'Mirror of Truth',
-    description: 'Internal review and ethical vetting precede every action, ensuring alignment with our benevolent mandate.',
+    title: 'Ethical AI Governance',
+    description: 'Decentralized decision frameworks and AI-powered ethical review systems validate every action against our principles of benevolence and precision.',
   },
 ];
 
@@ -30,11 +30,11 @@ const FeaturesSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Our Operational Principles
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+            Our Technology-Driven Operations
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            These principles anchor every decision. If an idea doesn't nourish people, stories, or helpers, it waits.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Cutting-edge technology integrated with proven operational methodologies. Every solution is tested, secure, and purpose-built for impact.
           </p>
         </div>
 
@@ -42,24 +42,24 @@ const FeaturesSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => {
             const colors = [
-              { bg: 'from-blue-500/20 to-blue-600/20', hover: 'hover:border-blue-400/50 hover:shadow-blue-500/20', icon: 'text-blue-400', title: 'group-hover:text-blue-300' },
-              { bg: 'from-violet-500/20 to-violet-600/20', hover: 'hover:border-violet-400/50 hover:shadow-violet-500/20', icon: 'text-violet-400', title: 'group-hover:text-violet-300' },
-              { bg: 'from-emerald-500/20 to-emerald-600/20', hover: 'hover:border-emerald-400/50 hover:shadow-emerald-500/20', icon: 'text-emerald-400', title: 'group-hover:text-emerald-300' },
-              { bg: 'from-cyan-500/20 to-cyan-600/20', hover: 'hover:border-cyan-400/50 hover:shadow-cyan-500/20', icon: 'text-cyan-400', title: 'group-hover:text-cyan-300' }
+              { bg: 'from-orange-50 to-yellow-50', hover: 'hover:border-orange-300 hover:shadow-orange-200/50', icon: 'text-orange-500', title: 'group-hover:text-orange-600' },
+              { bg: 'from-yellow-50 to-orange-50', hover: 'hover:border-yellow-300 hover:shadow-yellow-200/50', icon: 'text-yellow-500', title: 'group-hover:text-yellow-600' },
+              { bg: 'from-teal-50 to-blue-50', hover: 'hover:border-teal-300 hover:shadow-teal-200/50', icon: 'text-teal-500', title: 'group-hover:text-teal-600' },
+              { bg: 'from-blue-50 to-teal-50', hover: 'hover:border-blue-300 hover:shadow-blue-200/50', icon: 'text-blue-500', title: 'group-hover:text-blue-600' }
             ];
             const colorScheme = colors[index % colors.length];
             return (
               <div
                 key={index}
-                className={`group bg-gradient-to-br ${colorScheme.bg} backdrop-blur-sm rounded-xl p-6 border border-slate-700 ${colorScheme.hover} transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:-translate-y-2`}
+                className={`group bg-gradient-to-br ${colorScheme.bg} rounded-xl p-6 border border-gray-200 ${colorScheme.hover} transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:-translate-y-2`}
               >
-                <div className={`w-12 h-12 bg-gradient-to-br from-slate-700/50 to-slate-600/50 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                <div className={`w-12 h-12 bg-gradient-to-br from-white to-gray-50 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg border border-gray-200`}>
                   <feature.icon className={`w-6 h-6 ${colorScheme.icon}`} />
                 </div>
-                <h3 className={`text-xl font-semibold text-white mb-3 ${colorScheme.title} transition-colors`}>
+                <h3 className={`text-xl font-semibold text-gray-800 mb-3 ${colorScheme.title} transition-colors`}>
                   {feature.title}
                 </h3>
-                <p className="text-slate-300 leading-relaxed group-hover:text-slate-200 transition-colors">
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors">
                   {feature.description}
                 </p>
               </div>
@@ -69,22 +69,22 @@ const FeaturesSection: React.FC = () => {
 
         {/* Mission Statement */}
         <div className="mt-20 text-center">
-          <div className="bg-gradient-to-br from-slate-800/70 via-slate-700/50 to-slate-800/70 backdrop-blur-sm rounded-2xl p-8 border border-slate-600/30 max-w-4xl mx-auto shadow-xl shadow-slate-900/20">
+          <div className="bg-gradient-to-br from-white via-orange-50/50 to-yellow-50/50 rounded-2xl p-8 border border-orange-200/50 max-w-4xl mx-auto shadow-xl shadow-orange-100/20">
             <div className="relative">
-              <Shield className="w-16 h-16 text-transparent bg-gradient-to-br from-blue-400 via-violet-400 to-emerald-400 bg-clip-text mx-auto mb-6" />
-              <div className="absolute inset-0 w-16 h-16 bg-gradient-to-br from-blue-400/20 via-violet-400/20 to-emerald-400/20 rounded-full blur-xl mx-auto"></div>
+              <Shield className="w-16 h-16 text-orange-500 mx-auto mb-6" />
+              <div className="absolute inset-0 w-16 h-16 bg-gradient-to-br from-orange-200/50 to-yellow-200/50 rounded-full blur-xl mx-auto"></div>
             </div>
-            <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent mb-6">
+            <h3 className="text-3xl font-bold bg-gradient-to-r from-orange-500 via-yellow-500 to-teal-500 bg-clip-text text-transparent mb-6">
               Our Mission
             </h3>
-            <p className="text-xl text-slate-300 italic mb-6 font-serif">
-              "Through the unseen, we protect the sacred."
+            <p className="text-xl text-gray-700 italic mb-6 font-serif">
+              "Through advanced technology, we secure the future."
             </p>
-            <p className="text-slate-300 leading-relaxed text-lg">
-              Shaivra's mission is to act as a force multiplier for aligned organizations, communities, and individuals who serve the greater good. We provide tools, tactics and techniques that vulnerable people & their organizations are unable to access.
+            <p className="text-gray-700 leading-relaxed text-lg">
+              Shaivra operates as a technology force multiplier for mission-aligned organizations. We deploy enterprise-grade cybersecurity, AI intelligence, and operational frameworks to empower vulnerable communities with capabilities previously reserved for nation-states.
             </p>
             <div className="flex justify-center mt-6">
-              <div className="w-24 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
+              <div className="w-24 h-px bg-gradient-to-r from-transparent via-orange-400 to-transparent"></div>
             </div>
           </div>
         </div>

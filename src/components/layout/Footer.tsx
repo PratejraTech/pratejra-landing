@@ -1,5 +1,7 @@
+'use client'
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Shield, Mail, Phone, MapPin, Github, Twitter, Linkedin, Heart } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -41,25 +43,25 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold text-white">Navigation</h4>
             <nav className="space-y-3">
               <Link
-                to="/"
+                href="/"
                 className="block text-slate-300 hover:text-blue-400 transition-all duration-200 hover:translate-x-1"
               >
                 Home
               </Link>
               <Link
-                to="/about"
+                href="/about"
                 className="block text-slate-300 hover:text-blue-400 transition-all duration-200 hover:translate-x-1"
               >
                 About
               </Link>
               <Link
-                to="/services"
+                href="/services"
                 className="block text-slate-300 hover:text-blue-400 transition-all duration-200 hover:translate-x-1"
               >
                 Services
               </Link>
               <Link
-                to="/contact"
+                href="/contact"
                 className="block text-slate-300 hover:text-blue-400 transition-all duration-200 hover:translate-x-1"
               >
                 Contact

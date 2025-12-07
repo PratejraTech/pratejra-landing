@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { COMPONENT_ORDERS } from "../../constants";
 

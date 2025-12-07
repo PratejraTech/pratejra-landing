@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Project, ActiveSection } from "../../types";
+import { Project } from "../../types";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "../ui/carousel";
 import { getStatusBadgeColor } from "../../utils/status";
 import { useCarouselAutoRotate } from "../../hooks/useCarouselAutoRotate";

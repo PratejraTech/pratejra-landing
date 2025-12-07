@@ -1,4 +1,4 @@
-import { React.ComponentType } from "react";
+import { ComponentType } from "react";
 
 /**
  * Project status types
@@ -21,7 +21,7 @@ export type ActiveSection = 'home' | 'philosophy' | 'allies';
 export interface Project {
   name: string;
   url?: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: ComponentType<{ className?: string }>;
   description: string;
   status: ProjectStatus;
   statusColor: StatusColor;

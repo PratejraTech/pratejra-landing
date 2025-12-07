@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Shield, Radio, FolderLock } from "lucide-react";
 

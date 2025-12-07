@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { ANALYTICS_ENDPOINTS, EXTERNAL_URLS } from "../../constants";

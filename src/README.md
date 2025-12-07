@@ -5,7 +5,7 @@ A modern, responsive landing page for NUCLi OS built with React, TypeScript, Vit
 ## 🚀 Quick Deploy to Netlify
 
 ### Option 1: Drag and Drop (Easiest)
-1. Run `npm run build` locally
+1. Run `bun run build` locally
 2. Drag the `dist` folder to [Netlify's deploy page](https://app.netlify.com/drop)
 3. Your site will be live instantly!
 
@@ -15,17 +15,17 @@ A modern, responsive landing page for NUCLi OS built with React, TypeScript, Vit
 3. Click "New site from Git"
 4. Connect your GitHub repository
 5. Netlify will auto-detect the settings:
-   - Build command: `npm run build`
+   - Build command: `bun run build`
    - Publish directory: `dist`
 6. Click "Deploy site"
 
 ### Option 3: Netlify CLI
 ```bash
 # Install Netlify CLI
-npm install -g netlify-cli
+bun add -g netlify-cli
 
 # Build the project
-npm run build
+bun run build
 
 # Deploy to Netlify
 netlify deploy --prod --dir=dist
@@ -34,22 +34,22 @@ netlify deploy --prod --dir=dist
 ## 🛠️ Development
 
 ### Prerequisites
-- Node.js 18+ 
-- npm or yarn
+- Node.js 18+
+- Bun (recommended) or npm/yarn
 
 ### Local Development
 ```bash
 # Install dependencies
-npm install
+bun install
 
 # Start development server
-npm run dev
+bun dev
 
 # Build for production
-npm run build
+bun run build
 
 # Preview production build
-npm run preview
+bun run preview
 ```
 
 ## 📁 Project Structure

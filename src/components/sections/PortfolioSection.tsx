@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ExternalLink, Eye } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ExternalLink, Eye, TrendingUp, Users, Target, Award } from 'lucide-react';
 
 const portfolioItems = [
   {
@@ -52,7 +52,50 @@ const portfolioItems = [
   },
 ];
 
+const metrics = [
+  {
+    id: 1,
+    icon: TrendingUp,
+    value: '150+',
+    label: 'Operations Completed',
+    description: 'Successful field missions across diverse contexts'
+  },
+  {
+    id: 2,
+    icon: Users,
+    value: '50+',
+    label: 'Communities Served',
+    description: 'Organizations and groups empowered with solutions'
+  },
+  {
+    id: 3,
+    icon: Target,
+    value: '98%',
+    label: 'Success Rate',
+    description: 'Mission objectives achieved on time and within scope'
+  },
+  {
+    id: 4,
+    icon: Award,
+    value: '10K+',
+    label: 'Lives Impacted',
+    description: 'Individuals directly benefited from our interventions'
+  }
+];
+
 const PortfolioSection: React.FC = () => {
+  const [animatedValues, setAnimatedValues] = useState(metrics.map(() => 0));
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimatedValues(metrics.map(metric => {
+        const numValue = parseInt(metric.value.replace(/[^\d]/g, ''));
+        return numValue;
+      }));
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
   const [selectedItem, setSelectedItem] = useState<typeof portfolioItems[0] | null>(null);
 
   return (
@@ -66,6 +109,34 @@ const PortfolioSection: React.FC = () => {
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Examples from our recent missions. Each operation begins with a natural question: "What eases the strain right now?"
           </p>
+        </div>
+
+        {/* Metrics Section */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {metrics.map((metric, index) => {
+            const IconComponent = metric.icon;
+            return (
+              <div
+                key={metric.id}
+                className="bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-slate-700 hover:border-blue-400/30 transition-all duration-300 text-center"
+              >
+                <div className="flex justify-center mb-4">
+                  <div className="p-3 bg-blue-500/10 rounded-full">
+                    <IconComponent className="w-6 h-6 text-blue-400" />
+                  </div>
+                </div>
+                <div className="text-3xl font-bold text-white mb-2">
+                  {animatedValues[index] || 0}{metric.value.replace(/[\d]/g, '')}
+                </div>
+                <h3 className="text-lg font-semibold text-slate-200 mb-2">
+                  {metric.label}
+                </h3>
+                <p className="text-sm text-slate-400">
+                  {metric.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
 
         {/* Portfolio Grid */}

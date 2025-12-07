@@ -33,7 +33,7 @@ export const EXTERNAL_URLS = {
 } as const;
 
 export const ANALYTICS_ENDPOINTS = {
-  ALLIES_VISIT: "/api/analytics/allies-visit",
+  ALLIES_VISIT: "/functions/analytics/allies-visit",
 } as const;
 
 /**
