@@ -1,36 +1,18 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTheme } from 'next-themes';
 import { Menu, X, Shield, Sun, Moon } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const { theme, setTheme } = useTheme();
   const pathname = usePathname();
 
-  useEffect(() => {
-    const theme = localStorage.getItem('theme');
-    if (theme === 'light') {
-      setIsDark(false);
-      document.documentElement.classList.remove('dark');
-    } else {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
   const toggleTheme = () => {
-    const newIsDark = !isDark;
-    setIsDark(newIsDark);
-    if (newIsDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
   const navItems = [
@@ -101,7 +83,7 @@ const Header: React.FC = () => {
               className="p-3 rounded-xl bg-slate-800/50 hover:bg-slate-700/50 text-slate-400 hover:text-white transition-all duration-200 hover:shadow-lg hover:shadow-slate-900/20"
               aria-label="Toggle theme"
             >
-              {isDark ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+              {theme === 'dark' ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
             </button>
 
             {/* Mobile menu button */}

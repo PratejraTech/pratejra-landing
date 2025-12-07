@@ -1,15 +1,11 @@
 'use client'
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Toaster as Sonner, ToasterProps } from "sonner";
+import { useTheme } from "next-themes";
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
-
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    setTheme(storedTheme === "light" ? "light" : "dark");
-  }, []);
+  const { theme } = useTheme();
 
   return (
     <Sonner
