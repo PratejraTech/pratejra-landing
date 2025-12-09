@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
@@ -8,15 +8,21 @@ import { Menu, X, Shield, Sun, Moon } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
   const pathname = usePathname();
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
   };
 
   const navItems = [
     { path: '/', label: 'Home' },
+    { path: '/allies', label: 'Allies' },
     { path: '/about', label: 'About' },
     { path: '/services', label: 'Services' },
     { path: '/contact', label: 'Contact' },
@@ -47,9 +53,10 @@ const Header: React.FC = () => {
             {navItems.map((item, index) => {
               const colors = [
                 'hover:text-blue-400 hover:bg-blue-900/20',
-                'hover:text-violet-400 hover:bg-violet-900/20',
                 'hover:text-emerald-400 hover:bg-emerald-900/20',
-                'hover:text-cyan-400 hover:bg-cyan-900/20'
+                'hover:text-violet-400 hover:bg-violet-900/20',
+                'hover:text-cyan-400 hover:bg-cyan-900/20',
+                'hover:text-orange-400 hover:bg-orange-900/20'
               ];
               return (
                  <Link
@@ -83,7 +90,7 @@ const Header: React.FC = () => {
               className="p-3 rounded-xl bg-slate-800/50 hover:bg-slate-700/50 text-slate-400 hover:text-white transition-all duration-200 hover:shadow-lg hover:shadow-slate-900/20"
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+              {mounted && (resolvedTheme === 'dark' ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />)}
             </button>
 
             {/* Mobile menu button */}
@@ -104,9 +111,10 @@ const Header: React.FC = () => {
               {navItems.map((item, index) => {
                 const colors = [
                   'hover:text-blue-400 hover:bg-blue-900/20',
-                  'hover:text-violet-400 hover:bg-violet-900/20',
                   'hover:text-emerald-400 hover:bg-emerald-900/20',
-                  'hover:text-cyan-400 hover:bg-cyan-900/20'
+                  'hover:text-violet-400 hover:bg-violet-900/20',
+                  'hover:text-cyan-400 hover:bg-cyan-900/20',
+                  'hover:text-orange-400 hover:bg-orange-900/20'
                 ];
                 return (
                    <Link

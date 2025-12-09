@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     default: 'Pratejra/Shaivra - The Veil Between Worlds',
     template: '%s | Pratejra/Shaivra'
   },
-  description: 'Empowering communities with enterprise-grade cybersecurity across five continents. Advanced threat mitigation, AI-driven responses, and multilingual AI models for global operations.',
-  keywords: ['cybersecurity', 'AI', 'threat mitigation', 'enterprise security', 'global operations', 'multilingual AI'],
+  description: 'Protecting communities, activists, and cultural stewards with advanced cybersecurity. AI-enhanced protectors deploying quantum security and discreet operations for those who care for others.',
+  keywords: ['cybersecurity', 'community protection', 'activist security', 'non-profit defense', 'cultural preservation', 'benevolent AI', 'quantum security'],
   authors: [{ name: 'Pratejra Team' }],
   creator: 'Pratejra',
   publisher: 'Pratejra',

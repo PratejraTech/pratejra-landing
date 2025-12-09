@@ -123,20 +123,7 @@ const Footer: React.FC = () => {
               </a>
             </div>
 
-            {/* Newsletter Signup */}
-            <div className="space-y-3">
-              <h5 className="text-sm font-medium text-slate-300">Stay Updated</h5>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Enter email"
-                  className="flex-1 px-3 py-2 bg-slate-800/50 border border-slate-600 rounded-l-lg text-slate-300 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50"
-                />
-                <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-700 hover:to-violet-700 text-white rounded-r-lg transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25">
-                  Join
-                </button>
-              </div>
-            </div>
+
           </div>
         </div>
 
