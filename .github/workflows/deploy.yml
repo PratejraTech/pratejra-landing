@@ -13,17 +13,16 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v1
       with:
-        node-version: '18'
-        cache: 'npm'
+        bun-version: latest
 
     - name: Install dependencies
-      run: npm ci
+      run: bun install
 
     - name: Build
-      run: npm run build:pages
+      run: bun run build:pages
 
     - name: Deploy to Cloudflare Pages
       uses: cloudflare/pages-action@v1
