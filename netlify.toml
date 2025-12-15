@@ -23,11 +23,8 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
-# Next.js rewrites for SPA routing
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
+# Next.js API routes handled by Next.js (not Netlify functions)
+# Removed API redirect to avoid conflicts with Next.js API routes
 
 # Security headers (Next.js handles most of these, but we can add additional ones)
 [[headers]]

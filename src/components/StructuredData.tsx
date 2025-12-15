@@ -1,10 +1,10 @@
 interface StructuredDataProps {
-  type?: 'website' | 'organization' | 'article'
-  data?: Record<string, any>
+  type?: 'website' | 'organization' | 'article';
+  data?: Record<string, unknown>;
 }
 
 export default function StructuredData({ type = 'website', data }: StructuredDataProps) {
-  const baseData: Record<string, any> = {
+  const baseData: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': type === 'website' ? 'WebSite' : type === 'organization' ? 'Organization' : 'Article',
     name: 'Pratejra',

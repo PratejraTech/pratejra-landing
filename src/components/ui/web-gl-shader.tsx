@@ -10,7 +10,7 @@ export function WebGLShader() {
     camera: THREE.OrthographicCamera | null
     renderer: THREE.WebGLRenderer | null
     mesh: THREE.Mesh | null
-    uniforms: any
+    uniforms: Record<string, { value: unknown }> | null
     animationId: number | null
   }>({
     scene: null,
@@ -102,7 +102,9 @@ export function WebGLShader() {
     }
 
     const animate = () => {
-      if (refs.uniforms) refs.uniforms.time.value += 0.005
+      if (refs.uniforms?.time?.value !== undefined) {
+        ;(refs.uniforms.time.value as number) += 0.005
+      }
       if (refs.renderer && refs.scene && refs.camera) {
         refs.renderer.render(refs.scene, refs.camera)
       }
@@ -114,7 +116,9 @@ export function WebGLShader() {
       const width = window.innerWidth
       const height = window.innerHeight
       refs.renderer.setSize(width, height, false)
-      refs.uniforms.resolution.value = [width, height]
+      if (refs.uniforms?.resolution?.value) {
+        ;(refs.uniforms.resolution.value as THREE.Vector2).set(width, height)
+      }
     }
 
     initScene()

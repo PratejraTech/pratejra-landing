@@ -98,6 +98,36 @@
       "namedRegex": "^/philosophy(?:/)?$"
     },
     {
+      "page": "/portal/activity",
+      "regex": "^/portal/activity(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/portal/activity(?:/)?$"
+    },
+    {
+      "page": "/portal/dashboard",
+      "regex": "^/portal/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/portal/dashboard(?:/)?$"
+    },
+    {
+      "page": "/portal/login",
+      "regex": "^/portal/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/portal/login(?:/)?$"
+    },
+    {
+      "page": "/portal/messages",
+      "regex": "^/portal/messages(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/portal/messages(?:/)?$"
+    },
+    {
+      "page": "/portal/projects",
+      "regex": "^/portal/projects(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/portal/projects(?:/)?$"
+    },
+    {
       "page": "/robots.txt",
       "regex": "^/robots\\.txt(?:/)?$",
       "routeKeys": {},

@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}";
+self.__REACT_LOADABLE_MANIFEST='{"src/components/portal/PGPMessageComposer.tsx -> openpgp":{"id":1965,"files":["static/chunks/afd8b658.b63239fc52a02c63.js"]}}';

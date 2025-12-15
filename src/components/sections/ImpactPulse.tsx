@@ -68,7 +68,7 @@ export const ImpactPulse = React.memo(function ImpactPulse() {
         </motion.header>
 
         {/* Stats Grid */}
-         <div ref={statsRef as any} className="modern-grid stagger-animation">
+          <div ref={statsRef as React.RefObject<HTMLDivElement>} className="modern-grid stagger-animation">
           {stats.map((stat, idx) => (
             <motion.article
               key={stat.label}

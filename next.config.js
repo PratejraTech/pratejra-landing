@@ -15,6 +15,10 @@ const nextConfig = {
   experimental: {
     optimizeCss: false,
   },
+  // Disable static generation for API routes to prevent Prisma build issues
+  generateBuildId: async () => {
+    return 'build-' + Date.now()
+  },
   outputFileTracingRoot: __dirname,
   // Compression
   compress: true,
