@@ -4,11 +4,36 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { TypewriterText } from '../ui/TypewriterText';
 import { MagicButton } from '../ui/MagicButton';
+import { OptimizedImage } from '../ui/optimized-image';
 
 const HeroSection: React.FC = () => {
   return (
     <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto text-center">
+        {/* Enhanced Logo */}
+        <div className="mb-12 flex justify-center">
+          <div className="relative">
+            {/* Dotted Shader Background */}
+            <div className="absolute inset-0 rounded-full opacity-30">
+              <div className="w-full h-full rounded-full border-2 border-dashed border-emerald-400/50 animate-pulse"></div>
+              <div className="absolute inset-2 rounded-full border border-dashed border-teal-400/30 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+              <div className="absolute inset-4 rounded-full border border-dashed border-cyan-400/20 animate-pulse" style={{animationDelay: '1s'}}></div>
+            </div>
+
+            {/* Black Circular Frame */}
+            <div className="relative bg-black rounded-full p-4 shadow-2xl border border-gray-800">
+              <OptimizedImage
+                src="/media/logo.png"
+                alt="Pratejra Logo"
+                width={120}
+                height={120}
+                className="object-contain rounded-full"
+                priority={true}
+              />
+            </div>
+          </div>
+        </div>
+
         {/* Main Headline */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
           <TypewriterText
