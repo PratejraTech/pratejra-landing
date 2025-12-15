@@ -3,7 +3,7 @@
 
 type AppRoutes = "/" | "/about" | "/allies" | "/contact" | "/philosophy" | "/services"
 type AppRouteHandlerRoutes = "/api/analytics/allies-visit" | "/api/health" | "/api/projects"
-type PageRoutes = "/About" | "/Contact" | "/Home" | "/Services"
+type PageRoutes = never
 type LayoutRoutes = "/"
 type RedirectRoutes = never
 type RewriteRoutes = never
@@ -13,17 +13,13 @@ type Routes = AppRoutes | PageRoutes | LayoutRoutes | RedirectRoutes | RewriteRo
 interface ParamMap {
   "/": {}
   "/about": {}
-  "/About": {}
   "/allies": {}
   "/api/analytics/allies-visit": {}
   "/api/health": {}
   "/api/projects": {}
   "/contact": {}
-  "/Contact": {}
-  "/Home": {}
   "/philosophy": {}
   "/services": {}
-  "/Services": {}
 }
 
 

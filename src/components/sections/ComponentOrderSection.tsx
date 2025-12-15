@@ -42,7 +42,7 @@ export function ComponentOrderSection() {
               transition={{ duration: 0.4, delay: idx * 0.05 }}
               className="relative md:pl-16"
             >
-              <div className="flex gap-4 items-start rounded-xl border border-emerald-500/20 bg-gradient-to-br from-foreground/5 via-transparent to-transparent p-6 hover:border-emerald-500/40 transition-all duration-300">
+              <div className="flex gap-4 items-start rounded-xl border border-emerald-500/30 bg-black/40 backdrop-blur-md p-6 hover:border-emerald-400 hover:shadow-2xl hover:shadow-emerald-500/20 transition-all duration-300">
                 <div className="flex flex-col items-center flex-shrink-0">
                   <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-sm font-semibold text-emerald-100">
                     {component.id}

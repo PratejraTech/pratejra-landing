@@ -61,7 +61,7 @@ export function AlliesCallToAction() {
   ];
 
   const engagementSteps = [
-    "Share what you\'re caring for and the immediate pinch points.",
+    "Share what you're caring for and the immediate pinch points.",
     "Let us know who must stay safe, unseen, or anonymous.",
     "Tell us how fast you need help and what success feels like for your people."
   ];

@@ -24,8 +24,8 @@ export const CAROUSEL_CONFIG = {
  * External URLs
  */
 export const EXTERNAL_URLS = {
-  GITHUB: "https://github.com/PratejraTech",
-  EMAIL: "mailto:core@pratejra.build",
+  GITHUB: "https://github.com/pratejratech",
+  EMAIL: "mailto:core@pratejratech.build",
   ALLIES_FORM: "https://forms.gle/pratejra-allies-intake",
   TIMELESS_LOVE: "https://timelesslove.ai",
   RISE_STRONG: "https://risestrong.app",
@@ -63,10 +63,10 @@ export const INITIAL_PROJECTS: Project[] = [
     status: 'in-dev',
     statusColor: 'yellow',
   },
-  {
+   {
     name: 'Pratejra',
     icon: PratejraSwordIcon,
-    description: 'Calm builders pairing tech, care, and quiet strategy.',
+    description: 'Elite cybersecurity protectors serving communities and activists with AI-enhanced security.',
     status: 'new',
     statusColor: 'green',
     isInternal: true,

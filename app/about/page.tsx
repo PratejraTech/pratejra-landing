@@ -1,4 +1,5 @@
-import About from '@/pages/About'
+import React from 'react';
+import { PhilosophySection } from '@/components/sections/PhilosophySection';
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -11,5 +12,9 @@ export const metadata: Metadata = {
 }
 
 export default function AboutPage() {
-  return <About />
+  return (
+    <div className="min-h-screen py-20">
+      <PhilosophySection />
+    </div>
+  );
 }

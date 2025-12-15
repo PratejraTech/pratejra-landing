@@ -7,12 +7,12 @@ export default function StructuredData({ type = 'website', data }: StructuredDat
   const baseData: Record<string, any> = {
     '@context': 'https://schema.org',
     '@type': type === 'website' ? 'WebSite' : type === 'organization' ? 'Organization' : 'Article',
-    name: 'Pratejra/Shaivra',
-    description: 'Empowering communities with enterprise-grade cybersecurity across five continents. Advanced threat mitigation, AI-driven responses, and multilingual AI models for global operations.',
-    url: 'https://pratejra.build',
-    logo: 'https://pratejra.build/logo.png',
+    name: 'Pratejra',
+    description: 'Elite cybersecurity protectors serving communities, activists, and cultural stewards. AI-enhanced guardians deploying quantum security, discreet operations, and benevolent technology for those who protect others.',
+    url: 'https://pratejratech.build',
+    logo: 'https://pratejratech.build/logo.png',
     sameAs: [
-      'https://github.com/pratejra',
+      'https://github.com/pratejratech',
       // Add other social media profiles here
     ],
     ...data,
@@ -21,14 +21,17 @@ export default function StructuredData({ type = 'website', data }: StructuredDat
   if (type === 'organization') {
     baseData.foundingDate = '2024'
     baseData.founder = {
-      '@type': 'Person',
-      name: 'Pratejra Team',
+      '@type': 'Organization',
+      name: 'Pratejra Core Team',
     }
     baseData.contactPoint = {
       '@type': 'ContactPoint',
       email: 'core@pratejra.build',
       contactType: 'customer service',
+      availableLanguage: ['English'],
     }
+    baseData.areaServed = 'Worldwide'
+    baseData.serviceType = 'Cybersecurity, Digital Protection, AI Security'
   }
 
   return (

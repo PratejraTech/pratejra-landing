@@ -1,0 +1,14 @@
+{
+  "/api/analytics/allies-visit/route": "/api/analytics/allies-visit",
+  "/api/health/route": "/api/health",
+  "/api/projects/route": "/api/projects",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/robots.txt/route": "/robots.txt",
+  "/_not-found/page": "/_not-found",
+  "/allies/page": "/allies",
+  "/philosophy/page": "/philosophy",
+  "/services/page": "/services",
+  "/about/page": "/about",
+  "/contact/page": "/contact",
+  "/page": "/"
+}

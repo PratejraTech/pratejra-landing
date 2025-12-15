@@ -76,55 +76,55 @@ export const ImpactPulse = React.memo(function ImpactPulse() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="rounded-xl border border-orange-200 bg-white p-6 text-center hover:border-orange-300 hover:shadow-lg hover:shadow-orange-100/50 transition-all duration-300"
+              className="rounded-xl border border-orange-500/30 bg-black/40 backdrop-blur-md p-6 text-center hover:border-orange-400 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300"
             >
-              <p className="text-xs uppercase tracking-[0.3em] text-gray-500 mb-3">{stat.label}</p>
-              <p className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-3">{stat.value}</p>
-              <p className="text-sm text-gray-600 leading-relaxed">{stat.detail}</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-3">{stat.label}</p>
+              <p className="text-2xl sm:text-3xl font-semibold text-white mb-3">{stat.value}</p>
+              <p className="text-sm text-gray-300 leading-relaxed">{stat.detail}</p>
             </motion.article>
           ))}
         </div>
 
         {/* Practices and Field Notes */}
         <div className="asymmetric-grid asymmetric-grid-2 gap-12">
-           <div ref={fieldNotesRef as any} className="space-y-6 bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+           <div ref={fieldNotesRef as any} className="space-y-6 bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-gray-600/30 shadow-2xl">
             <div>
-              <p className="text-sm uppercase tracking-[0.4em] text-orange-600 mb-2">Field Operations</p>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Recent Mission Examples</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm uppercase tracking-[0.4em] text-orange-400 mb-2">Field Operations</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Recent Mission Examples</h3>
+              <p className="text-sm text-gray-300">
                 Each deployment begins with a critical question: "How can technology ease the burden right now?"
               </p>
             </div>
             <div className="space-y-4">
               {fieldNotes.map((note, idx) => (
-                <div key={note.title} className="rounded-lg border border-gray-200 bg-gray-50 p-4 hover:border-orange-300 hover:bg-orange-50/50 transition-all duration-300">
-                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-gray-500 mb-2">
+                <div key={note.title} className="rounded-lg border border-gray-600/30 bg-black/20 p-4 hover:border-orange-400 hover:bg-orange-900/20 transition-all duration-300">
+                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">
                     <span>{note.tag}</span>
                     <span>{idx + 1}</span>
                   </div>
-                  <p className="text-base font-medium text-gray-800 mb-1">{note.title}</p>
-                  <p className="text-sm text-gray-600">{note.description}</p>
+                  <p className="text-base font-medium text-white mb-1">{note.title}</p>
+                  <p className="text-sm text-gray-300">{note.description}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div ref={practicesRef as any} className="space-y-6 bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+          <div ref={practicesRef as any} className="space-y-6 bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-gray-600/30 shadow-2xl">
             <div>
-              <p className="text-sm uppercase tracking-[0.4em] text-teal-600 mb-2">Operational Framework</p>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Our Proven Methodology</h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm uppercase tracking-[0.4em] text-teal-400 mb-2">Operational Framework</p>
+              <h3 className="text-xl font-semibold text-white mb-2">Our Proven Methodology</h3>
+              <p className="text-sm text-gray-300">
                 These principles ensure sustainable, effective operations. Quality over speed, always.
               </p>
             </div>
             <div className="space-y-3">
               {practices.map((practice, idx) => (
-                <div key={practice.title} className="p-4 rounded-lg bg-gray-50 border border-gray-200 hover:border-teal-300 hover:bg-teal-50/50 transition-all duration-300">
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-500 mb-1">
+                <div key={practice.title} className="p-4 rounded-lg bg-black/20 border border-gray-600/30 hover:border-teal-400 hover:bg-teal-900/20 transition-all duration-300">
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-1">
                     Phase {idx + 1}
                   </p>
-                  <p className="text-base text-gray-800 font-medium mb-1">{practice.title}</p>
-                  <p className="text-sm text-gray-600">{practice.description}</p>
+                  <p className="text-base text-white font-medium mb-1">{practice.title}</p>
+                  <p className="text-sm text-gray-300">{practice.description}</p>
                 </div>
               ))}
             </div>

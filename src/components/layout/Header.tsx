@@ -5,12 +5,14 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { Menu, X, Shield, Sun, Moon } from 'lucide-react';
+import { useMouseTrail } from '../../hooks/useMouseTrail';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
   const pathname = usePathname();
+  const trail = useMouseTrail();
 
   useEffect(() => {
     setMounted(true);
@@ -135,6 +137,20 @@ const Header: React.FC = () => {
           </div>
         )}
       </div>
+
+      {/* Mouse Trail Effect */}
+      {trail.map((point, index) => (
+        <div
+          key={point.id}
+          className="fixed pointer-events-none w-3 h-3 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full opacity-70 animate-pulse z-50"
+          style={{
+            left: point.x - 6,
+            top: point.y - 6,
+            animationDelay: `${index * 25}ms`,
+            filter: `blur(${index * 0.05}px)`,
+          }}
+        />
+      ))}
     </header>
   );
 };

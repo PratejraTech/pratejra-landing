@@ -56,8 +56,7 @@
   ],
   "exclude": [
     "node_modules",
-    "build",
-    "src/pages"
+    "build"
   ],
   "ts-node": {
     "esm": true

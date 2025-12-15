@@ -11,12 +11,12 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'Pratejra/Shaivra - The Veil Between Worlds',
-    template: '%s | Pratejra/Shaivra'
+    default: 'Pratejra - Guardians of the Veil',
+    template: '%s | Pratejra'
   },
-  description: 'Protecting communities, activists, and cultural stewards with advanced cybersecurity. AI-enhanced protectors deploying quantum security and discreet operations for those who care for others.',
-  keywords: ['cybersecurity', 'community protection', 'activist security', 'non-profit defense', 'cultural preservation', 'benevolent AI', 'quantum security'],
-  authors: [{ name: 'Pratejra Team' }],
+  description: 'Elite cybersecurity protectors serving communities, activists, and cultural stewards. AI-enhanced guardians deploying quantum security, discreet operations, and benevolent technology for those who protect others.',
+  keywords: ['cybersecurity', 'community protection', 'activist security', 'non-profit defense', 'cultural preservation', 'benevolent AI', 'quantum security', 'digital guardians'],
+  authors: [{ name: 'Pratejra Core Team' }],
   creator: 'Pratejra',
   publisher: 'Pratejra',
   formatDetection: {
@@ -24,30 +24,30 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://pratejra.build'),
+  metadataBase: new URL('https://pratejratech.build'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://pratejra.build',
-    title: 'Pratejra/Shaivra - The Veil Between Worlds',
-    description: 'Empowering communities with enterprise-grade cybersecurity across five continents.',
+    url: 'https://pratejratech.build',
+    title: 'Pratejra - Guardians of the Veil',
+    description: 'Elite cybersecurity protectors serving communities, activists, and cultural stewards with AI-enhanced security and benevolent technology.',
     siteName: 'Pratejra',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Pratejra/Shaivra - Cybersecurity Solutions',
+        alt: 'Pratejra - Elite Cybersecurity Guardians',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pratejra/Shaivra - The Veil Between Worlds',
-    description: 'Empowering communities with enterprise-grade cybersecurity across five continents.',
+    title: 'Pratejra - Guardians of the Veil',
+    description: 'Elite cybersecurity protectors serving communities, activists, and cultural stewards with AI-enhanced security and benevolent technology.',
     images: ['/og-image.jpg'],
     creator: '@pratejra',
   },

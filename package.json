@@ -55,6 +55,8 @@
     "@types/react": "18.3.27",
     "@types/react-dom": "^18.3.1",
     "@types/three": "^0.181.0",
+    "@typescript-eslint/eslint-plugin": "^8.49.0",
+    "@typescript-eslint/parser": "^8.49.0",
     "eslint": "^9",
     "eslint-config-next": "16.0.7",
     "typescript": "5.9.3"
@@ -83,8 +85,6 @@
     "docker:build": "DOCKER_BUILD=true docker build -t pratejra-landing .",
     "docker:run": "docker run -p 3000:3000 pratejra-landing",
     "docker:build:run": "bun run docker:build && bun run docker:run",
-    "docker:build": "docker build -t pratejra-landing .",
-    "docker:run": "docker run -p 3000:3000 pratejra-landing",
     "docker:push": "docker tag pratejra-landing registry.pratejra.build/pratejra-landing && docker push registry.pratejra.build/pratejra-landing",
     "prebuild": "bun run type-check",
     "postinstall": "bun run type-check"

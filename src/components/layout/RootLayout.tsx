@@ -1,5 +1,6 @@
 import React from 'react';
 import { WebGLShader } from '../ui/web-gl-shader';
+import { ScrollProgress } from '../ui/ScrollProgress';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -10,6 +11,7 @@ interface RootLayoutProps {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen relative overflow-hidden">
+      <ScrollProgress />
       {/* WebGL Shader Background - Fixed, full viewport */}
       <WebGLShader />
 

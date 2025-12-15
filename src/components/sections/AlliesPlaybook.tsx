@@ -56,7 +56,7 @@ export function AlliesPlaybook() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="rounded-3xl border border-emerald-500/20 bg-gradient-to-br from-foreground/5 via-transparent to-transparent p-6 flex flex-col gap-4 shadow-lg shadow-emerald-950/30 hover:border-emerald-500/40 transition-all duration-300"
+                className="rounded-3xl border border-emerald-500/30 bg-black/40 backdrop-blur-md p-6 flex flex-col gap-4 shadow-2xl shadow-emerald-950/50 hover:border-emerald-400 hover:shadow-emerald-500/20 transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center text-emerald-100">
                   <Icon className="w-6 h-6" />
