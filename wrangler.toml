@@ -7,8 +7,3 @@ pages_build_output_dir = "build"
 NODE_VERSION = "20"
 NEXT_PUBLIC_SITE_URL = "https://pratejra.build"
 NEXT_PUBLIC_API_URL = "https://api.pratejra.build"
-
-[[pages_build_config]]
-build_command = "bun run build"
-destination_dir = "build"
-root_dir = "."

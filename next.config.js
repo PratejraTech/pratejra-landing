@@ -14,12 +14,18 @@ const nextConfig = {
   // Disable CSS optimization to avoid critters issue
   experimental: {
     optimizeCss: false,
+    // Disable API routes for Cloudflare Pages deployment
+    serverComponentsExternalPackages: [],
   },
   // Disable static generation for API routes to prevent Prisma build issues
   generateBuildId: async () => {
     return 'build-' + Date.now()
   },
   outputFileTracingRoot: __dirname,
+  // Disable API routes for Cloudflare Pages (they conflict with Pages Functions)
+  api: {
+    externalResolver: true,
+  },
   // Compression
   compress: true,
   // Security headers
