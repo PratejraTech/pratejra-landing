@@ -127,9 +127,10 @@ src/
 - Validate form submissions and state changes
 
 ## Deployment
-- Built for Netlify deployment
+- Development: Deploy using Cloudflare Pages for preview and QA.
+- Production: Deploy to AWS (S3/CloudFront, Amplify, or similar) for live traffic.
 - Static site generation
-- Environment-specific configurations in `netlify.toml`
+- Environment-specific configurations handled via `.env` and deployment platform settings
 
 ## Important Notes for AI Agents
 - Always check existing code patterns before making changes
