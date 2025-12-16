@@ -1,10 +1,77 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const HeroSystemStatus: React.FC = () => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+
+    // Stagger animation start
+    const timer = setTimeout(() => setIsVisible(true), 600);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
-    <div className="flex items-center justify-center gap-4 py-6 px-8 bg-guardian-900/20 rounded-full border border-wisdom-500/20 backdrop-blur-sm">
-      <div className="w-4 h-4 bg-wisdom-500 rounded-full animate-pulse shadow-sm shadow-wisdom-500/50"></div>
-      <span className="text-wisdom-400 font-medium text-lg tracking-wide">System Active</span>
+    <div className={`flex items-center justify-center gap-8 py-10 px-12 bg-gradient-to-r from-guardian-900/40 to-wisdom-900/30 backdrop-blur-lg rounded-3xl border border-wisdom-500/40 shadow-2xl shadow-wisdom-500/10 hover:border-wisdom-400/60 hover:shadow-wisdom-400/20 transition-all duration-500 group cursor-pointer ${
+      !prefersReducedMotion && isVisible ? 'hover:scale-105' : ''
+    }`}>
+      {/* Optimized indicator with conditional animations */}
+      <div className={`relative transition-transform duration-500 ${
+        !prefersReducedMotion && isVisible ? 'group-hover:scale-110' : ''
+      }`}>
+        {/* Primary pulse - always visible but conditional animation */}
+        <div className={`w-6 h-6 bg-wisdom-500 rounded-full shadow-xl shadow-wisdom-500/60 ${
+          !prefersReducedMotion && isVisible ? 'animate-pulse' : ''
+        }`} />
+
+        {/* Secondary effects - only if motion is allowed */}
+        {!prefersReducedMotion && isVisible && (
+          <>
+            <div
+              className="absolute inset-0 w-6 h-6 bg-wisdom-400/40 rounded-full animate-ping shadow-lg shadow-wisdom-400/30"
+              style={{animationDuration: '2.5s'}}
+            />
+            <div
+              className="absolute inset-1 w-4 h-4 bg-community-400/30 rounded-full animate-pulse"
+              style={{animationDelay: '1s', animationDuration: '3s'}}
+            />
+          </>
+        )}
+
+        {/* Inner highlight */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent group-hover:from-white/30 transition-all duration-500" />
+
+        {/* Interactive ripple effect - conditional */}
+        {!prefersReducedMotion && isVisible && (
+          <div className="absolute inset-0 rounded-full bg-wisdom-400/20 opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-500" />
+        )}
+      </div>
+
+      {/* Enhanced text with gradient */}
+      <span className="text-transparent bg-gradient-to-r from-wisdom-300 to-community-300 bg-clip-text font-bold text-xl tracking-wider group-hover:from-wisdom-200 group-hover:to-community-200 transition-all duration-500">
+        System Active
+      </span>
+
+      {/* Enhanced background glow */}
+      <div className="absolute inset-0 rounded-3xl bg-wisdom-400/5 blur-xl group-hover:bg-wisdom-400/10 transition-all duration-500" />
+
+      {/* Shimmer effect on hover - conditional */}
+      {!prefersReducedMotion && isVisible && (
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity duration-500" />
+      )}
     </div>
   );
 };

@@ -24,17 +24,29 @@ const HeroPanel: React.FC = () => {
   ];
 
   return (
-    <section className="min-h-screen flex flex-col px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section
+      className="min-h-screen flex flex-col px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      style={{
+        contain: 'layout style paint',
+        willChange: 'transform'
+      }}
+    >
       {/* Background Layer */}
       <HeroBackground />
 
       {/* Header Zone - Logo */}
-      <header className="relative z-10 pt-16 pb-12">
+      <header
+        className="relative z-10 pt-16 pb-12"
+        style={{ contain: 'layout style' }}
+      >
         <HeroLogo />
       </header>
 
       {/* Main Content Zone - Centered */}
-      <main className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto text-center space-y-16">
+      <main
+        className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto text-center space-y-16"
+        style={{ contain: 'layout style' }}
+      >
         <HeroTitle />
         <HeroNavigation navItems={navItems} currentPath={pathname} />
         <HeroSystemStatus />
@@ -42,7 +54,10 @@ const HeroPanel: React.FC = () => {
       </main>
 
       {/* Footer Zone - Scroll Indicator */}
-      <footer className="relative z-10 pb-8">
+      <footer
+        className="relative z-10 pb-8"
+        style={{ contain: 'layout style' }}
+      >
         <HeroScrollIndicator />
       </footer>
     </section>
