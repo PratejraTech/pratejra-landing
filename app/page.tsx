@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import HeroSection from '@/components/sections/HeroSection';
+import HeroPanel from '@/components/sections/HeroPanel';
 
 // Dynamically import sections below the fold for better code splitting
 const CommunityValue = dynamic(() => import('@/components/sections/CommunityValue'), {
@@ -20,7 +20,7 @@ export const revalidate = 86400
 export default function Page() {
   return (
     <div className="min-h-screen">
-      <HeroSection />
+      <HeroPanel />
       <CommunityValue />
       <ImpactPulse />
       <AlliesPlaybook />
