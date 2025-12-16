@@ -3,7 +3,14 @@ import type { NextRequest } from 'next/server'
 import { verifyToken } from './src/lib/auth/jwt'
 
 // Domain and email restrictions
-const ALLOWED_DOMAINS = ['pratejra.build', 'alexandermoir.com']
+const ALLOWED_DOMAINS = [
+  'pratejra.build',
+  'alexandermoir.com',
+  'localhost:3004',
+  'localhost:3000',
+  '127.0.0.1:3004',
+  '127.0.0.1:3000'
+]
 const ALLOWED_EMAILS = ['alex@alexandermoir.com']
 
 // Routes that require authentication
