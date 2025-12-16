@@ -1,21 +1,32 @@
-# Repository Guidelines
+# Agent Guidelines for Pratejra Landing
 
-## Project Structure & Module Organization
-This is a Next.js App Router project. Route segments, layouts, and server components live in `app/`, while API handlers sit under `app/api/*`. UI primitives stay in `src/components` (group feature blocks under `components/sections/*` and shared shells under `components/layout/`). Keep shared logic in `src/hooks`, `src/utils`, and `src/lib`, with design tokens and copy centralized in `src/constants`, `src/types`, and `src/styles`. Prisma schema and migrations are under `prisma/`, and all static assets (icons, fonts, OG images) belong in `public/`. Colocate any future tests as `FeatureName.test.tsx` beside the component they cover.
+## Commands
+- **Install**: `bun install` (always use bun)
+- **Dev**: `bun run dev` (Next.js on localhost:3000)
+- **Build**: `bun run build` (production bundle + type checks)
+- **Lint**: `bun run lint` / `bun run lint:fix` (ESLint with Next config)
+- **Type Check**: `bun run type-check` (tsc --noEmit)
+- **Verify**: `bun run verify` (type-check + build + deploy ready check)
+- **Test**: No tests yet - use `echo "No tests specified"` placeholder
 
-## Build, Test, and Development Commands
-- `npm install` or `bun install`: install dependencies defined in `package.json`.
-- `npm run dev`: start Next.js locally on http://localhost:3000 with hot reload.
-- `npm run build`: create the production bundle and run the Next.js type checks.
-- `npm run lint` / `npm run lint:fix`: execute ESLint with the Next config.
-- `npm run type-check`: run `tsc --noEmit` for faster iteration on types.
-- `npm run verify`: chained `type-check` and `build` for pre-PR validation.
+## Code Style
+- **Language**: TypeScript strict mode, 2-space indentation, ES2022 target
+- **Imports**: Use `@/*` path aliases, group by: React, external libs, internal modules
+- **Components**: PascalCase, arrow functions, Server Components by default
+- **Hooks/Functions**: camelCase (`useProjectDescriptions`, `formatProject`)
+- **Styling**: Tailwind via `clsx` + `class-variance-authority` + `tailwind-merge`
+- **Types**: Strict typing, no `any`, use interfaces for objects, prefer unions over enums
+- **Error Handling**: Try/catch for async operations, throw descriptive errors, no silent failures
+- **Naming**: Descriptive names, early returns, composition over inheritance
 
-## Coding Style & Naming Conventions
-Use TypeScript with 2-space indentation, React Server Components by default, and Tailwind utilities defined in `tailwind.config.js`. Components are PascalCase (`MissionObjectives`), hooks and helpers stay camelCase (`useProjectDescriptions`, `formatProject`). Favor arrow functions, early returns, and composition via `clsx`/`class-variance-authority`, then resolve Tailwind collisions with `tailwind-merge`. Reference shared tokens from `src/constants` rather than scattering literals, and keep environment-specific values in `.env.local` (never commit secrets).
+## Cursor Rules
+Follow `.cursor/rules/react_vite.mdc`: READ project structure first, MAP changes to correct files, PLAN minimal changes, APPLY conservatively, TEST thoroughly, REFLECT on changes. Never change build system, routing, or introduce breaking changes without explicit instruction.
 
-## Testing Guidelines
-There is no dedicated test suite yet, so rely on manual QA. Before sharing work, click through navigation states, hero CTAs, and any interactive sliders/carousels, then watch for console or hydration warnings. Run `npm run type-check`, `npm run lint`, and `npm run build`; treat any failure as a blocker because these commands match the deploy pipeline. When you add automated tests later, colocate them next to the component with feature-based `describe` blocks for clarity.
-
-## Commit & Pull Request Guidelines
-Commits should be short, imperative statements that mirror the existing history (`Align pricing CTA`, `Add mission data #42`). Every PR should include: a concise scope summary, reproduction steps, screenshots or recordings for visual changes, links to relevant tickets or Figma frames, and notes about environment variables, seeds, or assets that reviewers must pull. Confirm `npm run verify` passes and document any manual QA so reviewers can reproduce it quickly.
+## Project Structure
+- `app/`: Next.js App Router (routes, layouts, API handlers)
+- `src/components/`: UI primitives (sections/* for features, layout/* for shells)
+- `src/lib/`: Shared logic (auth, prisma, utils)
+- `src/hooks/`: Custom React hooks
+- `src/constants/`: Design tokens and copy
+- `prisma/`: Database schema and migrations
+- Tests: Colocate as `FeatureName.test.tsx` beside components (when added)

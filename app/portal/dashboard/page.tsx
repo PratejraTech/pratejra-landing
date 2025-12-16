@@ -104,16 +104,16 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-900">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="bg-slate-800 shadow-sm border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-4">
-              <Shield className="h-8 w-8 text-primary" />
+              <Shield className="h-8 w-8 text-blue-400" />
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Pratejra Portal</h1>
-                <p className="text-sm text-gray-600">Project Intelligence & Communication</p>
+                <h1 className="text-2xl font-bold text-white">Pratejra Portal</h1>
+                <p className="text-sm text-slate-400">Project Intelligence & Communication</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -124,10 +124,10 @@ export default function DashboardPage() {
                 </AvatarFallback>
               </Avatar>
               <div className="text-right">
-                <p className="text-sm font-medium text-gray-900">{user?.name}</p>
-                <p className="text-xs text-gray-500">{user?.role}</p>
+                <p className="text-sm font-medium text-white">{user?.name}</p>
+                <p className="text-xs text-slate-400">{user?.role}</p>
               </div>
-              <Button variant="outline" size="sm" onClick={handleLogout}>
+              <Button variant="outline" size="sm" onClick={handleLogout} className="border-slate-600 text-slate-300 hover:bg-slate-700">
                 <LogOut className="h-4 w-4 mr-2" />
                 Logout
               </Button>
@@ -140,53 +140,53 @@ export default function DashboardPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card>
+          <Card className="bg-slate-800 border-slate-700">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Projects</CardTitle>
-              <FolderOpen className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-white">Total Projects</CardTitle>
+              <FolderOpen className="h-4 w-4 text-slate-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.totalProjects}</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-white">{stats.totalProjects}</div>
+              <p className="text-xs text-slate-400">
                 {stats.activeProjects} active
               </p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-slate-800 border-slate-700">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Team Members</CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-white">Team Members</CardTitle>
+              <Users className="h-4 w-4 text-slate-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.totalUsers}</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-white">{stats.totalUsers}</div>
+              <p className="text-xs text-slate-400">
                 Across all projects
               </p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-slate-800 border-slate-700">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Messages</CardTitle>
-              <MessageSquare className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-white">Messages</CardTitle>
+              <MessageSquare className="h-4 w-4 text-slate-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.unreadMessages}</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-white">{stats.unreadMessages}</div>
+              <p className="text-xs text-slate-400">
                 Unread messages
               </p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-slate-800 border-slate-700">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Activity</CardTitle>
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium text-white">Activity</CardTitle>
+              <TrendingUp className="h-4 w-4 text-slate-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">+12%</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold text-white">+12%</div>
+              <p className="text-xs text-slate-400">
                 This week
               </p>
             </CardContent>
@@ -195,55 +195,55 @@ export default function DashboardPage() {
 
         {/* Recent Projects */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Card>
+          <Card className="bg-slate-800 border-slate-700">
             <CardHeader>
-              <CardTitle>Recent Projects</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-white">Recent Projects</CardTitle>
+              <CardDescription className="text-slate-400">
                 Projects you've been working on recently
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {recentProjects.map((project) => (
-                  <div key={project.id} className="flex items-center justify-between p-4 border rounded-lg">
+                  <div key={project.id} className="flex items-center justify-between p-4 border border-slate-600 rounded-lg bg-slate-700/50">
                     <div>
-                      <h3 className="font-medium">{project.name}</h3>
-                      <p className="text-sm text-muted-foreground">{project.description}</p>
+                      <h3 className="font-medium text-white">{project.name}</h3>
+                      <p className="text-sm text-slate-400">{project.description}</p>
                     </div>
-                    <Badge variant={project.status === 'active' ? 'default' : 'secondary'}>
+                    <Badge variant={project.status === 'active' ? 'default' : 'secondary'} className="bg-blue-600 text-white">
                       {project.status}
                     </Badge>
                   </div>
                 ))}
               </div>
-              <Button className="w-full mt-4" variant="outline">
+              <Button className="w-full mt-4 border-slate-600 text-slate-300 hover:bg-slate-700" variant="outline">
                 View All Projects
               </Button>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-slate-800 border-slate-700">
             <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-white">Quick Actions</CardTitle>
+              <CardDescription className="text-slate-400">
                 Common tasks and navigation
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-4">
-                <Button className="h-20 flex-col" onClick={() => router.push('/portal/projects')}>
+                <Button className="h-20 flex-col bg-blue-600 hover:bg-blue-700 text-white" onClick={() => router.push('/portal/projects')}>
                   <FolderOpen className="h-6 w-6 mb-2" />
                   Projects
                 </Button>
-                <Button className="h-20 flex-col" variant="outline">
+                <Button className="h-20 flex-col border-slate-600 text-slate-300 hover:bg-slate-700" variant="outline">
                   <MessageSquare className="h-6 w-6 mb-2" />
                   Messages
                 </Button>
-                <Button className="h-20 flex-col" variant="outline">
+                <Button className="h-20 flex-col border-slate-600 text-slate-300 hover:bg-slate-700" variant="outline">
                   <Users className="h-6 w-6 mb-2" />
                   Team
                 </Button>
-                <Button className="h-20 flex-col" variant="outline">
+                <Button className="h-20 flex-col border-slate-600 text-slate-300 hover:bg-slate-700" variant="outline">
                   <Activity className="h-6 w-6 mb-2" />
                   Reports
                 </Button>

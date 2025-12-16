@@ -7,8 +7,15 @@ export async function POST() {
       message: 'Logout successful',
     })
 
-    // Clear the auth token cookie
+    // Clear both auth tokens
     response.cookies.set('auth-token', '', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: 0, // Expire immediately
+    })
+
+    response.cookies.set('refresh-token', '', {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',

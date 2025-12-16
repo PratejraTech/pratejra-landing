@@ -14,9 +14,9 @@ const nextConfig = {
   // Disable CSS optimization to avoid critters issue
   experimental: {
     optimizeCss: false,
-    // Disable API routes for Cloudflare Pages deployment
-    serverComponentsExternalPackages: [],
   },
+  // External packages for server components
+  serverExternalPackages: [],
   // Disable static generation for API routes to prevent Prisma build issues
   generateBuildId: async () => {
     return 'build-' + Date.now()

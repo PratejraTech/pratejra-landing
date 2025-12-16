@@ -44,19 +44,19 @@ export class LocalAuthProvider extends AuthProvider {
   }
 }
 
-// Production provider with AWS Cognito
-export class CognitoAuthProvider extends AuthProvider {
-  private allowedEmails = ['alex@alexandermoir.com']
-  private allowedDomains = ['pratejra.build', 'alexandermoir.com']
+// Production provider with database authentication
+export class ProductionAuthProvider extends AuthProvider {
+  private allowedEmails = process.env.ALLOWED_EMAILS?.split(',') || ['alex@alexandermoir.com']
+  private allowedDomains = process.env.ALLOWED_DOMAINS?.split(',') || ['pratejra.build', 'alexandermoir.com']
 
   async authenticate(email: string, _password: string): Promise<User> {
     if (!this.validateEmail(email)) {
       throw new Error('Email not authorized for production')
     }
 
-    // AWS Cognito authentication logic here
-    // This would integrate with AWS Cognito for production
-    throw new Error('Production authentication not yet implemented')
+    // For now, throw an error indicating production auth needs setup
+    // This should be replaced with proper database authentication
+    throw new Error('Production authentication requires database setup. Please configure your database and update this provider.')
   }
 
   validateEmail(email: string): boolean {
@@ -71,7 +71,7 @@ export class CognitoAuthProvider extends AuthProvider {
 // Factory function to get appropriate provider
 export function getAuthProvider(): AuthProvider {
   if (process.env.NODE_ENV === 'production') {
-    return new CognitoAuthProvider()
+    return new ProductionAuthProvider()
   }
   return new LocalAuthProvider()
 }

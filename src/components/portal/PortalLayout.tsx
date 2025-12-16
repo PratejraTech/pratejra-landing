@@ -90,23 +90,23 @@ export function PortalLayout({ children }: PortalLayoutProps) {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-900">
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
-          <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setSidebarOpen(false)} />
+          <div className="fixed inset-0 bg-slate-900/75 backdrop-blur-sm" onClick={() => setSidebarOpen(false)} />
         </div>
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}>
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-slate-800 shadow-lg transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}>
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="flex items-center justify-center h-16 px-4 border-b">
-            <Shield className="h-8 w-8 text-primary mr-3" />
+          <div className="flex items-center justify-center h-16 px-4 border-b border-slate-700">
+            <Shield className="h-8 w-8 text-blue-400 mr-3" />
             <div>
-              <h1 className="text-lg font-bold text-gray-900">Pratejra</h1>
-              <p className="text-xs text-gray-600">Portal</p>
+              <h1 className="text-lg font-bold text-white">Pratejra</h1>
+              <p className="text-xs text-slate-400">Portal</p>
             </div>
           </div>
 
@@ -120,8 +120,8 @@ export function PortalLayout({ children }: PortalLayoutProps) {
                   href={item.href}
                   className={`flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                     isActive
-                      ? 'bg-primary text-primary-foreground'
-                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                      ? 'bg-blue-600 text-white'
+                      : 'text-slate-300 hover:bg-slate-700 hover:text-white'
                   }`}
                   onClick={() => setSidebarOpen(false)}
                 >
@@ -133,7 +133,7 @@ export function PortalLayout({ children }: PortalLayoutProps) {
           </nav>
 
           {/* User info */}
-          <div className="p-4 border-t">
+          <div className="p-4 border-t border-slate-700">
             <div className="flex items-center">
               <Avatar className="h-8 w-8">
                 <AvatarImage src="" />
@@ -142,8 +142,8 @@ export function PortalLayout({ children }: PortalLayoutProps) {
                 </AvatarFallback>
               </Avatar>
               <div className="ml-3 flex-1 min-w-0">
-                <p className="text-sm font-medium text-gray-900 truncate">{user?.name}</p>
-                <p className="text-xs text-gray-500 truncate">{user?.role}</p>
+                <p className="text-sm font-medium text-white truncate">{user?.name}</p>
+                <p className="text-xs text-slate-400 truncate">{user?.role}</p>
               </div>
             </div>
           </div>
@@ -153,12 +153,12 @@ export function PortalLayout({ children }: PortalLayoutProps) {
       {/* Main content */}
       <div className="lg:pl-64">
         {/* Top bar */}
-        <div className="sticky top-0 z-10 bg-white border-b shadow-sm">
+        <div className="sticky top-0 z-10 bg-slate-800 border-b border-slate-700 shadow-sm">
           <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
             <Button
               variant="ghost"
               size="sm"
-              className="lg:hidden"
+              className="lg:hidden text-slate-300 hover:text-white hover:bg-slate-700"
               onClick={() => setSidebarOpen(true)}
             >
               <Menu className="h-5 w-5" />
@@ -168,7 +168,7 @@ export function PortalLayout({ children }: PortalLayoutProps) {
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                <Button variant="ghost" className="relative h-8 w-8 rounded-full hover:bg-slate-700">
                   <Avatar className="h-8 w-8">
                     <AvatarImage src="" />
                     <AvatarFallback>
@@ -177,20 +177,20 @@ export function PortalLayout({ children }: PortalLayoutProps) {
                   </Avatar>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56" align="end" forceMount>
+              <DropdownMenuContent className="w-56 bg-slate-800 border-slate-700" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                   <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">{user?.name}</p>
-                    <p className="text-xs leading-none text-muted-foreground">{user?.email}</p>
+                    <p className="text-sm font-medium leading-none text-white">{user?.name}</p>
+                    <p className="text-xs leading-none text-slate-400">{user?.email}</p>
                   </div>
                 </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                <DropdownMenuSeparator className="bg-slate-700" />
+                <DropdownMenuItem className="text-slate-300 hover:text-white hover:bg-slate-700">
                   <Settings className="mr-2 h-4 w-4" />
                   <span>Settings</span>
                 </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={handleLogout}>
+                <DropdownMenuSeparator className="bg-slate-700" />
+                <DropdownMenuItem onClick={handleLogout} className="text-slate-300 hover:text-white hover:bg-slate-700">
                   <LogOut className="mr-2 h-4 w-4" />
                   <span>Log out</span>
                 </DropdownMenuItem>

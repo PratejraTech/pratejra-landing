@@ -87,7 +87,7 @@ export const ImpactPulse = React.memo(function ImpactPulse() {
 
         {/* Practices and Field Notes */}
         <div className="asymmetric-grid asymmetric-grid-2 gap-12">
-           <div ref={fieldNotesRef as any} className="space-y-6 bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-gray-600/30 shadow-2xl">
+           <div ref={fieldNotesRef} className="space-y-6 bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-gray-600/30 shadow-2xl">
             <div>
               <p className="text-sm uppercase tracking-[0.4em] text-orange-400 mb-2">Field Operations</p>
               <h3 className="text-xl font-semibold text-white mb-2">Recent Mission Examples</h3>
@@ -109,7 +109,7 @@ export const ImpactPulse = React.memo(function ImpactPulse() {
             </div>
           </div>
 
-          <div ref={practicesRef as any} className="space-y-6 bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-gray-600/30 shadow-2xl">
+          <div ref={practicesRef} className="space-y-6 bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-gray-600/30 shadow-2xl">
             <div>
               <p className="text-sm uppercase tracking-[0.4em] text-teal-400 mb-2">Operational Framework</p>
               <h3 className="text-xl font-semibold text-white mb-2">Our Proven Methodology</h3>

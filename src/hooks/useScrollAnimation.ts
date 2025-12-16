@@ -12,7 +12,7 @@ export function useScrollAnimation(
   animationClass: string,
   options: ScrollAnimationOptions = {}
 ) {
-  const elementRef = useRef<HTMLElement>(null);
+  const elementRef = useRef<HTMLDivElement>(null);
 
   const {
     threshold = 0.1,
