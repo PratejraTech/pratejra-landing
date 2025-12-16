@@ -68,7 +68,7 @@ export function WebGLShader() {
       refs.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, -1)
 
       refs.uniforms = {
-        resolution: { value: [window.innerWidth, window.innerHeight] },
+        resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
         time: { value: 0.0 },
         xScale: { value: 0.8 },
         yScale: { value: 0.3 },
@@ -116,8 +116,8 @@ export function WebGLShader() {
       const width = window.innerWidth
       const height = window.innerHeight
       refs.renderer.setSize(width, height, false)
-      if (refs.uniforms?.resolution?.value) {
-        ;(refs.uniforms.resolution.value as THREE.Vector2).set(width, height)
+      if (refs.uniforms?.resolution?.value && refs.uniforms.resolution.value instanceof THREE.Vector2) {
+        refs.uniforms.resolution.value.set(width, height)
       }
     }
 
