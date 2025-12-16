@@ -2,13 +2,11 @@ name = "pratejra-landing"
 compatibility_date = "2024-12-01"
 pages_build_output_dir = "build"
 
+# Enable Node.js compatibility for crypto and other Node.js modules
+compatibility_flags = ["nodejs_compat"]
+
 # Environment variables
 [vars]
 NODE_VERSION = "20"
 NEXT_PUBLIC_SITE_URL = "https://pratejra.build"
 NEXT_PUBLIC_API_URL = "https://api.pratejra.build"
-
-# Disable Pages Functions to avoid conflicts with Next.js API routes
-pages_build_config = [
-  { build_command = "bun run build", destination_dir = "build", root_dir = "." }
-]
