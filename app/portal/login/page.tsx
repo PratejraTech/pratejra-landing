@@ -63,14 +63,14 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4">
-      <Card className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-guardian-950 via-guardian-900 to-guardian-950 p-4 gradient-mesh">
+      <Card className="w-full max-w-md glass-card border-2 border-white/20 shadow-2xl">
         <CardHeader className="text-center">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary">
-            <Shield className="h-6 w-6 text-primary-foreground" />
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full glass-card border-2 border-community-500/50 shadow-glow-community perspective-container transform-3d hover:rotate-y-12 hover:translate-z-10 transition-all duration-500">
+            <Shield className="h-8 w-8 text-community-400" />
           </div>
-          <CardTitle className="text-2xl">Pratejra Portal</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-2xl bg-gradient-to-r from-community-400 via-wisdom-400 to-community-400 bg-clip-text text-transparent">Pratejra Portal</CardTitle>
+          <CardDescription className="text-slate-300">
             Secure access for project users and agents
           </CardDescription>
         </CardHeader>

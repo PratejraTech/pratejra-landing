@@ -30,10 +30,10 @@ export function ContactSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={EXTERNAL_URLS.EMAIL}
-              className="inline-flex items-center space-x-3 border border-emerald-500/30 rounded-full px-6 py-3 bg-gradient-to-br from-foreground/5 via-transparent to-transparent hover:border-emerald-500/50 transition-all duration-300 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="inline-flex items-center space-x-3 glass-card border-2 border-community-500/30 rounded-full px-6 py-3 hover:border-community-400/50 hover:shadow-glow-community transition-all duration-300 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-community-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background transform-gpu hover:scale-110 hover:translate-y-[-2px]"
               aria-label="Send email to core@pratejra.build"
             >
-              <Mail className="w-4 h-4 text-emerald-200" />
+              <Mail className="w-5 h-5 text-community-300" />
               <span className="text-base">core@pratejra.build</span>
             </a>
 
@@ -41,10 +41,10 @@ export function ContactSection() {
               href={EXTERNAL_URLS.GITHUB}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-3 border border-emerald-500/30 rounded-full px-6 py-3 bg-gradient-to-br from-foreground/5 via-transparent to-transparent hover:border-emerald-500/50 transition-all duration-300 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="inline-flex items-center space-x-3 glass-card border-2 border-community-500/30 rounded-full px-6 py-3 hover:border-community-400/50 hover:shadow-glow-community transition-all duration-300 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-community-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background transform-gpu hover:scale-110 hover:translate-y-[-2px]"
               aria-label="Visit GitHub repository"
             >
-              <Github className="w-4 h-4 text-emerald-200" />
+              <Github className="w-5 h-5 text-community-300" />
               <span className="text-base">GitHub</span>
             </a>
           </div>

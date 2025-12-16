@@ -27,8 +27,8 @@ const HeroScrollIndicator: React.FC = () => {
   const bounceClass = prefersReducedMotion ? '' : isVisible ? 'animate-bounce' : '';
 
   return (
-    <div className={`flex justify-center ${bounceClass} group cursor-pointer`}>
-      <div className="relative w-8 h-12 border-2 border-guardian-400/60 rounded-full flex justify-center bg-guardian-900/20 backdrop-blur-sm shadow-lg hover:border-wisdom-400/80 hover:bg-guardian-900/30 transition-all duration-500">
+    <div className={`flex justify-center ${bounceClass} group cursor-pointer perspective-container`}>
+      <div className="relative w-10 h-14 border-2 border-community-400/60 rounded-full flex justify-center glass-card shadow-2xl hover:border-community-400/80 hover:shadow-glow-community transition-all duration-500 transform-gpu hover:scale-110 hover:rotate-y-6 hover:translate-z-10">
         {/* Enhanced scroll indicator */}
         <div className={`w-1.5 h-4 bg-gradient-to-b from-wisdom-400 to-community-400 rounded-full mt-2 shadow-md shadow-wisdom-400/50 group-hover:shadow-wisdom-400/70 group-hover:from-wisdom-300 group-hover:to-community-300 transition-all duration-500 ${
           !prefersReducedMotion && isVisible ? 'animate-pulse' : ''

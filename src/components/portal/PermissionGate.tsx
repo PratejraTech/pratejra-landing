@@ -21,7 +21,7 @@ export function PermissionGate({
   children,
   requiredRole,
   requiredRoles,
-  fallback = <div>You do not have permission to access this content.</div>
+  fallback = <div className="glass-card rounded-3xl p-6 border-2 border-destructive/50 text-center"><p className="text-destructive">You do not have permission to access this content.</p></div>
 }: PermissionGateProps) {
   const [user, setUser] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -52,7 +52,9 @@ export function PermissionGate({
   if (isLoading) {
     return (
       <div className="flex items-center justify-center p-4">
-        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+        <div className="glass-card rounded-3xl p-6">
+          <div className="animate-spin rounded-full h-12 w-12 border-4 border-community-500/30 border-t-community-500"></div>
+        </div>
       </div>
     )
   }

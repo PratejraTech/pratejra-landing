@@ -79,10 +79,10 @@ export function CommunityValue() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`p-6 rounded-2xl border ${colors.border} ${colors.bg} backdrop-blur-sm hover:${colors.hover} transition-all duration-300`}
+                className={`glass-card p-6 rounded-3xl border-2 ${colors.border} hover:${colors.hover} transition-all duration-300 transform-gpu perspective-container hover:translate-y-[-8px] hover:rotate-y-2 hover:translate-z-10 hover:shadow-glow-${item.color} group`}
               >
-                <div className={`w-10 h-10 rounded-lg ${colors.bg} flex items-center justify-center mb-4 ${colors.icon}`}>
-                  <Icon className="w-5 h-5" />
+                <div className={`w-12 h-12 rounded-2xl glass-card border-2 ${colors.border} flex items-center justify-center mb-4 ${colors.icon} group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-3">{item.title}</h3>
                 <p className="text-slate-300 text-sm leading-relaxed">{item.description}</p>

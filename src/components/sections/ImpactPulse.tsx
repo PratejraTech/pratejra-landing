@@ -76,7 +76,7 @@ export const ImpactPulse = React.memo(function ImpactPulse() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="rounded-xl border border-orange-500/30 bg-black/40 backdrop-blur-md p-6 text-center hover:border-orange-400 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300"
+              className="glass-card rounded-3xl border-2 border-community-500/30 p-6 text-center hover:border-community-400 hover:shadow-2xl hover:shadow-glow-community hover:translate-y-[-8px] hover:rotate-y-2 hover:translate-z-10 transition-all duration-300 transform-gpu perspective-container group"
             >
               <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-3">{stat.label}</p>
               <p className="text-2xl sm:text-3xl font-semibold text-white mb-3">{stat.value}</p>
@@ -87,7 +87,7 @@ export const ImpactPulse = React.memo(function ImpactPulse() {
 
         {/* Practices and Field Notes */}
         <div className="asymmetric-grid asymmetric-grid-2 gap-12">
-           <div ref={fieldNotesRef} className="space-y-6 bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-gray-600/30 shadow-2xl">
+           <div ref={fieldNotesRef} className="space-y-6 glass-card p-6 rounded-3xl border-2 border-white/10 shadow-2xl">
             <div>
               <p className="text-sm uppercase tracking-[0.4em] text-orange-400 mb-2">Field Operations</p>
               <h3 className="text-xl font-semibold text-white mb-2">Recent Mission Examples</h3>
@@ -97,7 +97,7 @@ export const ImpactPulse = React.memo(function ImpactPulse() {
             </div>
             <div className="space-y-4">
               {fieldNotes.map((note, idx) => (
-                <div key={note.title} className="rounded-lg border border-gray-600/30 bg-black/20 p-4 hover:border-orange-400 hover:bg-orange-900/20 transition-all duration-300">
+                <div key={note.title} className="glass-card rounded-2xl border-2 border-white/10 p-4 hover:border-community-400/50 hover:shadow-glow-community hover:translate-y-[-4px] transition-all duration-300 transform-gpu">
                   <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-gray-400 mb-2">
                     <span>{note.tag}</span>
                     <span>{idx + 1}</span>

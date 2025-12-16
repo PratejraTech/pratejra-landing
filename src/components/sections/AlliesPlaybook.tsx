@@ -73,15 +73,15 @@ export function AlliesPlaybook() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`rounded-3xl border ${colors.border} bg-guardian-900/60 backdrop-blur-md p-6 flex flex-col gap-4 shadow-2xl hover:${colors.hover} transition-all duration-300 relative overflow-hidden`}
+                className={`glass-card rounded-3xl border-2 ${colors.border} p-6 flex flex-col gap-4 shadow-2xl hover:${colors.hover} hover:translate-y-[-8px] hover:rotate-y-3 hover:translate-z-10 transition-all duration-300 relative overflow-hidden transform-gpu perspective-container group`}
               >
                 {/* Free badge */}
-                <div className="absolute top-4 right-4 bg-community-500 text-white text-xs px-2 py-1 rounded-full font-medium">
+                <div className="absolute top-4 right-4 glass-card border-2 border-community-500/50 text-community-300 text-xs px-3 py-1.5 rounded-full font-medium shadow-glow-community">
                   FREE
                 </div>
 
-                <div className={`w-12 h-12 rounded-2xl border ${colors.border} ${colors.bg} flex items-center justify-center ${colors.text}`}>
-                  <Icon className="w-6 h-6" />
+                <div className={`w-14 h-14 rounded-2xl glass-card border-2 ${colors.border} flex items-center justify-center ${colors.text} group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className="w-7 h-7" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-semibold text-white">{pillar.title}</h3>

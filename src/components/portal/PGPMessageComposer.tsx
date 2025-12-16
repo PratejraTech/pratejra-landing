@@ -108,13 +108,13 @@ export function PGPMessageComposer({ onSendMessage, recipients = [] }: PGPMessag
   }
 
   return (
-    <Card>
+    <Card className="glass-card border-2 border-white/10 shadow-2xl">
       <CardHeader>
-        <CardTitle className="flex items-center">
-          <Shield className="h-5 w-5 mr-2" />
+        <CardTitle className="flex items-center text-white">
+          <Shield className="h-5 w-5 mr-2 text-community-400" />
           Secure Message Composer
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="text-slate-300">
           Send encrypted messages using PGP. Only the recipient can decrypt and read the content.
         </CardDescription>
       </CardHeader>
@@ -138,7 +138,7 @@ export function PGPMessageComposer({ onSendMessage, recipients = [] }: PGPMessag
             id="recipient"
             value={recipientId}
             onChange={(e) => setRecipientId(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className="w-full px-4 py-2 glass-card border-2 border-white/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-community-400 focus:border-community-400/50 text-white bg-white/5"
           >
             <option value="">Select a recipient...</option>
             {recipients.map((recipient) => (
@@ -149,7 +149,7 @@ export function PGPMessageComposer({ onSendMessage, recipients = [] }: PGPMessag
           </select>
           {selectedRecipient && (
             <div className="flex items-center space-x-2">
-              <Badge variant={selectedRecipient.publicKey ? 'default' : 'destructive'}>
+              <Badge className={`glass-card border-2 rounded-full ${selectedRecipient.publicKey ? 'border-community-500/50 text-community-300' : 'border-destructive/50 text-destructive'}`}>
                 <Key className="h-3 w-3 mr-1" />
                 {selectedRecipient.publicKey ? 'PGP Enabled' : 'No PGP Key'}
               </Badge>
@@ -206,8 +206,8 @@ export function PGPMessageComposer({ onSendMessage, recipients = [] }: PGPMessag
         </div>
 
         {/* Security Notice */}
-        <div className="text-xs text-gray-500 bg-gray-50 p-3 rounded-md">
-          <p className="font-medium mb-1">🔒 End-to-End Encryption</p>
+        <div className="text-xs text-slate-300 glass-card border-2 border-community-500/30 p-4 rounded-2xl">
+          <p className="font-medium mb-1 text-community-300">🔒 End-to-End Encryption</p>
           <p>
             Messages are encrypted using PGP before transmission.
             Only the intended recipient can decrypt and read the content.

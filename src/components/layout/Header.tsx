@@ -4,8 +4,9 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
-import { Menu, X, Shield, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useMouseTrail } from '../../hooks/useMouseTrail';
+import { OptimizedImage } from '../ui/optimized-image';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,20 +32,37 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-slate-900/90 via-slate-800/90 to-slate-900/90 backdrop-blur-md border-b border-slate-700/50 shadow-lg shadow-slate-900/20">
+    <header className="sticky top-0 z-50 glass-nav border-b border-white/10 shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-           <Link href="/" className="flex items-center space-x-4 group">
-            <div className="relative">
-               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 via-cyan-500 to-violet-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:shadow-xl group-hover:shadow-blue-500/30 transition-all duration-300">
-                <Shield className="w-6 h-6 text-white" />
+           <Link href="/" className="flex items-center space-x-4 group perspective-container">
+            <div className="relative transform-3d group-hover:rotate-y-6 group-hover:translate-z-10 transition-all duration-500">
+              {/* Logo Container with Glass-morphism */}
+              <div className="relative w-12 h-12 md:w-14 md:h-14 glass-card rounded-2xl p-1.5 shadow-2xl border border-white/20 hover:border-community-400/50 hover:shadow-glow-community transition-all duration-500 group-hover:scale-110">
+                {/* Inner glow effect */}
+                <div className="absolute inset-0.5 rounded-xl bg-gradient-to-br from-wisdom-400/10 to-community-400/5 blur-sm group-hover:from-wisdom-400/20 group-hover:to-community-400/10 transition-all duration-500" aria-hidden="true" />
+                
+                <OptimizedImage
+                  src="/media/logo.png"
+                  alt="Pratejra Logo"
+                  width={56}
+                  height={56}
+                  sizes="(max-width: 768px) 48px, 56px"
+                  className="object-contain rounded-xl drop-shadow-2xl relative z-10"
+                  priority={true}
+                />
+                
+                {/* Subtle inner shadow */}
+                <div className="absolute inset-0 rounded-xl shadow-inner shadow-guardian-900/50 group-hover:shadow-guardian-900/30 transition-all duration-500" aria-hidden="true" />
               </div>
-               <div className="absolute -top-1 -right-1 w-4 h-4 bg-violet-500 rounded-full animate-pulse shadow-sm shadow-violet-500/50"></div>
+              
+              {/* Status indicator */}
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-community-500 rounded-full animate-pulse shadow-sm shadow-community-500/50 ring-2 ring-guardian-900"></div>
             </div>
             <div>
-               <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent group-hover:from-blue-300 group-hover:via-cyan-300 group-hover:to-violet-300 transition-all duration-300">
-                Pratejra/Shaivra
+               <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-community-400 via-wisdom-400 to-community-400 bg-clip-text text-transparent group-hover:from-community-300 group-hover:via-wisdom-300 group-hover:to-community-300 transition-all duration-300">
+                Pratejra
               </h1>
               <p className="text-xs text-slate-400 group-hover:text-slate-300 transition-colors">The Veil Between Worlds</p>
             </div>
@@ -54,25 +72,25 @@ const Header: React.FC = () => {
           <nav className="hidden lg:flex items-center space-x-2">
             {navItems.map((item, index) => {
               const colors = [
-                'hover:text-blue-400 hover:bg-blue-900/20',
-                'hover:text-emerald-400 hover:bg-emerald-900/20',
-                'hover:text-violet-400 hover:bg-violet-900/20',
-                'hover:text-cyan-400 hover:bg-cyan-900/20',
-                'hover:text-orange-400 hover:bg-orange-900/20'
+                'hover:text-community-400 hover:bg-community-900/20',
+                'hover:text-hope-400 hover:bg-hope-900/20',
+                'hover:text-wisdom-400 hover:bg-wisdom-900/20',
+                'hover:text-community-400 hover:bg-community-900/20',
+                'hover:text-hope-400 hover:bg-hope-900/20'
               ];
               return (
                  <Link
                    key={item.path}
                    href={item.path}
-                   className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                   className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform-gpu ${
                     pathname === item.path
-                      ? 'text-white bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border border-blue-500/30'
-                      : `text-slate-300 ${colors[index]} hover:transform hover:scale-105`
+                      ? 'text-white glass-card border border-community-500/30 shadow-glow-community'
+                      : `text-slate-300 ${colors[index]} hover:scale-105 hover:translate-y-[-2px] backdrop-blur-sm`
                   }`}
                 >
                   {item.label}
                    {pathname === item.path && (
-                     <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-400 rounded-full"></div>
+                     <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-community-400 rounded-full animate-pulse"></div>
                    )}
                 </Link>
               );
@@ -82,14 +100,14 @@ const Header: React.FC = () => {
           {/* Status, Theme Toggle & Mobile menu */}
           <div className="flex items-center space-x-4">
             <div className="hidden md:flex items-center space-x-2">
-              <div className="w-2 h-2 bg-violet-500 rounded-full animate-pulse shadow-sm shadow-violet-500/50"></div>
-              <span className="text-sm text-violet-400 font-medium">System Active</span>
+              <div className="w-2 h-2 bg-community-500 rounded-full animate-pulse shadow-sm shadow-community-500/50"></div>
+              <span className="text-sm text-community-400 font-medium">System Active</span>
             </div>
 
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-3 rounded-xl bg-slate-800/50 hover:bg-slate-700/50 text-slate-400 hover:text-white transition-all duration-200 hover:shadow-lg hover:shadow-slate-900/20"
+              className="p-3 rounded-2xl glass-card hover:bg-white/20 text-slate-300 hover:text-white transition-all duration-300 hover:shadow-glow-wisdom hover:scale-110 active:scale-95"
               aria-label="Toggle theme"
             >
               {mounted && (resolvedTheme === 'dark' ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />)}
@@ -98,7 +116,7 @@ const Header: React.FC = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-3 rounded-xl bg-slate-800/50 hover:bg-slate-700/50 text-slate-400 hover:text-white transition-all duration-200 hover:shadow-lg hover:shadow-slate-900/20"
+              className="lg:hidden p-3 rounded-2xl glass-card hover:bg-white/20 text-slate-300 hover:text-white transition-all duration-300 hover:shadow-glow-community hover:scale-110 active:scale-95"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -108,24 +126,24 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden border-t border-slate-700/50">
-            <div className="px-4 py-6 space-y-2 bg-gradient-to-b from-slate-800/50 to-slate-900/50 backdrop-blur-sm">
+          <div className="lg:hidden border-t border-white/10">
+            <div className="px-4 py-6 space-y-2 glass-overlay backdrop-blur-xl">
               {navItems.map((item, index) => {
                 const colors = [
-                  'hover:text-blue-400 hover:bg-blue-900/20',
-                  'hover:text-emerald-400 hover:bg-emerald-900/20',
-                  'hover:text-violet-400 hover:bg-violet-900/20',
-                  'hover:text-cyan-400 hover:bg-cyan-900/20',
-                  'hover:text-orange-400 hover:bg-orange-900/20'
+                  'hover:text-community-400 hover:bg-community-900/20',
+                  'hover:text-hope-400 hover:bg-hope-900/20',
+                  'hover:text-wisdom-400 hover:bg-wisdom-900/20',
+                  'hover:text-community-400 hover:bg-community-900/20',
+                  'hover:text-hope-400 hover:bg-hope-900/20'
                 ];
                 return (
                    <Link
                      key={item.path}
                      href={item.path}
-                     className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                     className={`block px-4 py-3 rounded-2xl text-base font-medium transition-all duration-300 ${
                       pathname === item.path
-                        ? 'text-white bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border border-blue-500/30'
-                        : `text-slate-300 ${colors[index]}`
+                        ? 'text-white glass-card border border-community-500/30 shadow-glow-community'
+                        : `text-slate-300 ${colors[index]} backdrop-blur-sm`
                     }`}
                     onClick={() => setIsOpen(false)}
                   >

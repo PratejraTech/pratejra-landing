@@ -34,7 +34,13 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.5rem;
+  --radius: 1.5rem; /* 24px - increased for modern rounded design */
+  --radius-sm: 0.75rem;   /* 12px */
+  --radius-md: 1rem;      /* 16px */
+  --radius-lg: 1.5rem;    /* 24px */
+  --radius-xl: 2rem;      /* 32px */
+  --radius-2xl: 2.5rem;   /* 40px */
+  --radius-full: 9999px;  /* Full circle */
   --sidebar: #020617;
   --sidebar-foreground: #F5F5F5;
   --sidebar-primary: #4f46e5;
@@ -427,6 +433,69 @@ html {
   50% { background-position: 100% 50%; }
 }
 
+@keyframes float-3d {
+  0%, 100% { 
+    transform: translateY(0px) translateZ(0) rotateX(0deg);
+  }
+  50% { 
+    transform: translateY(-12px) translateZ(20px) rotateX(5deg);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.7;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(34, 197, 94, 0.3);
+  }
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(200%) translateY(200%) rotate(45deg);
+  }
+}
+
+@keyframes morph-blob {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: scale(1) translateZ(0);
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: scale(1.05) translateZ(10px);
+  }
+  50% {
+    border-radius: 70% 30% 50% 50% / 30% 50% 50% 70%;
+    transform: scale(1.1) translateZ(20px);
+  }
+  75% {
+    border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+    transform: scale(1.05) translateZ(10px);
+  }
+}
+
+@keyframes tilt-3d {
+  0%, 100% {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0);
+  }
+  25% {
+    transform: perspective(1000px) rotateY(5deg) rotateX(2deg) translateZ(20px);
+  }
+  50% {
+    transform: perspective(1000px) rotateY(0deg) rotateX(-2deg) translateZ(10px);
+  }
+  75% {
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateZ(20px);
+  }
+}
+
 .magnetic-hover {
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -537,4 +606,106 @@ html {
     linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%),
     url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(139,92,246,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(34,197,94,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(6,182,212,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
   z-index: -1;
+}
+
+/* Glassmorphism Utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-nav {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+/* Neumorphism Utilities */
+.neu-card {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+  box-shadow:
+    8px 8px 16px rgba(10, 14, 26, 0.5),
+    -8px -8px 16px rgba(30, 41, 59, 0.3);
+}
+
+.neu-button {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+  box-shadow:
+    4px 4px 8px rgba(10, 14, 26, 0.4),
+    -4px -4px 8px rgba(30, 41, 59, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.neu-button:active {
+  box-shadow:
+    inset 4px 4px 8px rgba(10, 14, 26, 0.4),
+    inset -4px -4px 8px rgba(30, 41, 59, 0.2);
+}
+
+.neu-input {
+  background: rgba(15, 23, 42, 0.6);
+  box-shadow:
+    inset 4px 4px 8px rgba(10, 14, 26, 0.3),
+    inset -4px -4px 8px rgba(30, 41, 59, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 3D Transform Utilities */
+.perspective-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.transform-3d {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) translateZ(10px);
+}
+
+/* Enhanced Glassmorphism with rounded edges */
+.backdrop-blur-glass {
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+/* Colored glow shadows */
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.shadow-glow-community {
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
+}
+
+.shadow-glow-hope {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.shadow-glow-wisdom {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+/* Mesh gradient backgrounds */
+.gradient-mesh {
+  background:
+    radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
 }

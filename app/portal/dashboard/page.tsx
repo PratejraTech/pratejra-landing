@@ -140,10 +140,10 @@ export default function DashboardPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card className="bg-slate-800 border-slate-700">
+          <Card className="glass-card border-2 border-community-500/30 hover:border-community-400/50 hover:shadow-glow-community transition-all duration-300 transform-gpu hover:translate-y-[-4px]">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-white">Protected Communities</CardTitle>
-              <FolderOpen className="h-4 w-4 text-community-400" />
+              <FolderOpen className="h-5 w-5 text-community-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-white">{stats.totalProjects}</div>
@@ -153,10 +153,10 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-slate-800 border-slate-700">
+          <Card className="glass-card border-2 border-hope-500/30 hover:border-hope-400/50 hover:shadow-glow-hope transition-all duration-300 transform-gpu hover:translate-y-[-4px]">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-white">Community Members</CardTitle>
-              <Users className="h-4 w-4 text-hope-400" />
+              <Users className="h-5 w-5 text-hope-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-white">{stats.totalUsers}</div>
@@ -166,10 +166,10 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-slate-800 border-slate-700">
+          <Card className="glass-card border-2 border-wisdom-500/30 hover:border-wisdom-400/50 hover:shadow-glow-wisdom transition-all duration-300 transform-gpu hover:translate-y-[-4px]">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-white">Security Alerts</CardTitle>
-              <MessageSquare className="h-4 w-4 text-wisdom-400" />
+              <MessageSquare className="h-5 w-5 text-wisdom-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-white">{stats.unreadMessages}</div>
@@ -179,10 +179,10 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-slate-800 border-slate-700">
+          <Card className="glass-card border-2 border-community-500/30 hover:border-community-400/50 hover:shadow-glow-community transition-all duration-300 transform-gpu hover:translate-y-[-4px]">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-white">Protection Status</CardTitle>
-              <TrendingUp className="h-4 w-4 text-community-400" />
+              <TrendingUp className="h-5 w-5 text-community-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-community-400">SECURE</div>
@@ -195,55 +195,55 @@ export default function DashboardPage() {
 
         {/* Recent Projects */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Card className="bg-slate-800 border-slate-700">
+          <Card className="glass-card border-2 border-white/10 hover:shadow-glow-community transition-all duration-300">
             <CardHeader>
               <CardTitle className="text-white">Recent Projects</CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardDescription className="text-slate-300">
                 Projects you've been working on recently
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {recentProjects.map((project) => (
-                  <div key={project.id} className="flex items-center justify-between p-4 border border-slate-600 rounded-lg bg-slate-700/50">
+                  <div key={project.id} className="flex items-center justify-between p-4 glass-card border-2 border-white/10 rounded-2xl hover:border-community-400/50 hover:shadow-glow-community transition-all duration-300 transform-gpu hover:translate-y-[-2px]">
                     <div>
                       <h3 className="font-medium text-white">{project.name}</h3>
-                      <p className="text-sm text-slate-400">{project.description}</p>
+                      <p className="text-sm text-slate-300">{project.description}</p>
                     </div>
-                    <Badge variant={project.status === 'active' ? 'default' : 'secondary'} className="bg-blue-600 text-white">
+                    <Badge variant={project.status === 'active' ? 'default' : 'secondary'} className="glass-card border-2 border-community-500/50 text-community-300 rounded-full">
                       {project.status}
                     </Badge>
                   </div>
                 ))}
               </div>
-              <Button className="w-full mt-4 border-slate-600 text-slate-300 hover:bg-slate-700" variant="outline">
+              <Button className="w-full mt-4 glass-card border-2 border-community-500/30 text-community-300 hover:border-community-400/50 hover:shadow-glow-community" variant="outline">
                 View All Projects
               </Button>
             </CardContent>
           </Card>
 
-          <Card className="bg-slate-800 border-slate-700">
+          <Card className="glass-card border-2 border-white/10 hover:shadow-glow-community transition-all duration-300">
             <CardHeader>
               <CardTitle className="text-white">Community Protection Tools</CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardDescription className="text-slate-300">
                 Access your security resources and support
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-4">
-                <Button className="h-20 flex-col bg-community-600 hover:bg-community-700 text-white" onClick={() => router.push('/portal/projects')}>
+                <Button className="h-20 flex-col glass-card border-2 border-community-500/50 text-community-300 hover:border-community-400/70 hover:shadow-glow-community rounded-2xl" onClick={() => router.push('/portal/projects')}>
                   <Shield className="h-6 w-6 mb-2" />
                   Security Status
                 </Button>
-                <Button className="h-20 flex-col border-slate-600 text-slate-300 hover:bg-slate-700" variant="outline">
+                <Button className="h-20 flex-col glass-card border-2 border-white/10 text-slate-300 hover:border-community-400/50 hover:shadow-glow-community rounded-2xl" variant="outline">
                   <MessageSquare className="h-6 w-6 mb-2" />
                   Emergency Contact
                 </Button>
-                <Button className="h-20 flex-col border-slate-600 text-slate-300 hover:bg-slate-700" variant="outline">
+                <Button className="h-20 flex-col glass-card border-2 border-white/10 text-slate-300 hover:border-community-400/50 hover:shadow-glow-community rounded-2xl" variant="outline">
                   <Users className="h-6 w-6 mb-2" />
                   Community Network
                 </Button>
-                <Button className="h-20 flex-col border-slate-600 text-slate-300 hover:bg-slate-700" variant="outline">
+                <Button className="h-20 flex-col glass-card border-2 border-white/10 text-slate-300 hover:border-community-400/50 hover:shadow-glow-community rounded-2xl" variant="outline">
                   <Activity className="h-6 w-6 mb-2" />
                   Threat Reports
                 </Button>

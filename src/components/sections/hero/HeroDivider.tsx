@@ -28,47 +28,47 @@ const HeroDivider: React.FC = () => {
     <div className="py-20 relative">
       {/* Enhanced gradient line with glow effect */}
       <div className="relative mx-auto mb-10">
-        <div className="w-64 h-px bg-gradient-to-r from-transparent via-wisdom-400/80 to-transparent" />
-        <div className="absolute inset-0 w-64 h-px bg-gradient-to-r from-transparent via-wisdom-300/40 to-transparent blur-sm" />
-        <div className="absolute inset-0 w-64 h-px bg-gradient-to-r from-transparent via-community-400/30 to-transparent blur-md" />
+        <div className="w-64 h-0.5 bg-gradient-to-r from-transparent via-community-400/80 to-transparent rounded-full" />
+        <div className="absolute inset-0 w-64 h-0.5 bg-gradient-to-r from-transparent via-community-300/40 to-transparent blur-sm rounded-full" />
+        <div className="absolute inset-0 w-64 h-0.5 bg-gradient-to-r from-transparent via-wisdom-400/30 to-transparent blur-md rounded-full" />
       </div>
 
       {/* Optimized animated dots */}
       <div className="flex justify-center gap-8">
-        {/* Primary dot - Wisdom */}
-        <div className="relative">
-          <div className={`w-4 h-4 bg-wisdom-400 rounded-full shadow-xl shadow-wisdom-400/50 ${
+        {/* Primary dot - Community */}
+        <div className="relative perspective-container transform-3d">
+          <div className={`w-5 h-5 bg-community-400 rounded-full shadow-xl shadow-glow-community ${
             !prefersReducedMotion && isVisible ? 'animate-pulse' : ''
           }`} />
           {!prefersReducedMotion && isVisible && (
             <div
-              className="absolute inset-0 w-4 h-4 bg-wisdom-300/50 rounded-full animate-ping"
+              className="absolute inset-0 w-5 h-5 bg-community-300/50 rounded-full animate-ping"
               style={{animationDuration: '3s'}}
             />
           )}
         </div>
 
-        {/* Secondary dot - Community */}
-        <div className="relative">
-          <div className={`w-4 h-4 bg-community-400 rounded-full shadow-xl shadow-community-400/50 ${
+        {/* Secondary dot - Wisdom */}
+        <div className="relative perspective-container transform-3d">
+          <div className={`w-5 h-5 bg-wisdom-400 rounded-full shadow-xl shadow-glow-wisdom ${
             !prefersReducedMotion && isVisible ? 'animate-pulse' : ''
           }`} style={!prefersReducedMotion && isVisible ? {animationDelay: '0.7s'} : {}} />
           {!prefersReducedMotion && isVisible && (
             <div
-              className="absolute inset-0 w-4 h-4 bg-community-300/50 rounded-full animate-ping"
+              className="absolute inset-0 w-5 h-5 bg-wisdom-300/50 rounded-full animate-ping"
               style={{animationDelay: '0.7s', animationDuration: '3.5s'}}
             />
           )}
         </div>
 
         {/* Tertiary dot - Hope */}
-        <div className="relative">
-          <div className={`w-4 h-4 bg-hope-400 rounded-full shadow-xl shadow-hope-400/50 ${
+        <div className="relative perspective-container transform-3d">
+          <div className={`w-5 h-5 bg-hope-400 rounded-full shadow-xl shadow-glow-hope ${
             !prefersReducedMotion && isVisible ? 'animate-pulse' : ''
           }`} style={!prefersReducedMotion && isVisible ? {animationDelay: '1.4s'} : {}} />
           {!prefersReducedMotion && isVisible && (
             <div
-              className="absolute inset-0 w-4 h-4 bg-hope-300/50 rounded-full animate-ping"
+              className="absolute inset-0 w-5 h-5 bg-hope-300/50 rounded-full animate-ping"
               style={{animationDelay: '1.4s', animationDuration: '4s'}}
             />
           )}

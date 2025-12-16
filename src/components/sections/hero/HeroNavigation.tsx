@@ -56,12 +56,12 @@ const HeroNavigation: React.FC<HeroNavigationProps> = ({ navItems, currentPath }
         <Link
           key={item.path}
           href={item.path}
-          className={`group relative px-8 py-4 rounded-2xl text-lg font-medium transition-all duration-500 ease-out backdrop-blur-md border ${
+          className={`group relative px-8 py-4 rounded-full text-lg font-medium transition-all duration-500 ease-out transform-gpu ${
             currentPath === item.path
-              ? 'bg-wisdom-600/30 text-white border-wisdom-500/50 shadow-2xl shadow-wisdom-500/20'
-              : `bg-guardian-800/20 text-guardian-200 border-guardian-700/40 ${getHoverColor(index)} hover:border-wisdom-500/50`
-          } focus:ring-2 focus:ring-wisdom-400 focus:outline-none ${
-            !prefersReducedMotion && isVisible ? 'hover:transform hover:scale-110 hover:shadow-2xl hover:-translate-y-1' : ''
+              ? 'glass-card text-white border-2 border-community-500/50 shadow-2xl shadow-glow-community'
+              : `glass-card text-guardian-200 border-2 border-white/10 ${getHoverColor(index)} hover:border-community-500/50 hover:shadow-glow-community`
+          } focus:ring-2 focus:ring-community-400 focus:outline-none ${
+            !prefersReducedMotion && isVisible ? 'hover:scale-110 hover:-translate-y-2 hover:rotate-y-2 hover:translate-z-10' : ''
           }`}
           aria-label={`Navigate to ${item.label}`}
           aria-current={currentPath === item.path ? 'page' : undefined}
@@ -77,12 +77,12 @@ const HeroNavigation: React.FC<HeroNavigationProps> = ({ navItems, currentPath }
 
           {/* Enhanced hover glow effect - conditional */}
           {!prefersReducedMotion && isVisible && (
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-wisdom-400/20 to-community-400/10 opacity-0 group-hover:opacity-100 transition-all duration-500 blur-sm" />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-community-400/20 to-wisdom-400/10 opacity-0 group-hover:opacity-100 transition-all duration-500 blur-sm" />
           )}
 
           {/* Subtle inner highlight - conditional */}
           {!prefersReducedMotion && isVisible && (
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-t from-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           )}
         </Link>
       ))}

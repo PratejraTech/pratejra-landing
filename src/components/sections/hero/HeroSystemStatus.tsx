@@ -25,8 +25,8 @@ const HeroSystemStatus: React.FC = () => {
   }, []);
 
   return (
-    <div className={`flex items-center justify-center gap-8 py-10 px-12 bg-gradient-to-r from-guardian-900/40 to-wisdom-900/30 backdrop-blur-lg rounded-3xl border border-wisdom-500/40 shadow-2xl shadow-wisdom-500/10 hover:border-wisdom-400/60 hover:shadow-wisdom-400/20 transition-all duration-500 group cursor-pointer ${
-      !prefersReducedMotion && isVisible ? 'hover:scale-105' : ''
+    <div className={`flex items-center justify-center gap-8 py-10 px-12 glass-card rounded-3xl border-2 border-community-500/40 shadow-2xl shadow-glow-community hover:border-community-400/60 hover:shadow-glow-community transition-all duration-500 group cursor-pointer transform-gpu perspective-container ${
+      !prefersReducedMotion && isVisible ? 'hover:scale-105 hover:rotate-y-3 hover:translate-z-10' : ''
     }`}>
       {/* Optimized indicator with conditional animations */}
       <div className={`relative transition-transform duration-500 ${

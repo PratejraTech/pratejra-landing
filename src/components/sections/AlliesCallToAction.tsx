@@ -110,7 +110,7 @@ export function AlliesCallToAction() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.2 }}
-            className="border border-emerald-500/20 rounded-3xl p-6 bg-gradient-to-br from-foreground/5 via-transparent to-transparent"
+            className="glass-card border-2 border-community-500/20 rounded-3xl p-6 shadow-2xl hover:shadow-glow-community transition-all duration-300"
           >
             <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-foreground via-emerald-300 to-foreground bg-clip-text text-transparent">
               Who we partner with
@@ -122,7 +122,7 @@ export function AlliesCallToAction() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.3 + idx * 0.1 }}
-                  className="rounded-2xl border border-emerald-500/20 bg-background/30 p-4"
+                  className="glass-card rounded-2xl border-2 border-community-500/20 p-4 hover:shadow-glow-community transition-all duration-300 transform-gpu hover:translate-y-[-4px]"
                 >
                   <h3 className="text-lg font-medium mb-2">{profile.title}</h3>
                   <p className="text-sm text-muted-foreground">{profile.description}</p>
@@ -136,7 +136,7 @@ export function AlliesCallToAction() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.4 }}
-            className="border border-emerald-500/20 rounded-3xl p-6 bg-gradient-to-br from-foreground/5 via-transparent to-transparent"
+            className="glass-card border-2 border-community-500/20 rounded-3xl p-6 shadow-2xl hover:shadow-glow-community transition-all duration-300"
           >
             <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-foreground via-teal-300 to-foreground bg-clip-text text-transparent">
               Ways we can plug in
@@ -148,7 +148,7 @@ export function AlliesCallToAction() {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.5 + idx * 0.1 }}
-                  className="p-5 rounded-2xl border border-emerald-500/20 bg-background/30 hover:border-emerald-500/60 transition"
+                  className="p-5 glass-card rounded-2xl border-2 border-community-500/20 hover:border-community-400/60 hover:shadow-glow-community transition-all duration-300 transform-gpu hover:translate-y-[-4px]"
                 >
                   <h3 className="text-lg font-medium mb-2">{channel.title}</h3>
                   <p className="text-sm text-muted-foreground">{channel.description}</p>
@@ -186,7 +186,7 @@ export function AlliesCallToAction() {
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#contact"
-                className="px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500 via-teal-500 to-lime-500 text-sm font-medium tracking-wide uppercase text-emerald-950"
+                className="px-6 py-3 rounded-full bg-gradient-to-r from-community-500 via-community-400 to-community-300 text-sm font-medium tracking-wide uppercase text-white shadow-lg hover:shadow-glow-community transition-all duration-300 transform-gpu hover:scale-110"
               >
                 Initiate Contact
               </a>
@@ -194,7 +194,7 @@ export function AlliesCallToAction() {
                 href={EXTERNAL_URLS.ALLIES_FORM}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full border border-emerald-500/40 text-sm font-medium tracking-wide uppercase hover:border-emerald-500/70"
+                className="px-6 py-3 rounded-full glass-card border-2 border-community-500/40 text-sm font-medium tracking-wide uppercase hover:border-community-400/70 hover:shadow-glow-community transition-all duration-300 transform-gpu hover:scale-110"
               >
                 Dedicated Allies Form
               </a>

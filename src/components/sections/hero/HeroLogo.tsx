@@ -32,33 +32,33 @@ const HeroLogo: React.FC = () => {
       : '';
 
   return (
-    <div className="flex justify-center">
-      <div className={`relative transition-all duration-1000 ${animationClasses}`}>
-        {/* Mystical Background Effects - Reduced complexity */}
+    <div className="flex justify-center perspective-container">
+      <div className={`relative transition-all duration-1000 transform-3d ${animationClasses} group-hover:rotate-y-12 group-hover:translate-z-20`}>
+        {/* Mystical Background Effects - Enhanced with 3D */}
         <div className="absolute inset-0 rounded-full opacity-70" aria-hidden="true">
           <div
-            className={`w-full h-full rounded-full border-2 border-dashed border-wisdom-400/90 shadow-lg shadow-wisdom-400/20 ${
-              prefersReducedMotion ? '' : 'animate-glow'
+            className={`w-full h-full rounded-full border-2 border-dashed border-community-400/90 shadow-lg shadow-glow-community ${
+              prefersReducedMotion ? '' : 'animate-glow-pulse'
             }`}
           />
           {!prefersReducedMotion && (
             <>
               <div
-                className="absolute inset-2 rounded-full border border-dashed border-wisdom-300/70 shadow-md shadow-wisdom-300/15 animate-glow"
+                className="absolute inset-2 rounded-full border border-dashed border-community-300/70 shadow-md shadow-community-300/15 animate-glow-pulse"
                 style={{animationDelay: '1s'}}
               />
               <div
-                className="absolute inset-4 rounded-full border border-dashed border-community-400/60 shadow-sm shadow-community-400/10 animate-glow"
+                className="absolute inset-4 rounded-full border border-dashed border-wisdom-400/60 shadow-sm shadow-wisdom-400/10 animate-glow-pulse"
                 style={{animationDelay: '2s'}}
               />
             </>
           )}
         </div>
 
-        {/* Logo Container with Glass-morphism */}
-        <div className="relative bg-gradient-to-br from-guardian-900/80 to-wisdom-900/60 rounded-full p-8 shadow-2xl border border-wisdom-700/70 ring-2 ring-wisdom-500/50 backdrop-blur-md hover:ring-wisdom-400/70 transition-all duration-500 group">
+        {/* Logo Container with Enhanced Glass-morphism */}
+        <div className="relative glass-card rounded-full p-8 shadow-2xl border-2 border-community-500/50 hover:border-community-400/70 hover:shadow-glow-community transition-all duration-500 group transform-3d hover:scale-110">
           {/* Inner glow effect */}
-          <div className="absolute inset-2 rounded-full bg-gradient-to-br from-wisdom-400/10 to-community-400/5 blur-sm group-hover:from-wisdom-400/20 group-hover:to-community-400/10 transition-all duration-500" aria-hidden="true" />
+          <div className="absolute inset-2 rounded-full bg-gradient-to-br from-community-400/10 to-wisdom-400/5 blur-sm group-hover:from-community-400/20 group-hover:to-wisdom-400/10 transition-all duration-500" aria-hidden="true" />
 
           <OptimizedImage
             src="/media/logo.png"
@@ -74,17 +74,17 @@ const HeroLogo: React.FC = () => {
           <div className="absolute inset-0 rounded-full shadow-inner shadow-guardian-900/50 group-hover:shadow-guardian-900/30 transition-all duration-500" aria-hidden="true" />
         </div>
 
-        {/* Energy Ring - Simplified */}
+        {/* Energy Ring - Enhanced with 3D */}
         {!prefersReducedMotion && (
           <div
-            className="absolute inset-0 rounded-full border-2 border-wisdom-400/60 animate-morph shadow-lg shadow-wisdom-400/30"
+            className="absolute inset-0 rounded-full border-2 border-community-400/60 animate-morph-blob shadow-lg shadow-glow-community"
             style={{animationDelay: '0.5s'}}
             aria-hidden="true"
           />
         )}
 
-        {/* Interactive hover effect - Performance optimized */}
-        <div className="absolute inset-0 rounded-full bg-wisdom-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl scale-150" aria-hidden="true" />
+        {/* Interactive hover effect - Enhanced 3D glow */}
+        <div className="absolute inset-0 rounded-full bg-community-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl scale-150" aria-hidden="true" />
       </div>
     </div>
   );

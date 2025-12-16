@@ -49,7 +49,7 @@ export function ProjectCard({ project, onViewDetails, onEdit }: ProjectCardProps
   }
 
   return (
-    <Card className="hover:shadow-lg transition-all duration-200 border-l-4 border-l-primary/20 hover:border-l-primary">
+    <Card className="glass-card border-2 border-white/10 hover:border-community-400/50 hover:shadow-glow-community transition-all duration-300 transform-gpu hover:translate-y-[-8px] hover:rotate-y-2 hover:translate-z-10 perspective-container group">
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <div className="flex-1 min-w-0">
@@ -58,7 +58,7 @@ export function ProjectCard({ project, onViewDetails, onEdit }: ProjectCardProps
               {project.description}
             </CardDescription>
           </div>
-          <Badge className={`${getStatusColor(project.status)} ml-3 shrink-0`}>
+          <Badge className={`glass-card border-2 border-community-500/50 text-community-300 rounded-full ml-3 shrink-0 ${getStatusColor(project.status)}`}>
             {project.status.replace('_', ' ')}
           </Badge>
         </div>
