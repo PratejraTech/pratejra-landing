@@ -38,24 +38,81 @@ export function WebGLShader() {
       precision highp float;
       uniform vec2 resolution;
       uniform float time;
-      uniform float xScale;
-      uniform float yScale;
-      uniform float distortion;
+
+      // Yellow color palette
+      const vec3 yellow1 = vec3(1.0, 0.9, 0.4);
+      const vec3 yellow2 = vec3(1.0, 0.8, 0.2);
+      const vec3 yellow3 = vec3(1.0, 0.7, 0.1);
+
+      // Noise function for organic movement
+      float noise(vec2 p) {
+        return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+      }
+
+      // Smooth noise
+      float smoothNoise(vec2 p) {
+        vec2 i = floor(p);
+        vec2 f = fract(p);
+        f = f * f * (3.0 - 2.0 * f);
+
+        float a = noise(i);
+        float b = noise(i + vec2(1.0, 0.0));
+        float c = noise(i + vec2(0.0, 1.0));
+        float d = noise(i + vec2(1.0, 1.0));
+
+        return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+      }
 
       void main() {
+        vec2 uv = gl_FragCoord.xy / resolution.xy;
         vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
 
-        float d = length(p) * distortion;
+        // Create multiple layers of yellow particles
+        float alpha = 0.0;
 
-        float rx = p.x * (1.0 + d);
-        float gx = p.x;
-        float bx = p.x * (1.0 - d);
+        // Layer 1: Large slow-moving particles
+        for (int i = 0; i < 8; i++) {
+          float fi = float(i);
+          vec2 offset = vec2(sin(time * 0.3 + fi), cos(time * 0.2 + fi)) * 0.8;
+          vec2 particlePos = p + offset;
+          float dist = length(particlePos);
+          float particle = 1.0 / (dist * dist * 15.0 + 0.1);
+          alpha += particle * 0.3;
+        }
 
-        float r = 0.05 / abs(p.y + sin((rx + time) * xScale) * yScale);
-        float g = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
-        float b = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
+        // Layer 2: Medium particles with different movement
+        for (int i = 0; i < 12; i++) {
+          float fi = float(i);
+          vec2 offset = vec2(sin(time * 0.5 + fi * 1.3), cos(time * 0.4 + fi * 0.8)) * 1.2;
+          vec2 particlePos = p + offset;
+          float dist = length(particlePos);
+          float particle = 1.0 / (dist * dist * 25.0 + 0.05);
+          alpha += particle * 0.2;
+        }
 
-        gl_FragColor = vec4(r, g, b, 1.0);
+        // Layer 3: Small fast particles
+        for (int i = 0; i < 20; i++) {
+          float fi = float(i);
+          vec2 offset = vec2(sin(time * 0.8 + fi * 2.1), cos(time * 0.6 + fi * 1.7)) * 1.5;
+          vec2 particlePos = p + offset;
+          float dist = length(particlePos);
+          float particle = 1.0 / (dist * dist * 40.0 + 0.02);
+          alpha += particle * 0.15;
+        }
+
+        // Add some organic noise variation
+        float noiseVal = smoothNoise(uv * 3.0 + time * 0.1);
+        alpha *= (0.8 + noiseVal * 0.4);
+
+        // Create yellow color gradient based on alpha
+        vec3 color = mix(yellow3, mix(yellow2, yellow1, alpha * 2.0), alpha);
+
+        // Add subtle vignette
+        float vignette = 1.0 - dot(p, p) * 0.1;
+        color *= vignette;
+
+        // Low alpha for background effect
+        gl_FragColor = vec4(color, alpha * 0.15);
       }
     `
 
@@ -70,9 +127,6 @@ export function WebGLShader() {
       refs.uniforms = {
         resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
         time: { value: 0.0 },
-        xScale: { value: 0.8 },
-        yScale: { value: 0.3 },
-        distortion: { value: 0.02 },
       }
 
       const position = [

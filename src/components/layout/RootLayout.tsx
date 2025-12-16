@@ -14,11 +14,13 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     <ErrorBoundary>
       <div className="min-h-screen relative overflow-hidden">
         <ScrollProgress />
-        {/* WebGL Shader Background - Fixed, full viewport */}
-        <WebGLShader />
+        {/* WebGL Shader Background - Yellow particle system with low alpha */}
+        <div className="fixed inset-0 z-0">
+          <WebGLShader />
+        </div>
 
-         {/* Ambient Overlay for readability with gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-900/50 to-slate-950/60 dark:bg-gradient-to-b dark:from-slate-950/40 dark:via-slate-900/50 dark:to-slate-950/60 bg-gradient-to-b from-gray-100/40 via-gray-200/50 to-gray-100/60 backdrop-blur-[0.5px]" />
+        {/* Ambient Overlay for readability with gradient - adjusted for yellow background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-900/70 to-slate-950/80 backdrop-blur-[0.5px] z-5" />
 
         {/* Content Layer */}
         <div className="relative z-10 min-h-screen flex flex-col">
