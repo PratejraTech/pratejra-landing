@@ -67,17 +67,17 @@ export default function DashboardPage() {
 
       // Load dashboard stats (mock data for now)
       setStats({
-        totalProjects: 12,
-        activeProjects: 8,
-        totalUsers: 24,
+        totalProjects: 47,
+        activeProjects: 32,
+        totalUsers: 156,
         unreadMessages: 3,
       })
 
       // Load recent projects (mock data for now)
       setRecentProjects([
-        { id: '1', name: 'Timeless Love Platform', status: 'active', description: 'Care coordination platform' },
-        { id: '2', name: 'Rise Strong Network', status: 'active', description: 'Support community platform' },
-        { id: '3', name: 'Pratejra Core', status: 'active', description: 'Main platform infrastructure' },
+        { id: '1', name: 'Indigenous Rights Network', status: 'active', description: 'Digital security for indigenous activists' },
+        { id: '2', name: 'Climate Justice Alliance', status: 'active', description: 'Environmental protection coordination' },
+        { id: '3', name: 'Workers Rights Collective', status: 'active', description: 'Labor organizing support platform' },
       ])
     } catch (error) {
       console.error('Failed to load dashboard data:', error)
@@ -110,10 +110,10 @@ export default function DashboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-4">
-              <Shield className="h-8 w-8 text-blue-400" />
+              <Shield className="h-8 w-8 text-community-400" />
               <div>
-                <h1 className="text-2xl font-bold text-white">Pratejra Portal</h1>
-                <p className="text-sm text-slate-400">Project Intelligence & Communication</p>
+                <h1 className="text-2xl font-bold text-white">Community Protection Portal</h1>
+                <p className="text-sm text-community-400">Free Security for Worthy Causes</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -142,52 +142,52 @@ export default function DashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card className="bg-slate-800 border-slate-700">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-white">Total Projects</CardTitle>
-              <FolderOpen className="h-4 w-4 text-slate-400" />
+              <CardTitle className="text-sm font-medium text-white">Protected Communities</CardTitle>
+              <FolderOpen className="h-4 w-4 text-community-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-white">{stats.totalProjects}</div>
-              <p className="text-xs text-slate-400">
-                {stats.activeProjects} active
+              <p className="text-xs text-community-400">
+                {stats.activeProjects} actively protected
               </p>
             </CardContent>
           </Card>
 
           <Card className="bg-slate-800 border-slate-700">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-white">Team Members</CardTitle>
-              <Users className="h-4 w-4 text-slate-400" />
+              <CardTitle className="text-sm font-medium text-white">Community Members</CardTitle>
+              <Users className="h-4 w-4 text-hope-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-white">{stats.totalUsers}</div>
-              <p className="text-xs text-slate-400">
-                Across all projects
+              <p className="text-xs text-hope-400">
+                Activists & organizers protected
               </p>
             </CardContent>
           </Card>
 
           <Card className="bg-slate-800 border-slate-700">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-white">Messages</CardTitle>
-              <MessageSquare className="h-4 w-4 text-slate-400" />
+              <CardTitle className="text-sm font-medium text-white">Security Alerts</CardTitle>
+              <MessageSquare className="h-4 w-4 text-wisdom-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-white">{stats.unreadMessages}</div>
-              <p className="text-xs text-slate-400">
-                Unread messages
+              <p className="text-xs text-wisdom-400">
+                Active threats monitored
               </p>
             </CardContent>
           </Card>
 
           <Card className="bg-slate-800 border-slate-700">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-white">Activity</CardTitle>
-              <TrendingUp className="h-4 w-4 text-slate-400" />
+              <CardTitle className="text-sm font-medium text-white">Protection Status</CardTitle>
+              <TrendingUp className="h-4 w-4 text-community-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">+12%</div>
-              <p className="text-xs text-slate-400">
-                This week
+              <div className="text-2xl font-bold text-community-400">SECURE</div>
+              <p className="text-xs text-community-400">
+                All systems operational
               </p>
             </CardContent>
           </Card>
@@ -224,28 +224,28 @@ export default function DashboardPage() {
 
           <Card className="bg-slate-800 border-slate-700">
             <CardHeader>
-              <CardTitle className="text-white">Quick Actions</CardTitle>
+              <CardTitle className="text-white">Community Protection Tools</CardTitle>
               <CardDescription className="text-slate-400">
-                Common tasks and navigation
+                Access your security resources and support
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-4">
-                <Button className="h-20 flex-col bg-blue-600 hover:bg-blue-700 text-white" onClick={() => router.push('/portal/projects')}>
-                  <FolderOpen className="h-6 w-6 mb-2" />
-                  Projects
+                <Button className="h-20 flex-col bg-community-600 hover:bg-community-700 text-white" onClick={() => router.push('/portal/projects')}>
+                  <Shield className="h-6 w-6 mb-2" />
+                  Security Status
                 </Button>
                 <Button className="h-20 flex-col border-slate-600 text-slate-300 hover:bg-slate-700" variant="outline">
                   <MessageSquare className="h-6 w-6 mb-2" />
-                  Messages
+                  Emergency Contact
                 </Button>
                 <Button className="h-20 flex-col border-slate-600 text-slate-300 hover:bg-slate-700" variant="outline">
                   <Users className="h-6 w-6 mb-2" />
-                  Team
+                  Community Network
                 </Button>
                 <Button className="h-20 flex-col border-slate-600 text-slate-300 hover:bg-slate-700" variant="outline">
                   <Activity className="h-6 w-6 mb-2" />
-                  Reports
+                  Threat Reports
                 </Button>
               </div>
             </CardContent>

@@ -103,10 +103,10 @@ export function PortalLayout({ children }: PortalLayoutProps) {
         <div className="flex flex-col h-full">
           {/* Logo */}
           <div className="flex items-center justify-center h-16 px-4 border-b border-slate-700">
-            <Shield className="h-8 w-8 text-blue-400 mr-3" />
+            <Shield className="h-8 w-8 text-community-400 mr-3" />
             <div>
               <h1 className="text-lg font-bold text-white">Pratejra</h1>
-              <p className="text-xs text-slate-400">Portal</p>
+              <p className="text-xs text-community-400">Community Protection Portal</p>
             </div>
           </div>
 
@@ -120,7 +120,7 @@ export function PortalLayout({ children }: PortalLayoutProps) {
                   href={item.href}
                   className={`flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                     isActive
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-community-600 text-white'
                       : 'text-slate-300 hover:bg-slate-700 hover:text-white'
                   }`}
                   onClick={() => setSidebarOpen(false)}
@@ -181,18 +181,18 @@ export function PortalLayout({ children }: PortalLayoutProps) {
                 <DropdownMenuLabel className="font-normal">
                   <div className="flex flex-col space-y-1">
                     <p className="text-sm font-medium leading-none text-white">{user?.name}</p>
-                    <p className="text-xs leading-none text-slate-400">{user?.email}</p>
+                    <p className="text-xs leading-none text-community-400">{user?.email}</p>
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator className="bg-slate-700" />
                 <DropdownMenuItem className="text-slate-300 hover:text-white hover:bg-slate-700">
                   <Settings className="mr-2 h-4 w-4" />
-                  <span>Settings</span>
+                  <span>Security Settings</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-slate-700" />
                 <DropdownMenuItem onClick={handleLogout} className="text-slate-300 hover:text-white hover:bg-slate-700">
                   <LogOut className="mr-2 h-4 w-4" />
-                  <span>Log out</span>
+                  <span>Secure Logout</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
