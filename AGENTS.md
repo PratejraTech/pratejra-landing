@@ -1,18 +1,21 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-All source files live in `src/`, where `main.tsx` bootstraps `App.tsx` and funnels UI through `src/components`. Shared layouts sit in `components/layout/`, feature content in `components/sections/*`, and reusable logic inside `src/hooks` and `src/utils`. Keep constants, tokens, and copy under `src/constants` and `src/types`, then import those rather than duplicating literals. Tailwind primitives are centralized in `src/styles`. Build artifacts should remain in `build/`, and static items (icons, favicons, fonts) belong in `public/`. When you add tests later, colocate them as `FeatureName.test.tsx` beside the component for quick discovery.
+This is a Next.js App Router project. Route segments, layouts, and server components live in `app/`, while API handlers sit under `app/api/*`. UI primitives stay in `src/components` (group feature blocks under `components/sections/*` and shared shells under `components/layout/`). Keep shared logic in `src/hooks`, `src/utils`, and `src/lib`, with design tokens and copy centralized in `src/constants`, `src/types`, and `src/styles`. Prisma schema and migrations are under `prisma/`, and all static assets (icons, fonts, OG images) belong in `public/`. Colocate any future tests as `FeatureName.test.tsx` beside the component they cover.
 
 ## Build, Test, and Development Commands
-- `npm install` or `bun install`: install dependencies listed in `package.json`.
-- `npm run dev`: launch Vite on http://localhost:5173 with hot-module reload for UI iteration.
-- `npm run build`: produce the optimized bundle in `build/` and run the TypeScript checker; treat this as the pre-PR smoke test.
+- `npm install` or `bun install`: install dependencies defined in `package.json`.
+- `npm run dev`: start Next.js locally on http://localhost:3000 with hot reload.
+- `npm run build`: create the production bundle and run the Next.js type checks.
+- `npm run lint` / `npm run lint:fix`: execute ESLint with the Next config.
+- `npm run type-check`: run `tsc --noEmit` for faster iteration on types.
+- `npm run verify`: chained `type-check` and `build` for pre-PR validation.
 
 ## Coding Style & Naming Conventions
-The project uses React, TypeScript, and Tailwind with 2-space indentation. Components follow PascalCase (`MissionObjectives`), hooks/utilities stay camelCase (`useProjectDescriptions`, `formatProject`). Prefer arrow functions for event handlers, early returns over nested branches, and composition via `clsx` or `class-variance-authority`. Resolve Tailwind conflicts with `tailwind-merge`, and surface shared color or copy changes through `src/constants` rather than inline values.
+Use TypeScript with 2-space indentation, React Server Components by default, and Tailwind utilities defined in `tailwind.config.js`. Components are PascalCase (`MissionObjectives`), hooks and helpers stay camelCase (`useProjectDescriptions`, `formatProject`). Favor arrow functions, early returns, and composition via `clsx`/`class-variance-authority`, then resolve Tailwind collisions with `tailwind-merge`. Reference shared tokens from `src/constants` rather than scattering literals, and keep environment-specific values in `.env.local` (never commit secrets).
 
 ## Testing Guidelines
-There is no automated suite yet, so rely on focused manual QA. Before submitting work, click through the Navbar toggles, hero actions, and `ProjectsCarousel` links to confirm state sync and animation timing. Run `npm run build` to let Vite catch type regressions. New automated tests should mirror the component layout and use feature-based describe blocks for clarity.
+There is no dedicated test suite yet, so rely on manual QA. Before sharing work, click through navigation states, hero CTAs, and any interactive sliders/carousels, then watch for console or hydration warnings. Run `npm run type-check`, `npm run lint`, and `npm run build`; treat any failure as a blocker because these commands match the deploy pipeline. When you add automated tests later, colocate them next to the component with feature-based `describe` blocks for clarity.
 
 ## Commit & Pull Request Guidelines
-Commits should use short, imperative subjects mirroring existing history (e.g., `Tighten hero headline`, `Add mission data #42`). For every PR, include: a concise scope summary, reproduction steps, screenshots or recordings for visual tweaks, links to the relevant issue or Figma frame, and notes about env vars or assets that reviewers must pull. Confirm `npm run build` passes before requesting review and highlight any manual QA performed so reviewers can follow the same path.
+Commits should be short, imperative statements that mirror the existing history (`Align pricing CTA`, `Add mission data #42`). Every PR should include: a concise scope summary, reproduction steps, screenshots or recordings for visual changes, links to relevant tickets or Figma frames, and notes about environment variables, seeds, or assets that reviewers must pull. Confirm `npm run verify` passes and document any manual QA so reviewers can reproduce it quickly.
