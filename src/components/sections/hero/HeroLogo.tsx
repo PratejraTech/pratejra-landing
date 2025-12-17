@@ -32,13 +32,13 @@ const HeroLogo: React.FC = () => {
       : '';
 
   return (
-    <div className="flex justify-center perspective-container">
-      <div className={`relative transition-all duration-1000 transform-3d ${animationClasses} group-hover:rotate-y-12 group-hover:translate-z-20`}>
+    <div className="flex justify-center perspective-container mystical-particles">
+      <div className={`relative transition-all duration-1000 transform-3d ${animationClasses} group-hover:rotate-y-12 group-hover:translate-z-20 mystical-entrance hover-mystical-glow`}>
         {/* Mystical Background Effects - Enhanced with 3D */}
         <div className="absolute inset-0 rounded-full opacity-70" aria-hidden="true">
           <div
             className={`w-full h-full rounded-full border-2 border-dashed border-community-400/90 shadow-lg shadow-glow-community ${
-              prefersReducedMotion ? '' : 'animate-glow-pulse'
+              prefersReducedMotion ? '' : 'animate-glow-pulse mystical-glow'
             }`}
           />
           {!prefersReducedMotion && (

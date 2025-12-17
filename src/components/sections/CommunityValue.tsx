@@ -44,14 +44,14 @@ const differentiators = [
 
 export function CommunityValue() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-guardian-950 to-guardian-900">
+    <section className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-guardian-950 to-guardian-900">
       <div className="max-w-7xl mx-auto">
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <p className="text-xs uppercase tracking-[0.4em] text-community-400/80 mb-3">why choose pratejra</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -62,7 +62,7 @@ export function CommunityValue() {
           </p>
         </motion.header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {differentiators.map((item, idx) => {
             const Icon = item.icon;
             const colorMap = {
@@ -97,7 +97,7 @@ export function CommunityValue() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-16"
+          className="text-center mt-12 md:mt-16"
         >
           <div className="bg-gradient-to-r from-community-600/20 to-hope-600/20 rounded-3xl p-8 border border-community-500/30">
             <h3 className="text-2xl font-bold text-white mb-4">Ready to Protect Your Community?</h3>

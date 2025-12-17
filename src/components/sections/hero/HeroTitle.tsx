@@ -25,14 +25,14 @@ const HeroTitle: React.FC = () => {
   }, []);
 
   return (
-    <div className="space-y-8 group cursor-default">
-      <h1 className={`text-6xl md:text-8xl lg:text-9xl font-bold leading-tight bg-gradient-to-r from-wisdom-300 via-wisdom-200 to-community-300 bg-clip-text text-transparent drop-shadow-lg transition-all duration-1000 ${
-        !prefersReducedMotion && isVisible ? 'group-hover:from-wisdom-200 group-hover:via-wisdom-100 group-hover:to-community-200' : ''
+    <div className="space-y-8 group cursor-default mystical-entrance mystical-entrance-delay-2">
+      <h1 className={`relative text-6xl md:text-8xl lg:text-9xl font-bold leading-tight bg-gradient-to-r from-wisdom-300 via-wisdom-200 to-community-300 bg-clip-text text-transparent drop-shadow-lg transition-all duration-1000 ${
+        !prefersReducedMotion && isVisible ? 'group-hover:from-wisdom-200 group-hover:via-wisdom-100 group-hover:to-community-200 mystical-shimmer' : ''
       }`}>
         Pratejra/Shaivra
       </h1>
-      <h2 className={`text-2xl md:text-3xl lg:text-4xl text-guardian-100 font-light tracking-wider drop-shadow-md transition-all duration-1000 ${
-        !prefersReducedMotion && isVisible ? 'group-hover:text-guardian-50 group-hover:tracking-widest' : ''
+      <h2 className={`relative text-2xl md:text-3xl lg:text-4xl text-guardian-100 font-light tracking-wider drop-shadow-md transition-all duration-1000 ${
+        !prefersReducedMotion && isVisible ? 'group-hover:text-guardian-50 group-hover:tracking-widest hover-mystical-glow' : ''
       }`}>
         The Veil Between Worlds
         {/* Shimmer effect - only if motion is allowed */}

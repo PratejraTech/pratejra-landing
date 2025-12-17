@@ -33,14 +33,14 @@ const pillars = [
 export function AlliesPlaybook() {
   return (
     <span className="component-highlight component-container" data-component="allies-playbook">
-      <section id="allies-playbook" className="modern-section layered-background relative px-4 sm:px-6 lg:px-8" aria-label="Allies playbook">
+      <section id="allies-playbook" className="modern-section layered-background relative py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8" aria-label="Allies playbook">
         <div className="max-w-7xl mx-auto relative">
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12 text-center"
+          className="mb-12 md:mb-16 text-center"
         >
           <div className="inline-flex items-center gap-2 bg-community-500/20 text-community-300 px-3 py-1 rounded-full text-xs font-medium mb-4">
             <span className="w-2 h-2 bg-community-400 rounded-full animate-pulse"></span>
@@ -56,7 +56,7 @@ export function AlliesPlaybook() {
           </p>
         </motion.header>
 
-        <div className="asymmetric-grid asymmetric-grid-3 gap-8">
+        <div className="asymmetric-grid asymmetric-grid-3 gap-6 md:gap-8">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             const colorMap = {
