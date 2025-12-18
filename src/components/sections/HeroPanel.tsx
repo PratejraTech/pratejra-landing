@@ -36,28 +36,31 @@ const HeroPanel = () => {
           </div>
 
           <div className="inline-flex items-center gap-2 rounded-full border border-community-500/20 bg-community-500/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.4em] text-community-300">
-            Free for Community Organizations
+            The Veil Between Worlds
           </div>
           <h1 className="mt-8 text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
-            Cybersecurity That Serves Communities First
+            Cyber Guardianship for Communities, Activists, and Cultural Stewards
           </h1>
           <p className="mt-6 text-lg text-white/70">
-            <span className="text-community-400 font-semibold">Free protection for worthy causes.</span> We exist to shield nonprofits, activists, and cultural stewards from digital threats—because when you protect others, someone should protect you.
+            <span className="text-community-400 font-semibold">Free protection for worthy causes.</span> We shield nonprofits, medics, archivists, and whistleblowers with enterprise-grade defense that prefers compassion over clout. Our covenant blends AI guardians, quantum-safe encryption, and calm humans who understand that your work is sacred.
+          </p>
+          <p className="mt-4 text-base text-white/60 max-w-3xl">
+            Every engagement follows a gentle cadence: <span className="text-community-200">Listen &amp; Orient</span>, <span className="text-hope-200">Co-Design the Plan</span>, <span className="text-wisdom-200">Build Quietly</span>, and <span className="text-white">Support &amp; Teach</span>. Documentation, multilingual comms, and cultural context are baked in so your team stays steady even after we hand it back.
           </p>
 
           {/* Trust Indicators */}
           <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-white/60">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-community-500 rounded-full animate-pulse"></div>
-              <span>72-hour rapid response</span>
+              <span>72-hour rapid response window</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-hope-500 rounded-full animate-pulse"></div>
-              <span>18 languages supported</span>
+              <span>18 languages &amp; dialects supported</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-wisdom-500 rounded-full animate-pulse"></div>
-              <span>Ethical AI protection</span>
+              <span>Ethical AI, zero surveillance</span>
             </div>
           </div>
 

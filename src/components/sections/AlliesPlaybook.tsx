@@ -17,7 +17,7 @@ export function AlliesPlaybook() {
           transition={{ duration: 0.4 }}
           className="text-xs font-semibold uppercase tracking-[0.4em] text-wisdom-300"
         >
-          Join Our Network
+          Allies of the Veil
         </motion.p>
         <motion.h3
           initial={{ opacity: 0, y: 16 }}
@@ -26,7 +26,7 @@ export function AlliesPlaybook() {
           transition={{ duration: 0.5 }}
           className="mt-6 text-3xl font-semibold leading-tight sm:text-4xl"
         >
-          Become an Ally in the Fight for Digital Safety
+          Free Guardian Ops for People Who Keep Others Safe
         </motion.h3>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -35,7 +35,7 @@ export function AlliesPlaybook() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mt-6 text-lg text-white/70"
         >
-          Pratejra backs the people who protect others. Whether you're defending human rights, preserving culture, providing healthcare, or fighting for justice—if your mission serves humanity, we stand with you.
+          Pratejra backs the people who protect others. Whether you&apos;re defending human rights, preserving culture, providing healthcare, or fighting for justice—if your mission serves humanity, we stand with you. Our discovery → application → information handshake is lightweight, encrypted, and tuned to the cadence of grassroots work.
         </motion.p>
 
         {/* Three pillars */}
@@ -82,6 +82,15 @@ export function AlliesPlaybook() {
             <p className="text-sm text-white/70">Operating across 5 continents with support in 18 languages for maximum accessibility.</p>
           </motion.div>
         </div>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.45 }}
+          className="mt-8 text-sm text-white/60 max-w-3xl mx-auto"
+        >
+          Start with a quiet note describing what you&apos;re caring for, who must stay safe, and what success looks like. We respond with secure intake links, mutual NDAs if needed, and a plan that keeps ownership with your team.
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -4,9 +4,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const highlights = [
-  "Comprehensive threat modeling and vulnerability scanning to ensure protection is precisely targeted.",
-  "Zero-trace operations with ephemeral infrastructure and blockchain-verified audit trails.",
-  "Decentralized decision frameworks and AI-powered ethical review for every defensive action.",
+  "Discovery Flow: interviews, telemetry, and cultural briefings surface the pinch points before a line of code is touched.",
+  "Application Flow: co-design sessions translate needs into lightweight guardianship agreements, safety rails, and rapid response windows.",
+  "Information Flow: bilingual briefs, NDAs, and zero-trace reporting keep communities updated without exposing what must stay quiet.",
 ];
 
 export const ImpactPulse = () => {
@@ -26,10 +26,10 @@ export const ImpactPulse = () => {
               Digital Risk Assessment
             </p>
             <h3 className="text-3xl font-semibold leading-tight sm:text-4xl">
-              Turn Your Security Concerns Into Protection Plans
+              Discovery → Application → Information, Held in One Calm Pulse
             </h3>
             <p className="text-lg text-white/70">
-              Every mission begins with understanding your unique risks. Pratejra analyzes your digital footprint, identifies vulnerabilities, and designs targeted protective measures—so you can focus on your community work while we handle the threats.
+              Every mission begins with curiosity and care. We map your operations, prioritize the guardianship gaps, then translate that into actionable intelligence so your team can keep showing up without fearing the next ping.
             </p>
             <ul className="space-y-3 text-white/70">
               {highlights.map((item) => (

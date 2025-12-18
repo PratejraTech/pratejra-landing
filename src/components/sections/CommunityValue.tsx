@@ -16,7 +16,7 @@ export function CommunityValue() {
           transition={{ duration: 0.4 }}
           className="text-xs font-semibold uppercase tracking-[0.4em] text-community-300"
         >
-          Community-First Security
+          Softer Software · Shared Stewardship
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
@@ -25,7 +25,7 @@ export function CommunityValue() {
           transition={{ duration: 0.5 }}
           className="mt-6 text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl"
         >
-          AI-Augmented Protection Built Specifically for Nonprofits and Activists
+          Human-Paced Protection Engineered for NGO, Mutual Aid, and Cultural Teams
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -34,7 +34,16 @@ export function CommunityValue() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mt-6 text-lg text-white/70"
         >
-          We understand your constraints and speak your language. Pratejra deploys ethical AI guardians, quantum-secure encryption, and autonomous response systems to protect communities doing vital work. Operations remain transparent, non-commercial, and aligned with human rights principles.
+          We braid together ethical AI guardians, quantum-secure storage, and multilingual incident response so grassroots organizations never have to choose between safety and sovereignty. Grounded tech, human pace, and shared stewardship are the non-negotiables that keep our interventions gentle yet unshakeable.
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mt-4 text-base text-white/60"
+        >
+          Each deployment honors the Circle of Protection doctrine: we co-create listening posts, resilience playbooks, and public narrative shields, then leave everything documented so future caretakers can extend the work.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
