@@ -76,7 +76,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "type-check": "tsc --noEmit",
+    "prisma:generate": "prisma generate",
+    "type-check": "prisma generate && tsc --noEmit",
     "test": "echo \"No tests specified\" && exit 0",
     "predeploy": "bun run type-check && bun run lint && bun run build",
     "verify": "bun run type-check && bun run build && echo '✅ All checks passed - Ready for deployment!'",
@@ -94,6 +95,6 @@
     "docker:build:run": "bun run docker:build && bun run docker:run",
     "docker:push": "docker tag pratejra-landing registry.pratejra.build/pratejra-landing && docker push registry.pratejra.build/pratejra-landing",
     "prebuild": "bun run type-check",
-    "postinstall": "bun run type-check"
+    "postinstall": "prisma generate"
   }
 }
