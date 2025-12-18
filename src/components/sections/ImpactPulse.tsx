@@ -4,9 +4,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const highlights = [
-  "Natural language briefs become structured requirements and EARS-ready acceptance criteria.",
-  "Agents generate requirements, design docs, and task lists without ditching your tooling.",
-  "Trace intent across specs, commits, and incident timelines to prove compliance in minutes.",
+  "Comprehensive threat modeling and vulnerability scanning to ensure protection is precisely targeted.",
+  "Zero-trace operations with ephemeral infrastructure and blockchain-verified audit trails.",
+  "Decentralized decision frameworks and AI-powered ethical review for every defensive action.",
 ];
 
 export const ImpactPulse = () => {
@@ -22,21 +22,19 @@ export const ImpactPulse = () => {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-white/60">
-              Requirements intelligence
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-hope-300">
+              Digital Risk Assessment
             </p>
             <h3 className="text-3xl font-semibold leading-tight sm:text-4xl">
-              Natural prompt to structured requirements
+              Turn Your Security Concerns Into Protection Plans
             </h3>
             <p className="text-lg text-white/70">
-              Pratejra turns activist field notes into clear requirements.
-              Agents capture intent, organize user stories, and apply EARS
-              notation so nothing gets lost between prompt and production.
+              Every mission begins with understanding your unique risks. Pratejra analyzes your digital footprint, identifies vulnerabilities, and designs targeted protective measures—so you can focus on your community work while we handle the threats.
             </p>
             <ul className="space-y-3 text-white/70">
               {highlights.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-white/80" />
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-hope-400" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -53,7 +51,7 @@ export const ImpactPulse = () => {
             <div className="rounded-[32px] border border-white/10 bg-white/5 p-4 shadow-[0_40px_120px_rgba(0,0,0,0.4)]">
               <Image
                 src="/design/section-03.png"
-                alt="Requirements capture interface preview"
+                alt="Digital risk assessment and threat protection dashboard"
                 width={1920}
                 height={1080}
                 className="rounded-[24px]"
